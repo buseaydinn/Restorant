@@ -1,0 +1,164 @@
+﻿@model Personel
+
+<div class="content-body default-height ">
+    <div class="container-fluid">
+        <form asp-controller="Personel" asp-action="PersonelEkle" enctype="multipart/form-data" method="post" novalidate>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="card-title">Personel Ekleme Sayfası</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-validation">
+                                <div class="row">
+                                    <div class="col-xl-6">
+                                        <div class="mb-3 row">
+                                            <label class="col-lg-4 col-form-label" for="validationCustom01">
+                                                Personel Adı
+                                            </label>
+                                            <div class="col-lg-6">
+                                                <input asp-for="Ad" type="text" class="form-control" id="validationCustom01"
+                                                       placeholder="Personel Adını gir">
+                                                <span asp-validation-for="Ad" class="text-danger"></span>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3 row">
+                                            <label class="col-lg-4 col-form-label" for="validationCustom01">
+                                                Personel Soyadı
+                                                <span class="text-danger"></span>
+                                            </label>
+                                            <div class="col-lg-6">
+                                                <input asp-for="Soyad" type="text" class="form-control" id="validationCustom01"
+                                                       placeholder="Personel Soyadını gir">
+                                                <span asp-validation-for="Soyad" class="text-danger"></span>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3 row">
+                                            <label class="col-lg-4 col-form-label" for="validationCustom05">
+                                                Personel Rol Seç
+                                                <span class="text-danger"></span>
+                                            </label>
+                                            <div class="col-lg-6">
+                                                <select class="default-select wide form-control" id="validationCustom05">
+                                                    <option data-display="Select">Rol seçiniz</option>
+                                                    <option value="1">Garson</option>
+                                                    <option value="2">Komi</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3 row">
+                                            <label class="col-lg-4 col-form-label" for="validationCustom02">
+                                                Personel Maaş <span class="text-danger"></span>
+                                            </label>
+                                            <div class="col-lg-6">
+                                                <input asp-for="Maas" type="text" class="form-control" id="validationCustom01"
+                                                       placeholder="Personel maaşını gir">
+                                                <span asp-validation-for="Maas" class="text-danger"></span>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3 row">
+                                            <label class="col-lg-4 col-form-label" for="validationCustom02">
+                                                Personel Adres<span class="text-danger"></span>
+                                            </label>
+                                            <div class="col-lg-6">
+                                                <input asp-for="Adres" type="text" class="form-control" id="validationCustom01"
+                                                       placeholder="Personel adresini gir">
+                                                <span asp-validation-for="Adres" class="text-danger"></span>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-xl-6">
+                                        <div class="mb-3 row">
+                                            <label class="col-lg-4 col-form-label" for="validationCustom05">
+                                                Personel Cinsiyetini Seç
+                                                <span class="text-danger"></span>
+                                            </label>
+                                            <div class="col-lg-6">
+                                                <select asp-for="Cinsiyet" class="default-select wide form-control" id="validationCustom05">
+                                                    <option data-display="Select">Cinsiyet seçiniz</option>
+                                                    <option value="True">KADIN</option>
+                                                    <option value="False">ERKEK</option>
+                                                </select>
+
+                                            </div>
+                                        </div>
+                                        <div class="mb-3 row">
+                                            <label class="col-lg-4 col-form-label" for="validationCustom06">
+                                                Doğum Tarihi
+                                                <span class="text-danger"></span>
+                                            </label>
+                                            <div class="col-lg-6">
+                                                <input asp-for="DogumTarihi" type="text" class="form-control" id="validationCustom01"
+                                                       placeholder="Doğum Tarihini giriniz" required>
+                                                <span asp-validation-for="DogumTarihi" class="text-danger"></span>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3 row">
+                                            <label class="col-lg-4 col-form-label" for="validationCustom07">
+                                                İşe Başlama Tarihi
+                                                <span class="text-danger"></span>
+                                            </label>
+                                            <div class="col-lg-6">
+                                                <input asp-for="BaslamaTarihi" type="text" class="form-control" id="validationCustom01"
+                                                       placeholder="İşe başlama tarihi">
+                                                <span asp-validation-for="BaslamaTarihi" class="text-danger"></span>
+                                            </div>
+                                        </div>
+
+                                        <div class="mb-3 row">
+                                            <label class="col-lg-4 col-form-label" for="validationCustom08">
+                                                Personel Telefon Numarası
+                                                <span class="text-danger"></span>
+                                            </label>
+                                            <div class="col-lg-6">
+                                                <input asp-for="Telefon" type="text" class="form-control" id="validationCustom01"
+                                                       placeholder="Telefon numarası gir">
+                                                <span asp-validation-for="Telefon" class="text-danger"></span>
+                                            </div>
+                                            <br />
+                                            <div class="mb-3">
+                                                <input name="file" class="form-control" type="file" id="formFileMultiple" multiple>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="card-title">Personel Giriş Bilgileri</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="basic-form">
+                                <div class="mb-3">
+                                    <label class="text-label form-label" for="validationCustomUsername">E posta</label>
+                                    <div class="input-group">
+                                        <input asp-for="Eposta" type="text" class="form-control" id="validationCustom01"
+                                               placeholder="E posta adresinizi gir">
+                                    </div>
+                                    <span asp-validation-for="Eposta" class="text-danger"></span>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="text-label form-label" for="dz-password"> Kullanıcı Şifresi </label>
+                                    <div class="input-group transparent-append">
+                                        <input asp-for="Sifre" type="password" class="form-control" id="dz-password" placeholder="Şifreyi gir">
+                                    </div>
+                                    <span asp-validation-for="Sifre" class="text-danger"></span>
+                                </div>
+
+                                <button type="submit" class="btn me-2 btn-primary">Gönder</button>
+                                <button type="submit" class="btn btn-danger light">İptal Etmek</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

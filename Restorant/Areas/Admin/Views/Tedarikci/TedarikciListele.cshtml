@@ -1,0 +1,48 @@
+﻿@model IEnumerable<Tedarikci>
+
+<div class="content-body default-height">
+    <div class="container-fluid">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">Tedarikci Listesi</h4>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table id="example3" class="display" style="min-width: 845px">
+                            <thead>
+                                <tr>
+                                    <th>Id </th>
+                                    <th>Ad Soyad </th>
+                                    <th>Firma Ad</th>
+                                    <th>Adres</th>
+                                   
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var personel in Model)
+                                {
+                                    <tr>
+                                        <td>@personel.Id</td>
+                                        <td>@personel.AdSoyad</td>
+                                        <td>@personel.Firma</td>
+                                        <td>@personel.Adres</td>
+                                       
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div id="example3_paginate" class="dataTables_paginate paging_simple_numbers">
+                                <!-- Sayfalama düğmeleri buraya gelecek -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

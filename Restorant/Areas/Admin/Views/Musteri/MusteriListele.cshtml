@@ -1,0 +1,52 @@
+﻿@model IEnumerable<Musteri>
+
+<div class="content-body default-height">
+    <div class="container-fluid">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">Müşteri Listesi</h4>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table id="example3" class="display" style="min-width: 845px">
+                            <thead>
+                                <tr>
+                                    <th>Id </th>
+                                    <th>Ad Soyad</th>
+                                    <th>E posta</th>
+                                    <th>Telefon</th>
+                                    <th>Doğum Tarihi</th>
+                                    <th>KayitTarihi</th>
+                                 
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var musteri in Model)
+                                {
+                                    <tr>
+                                        <td>@musteri.Id</td>
+                                   
+                                        <td>@musteri.Ad @musteri.Soyad</td>
+                                        <td>@musteri.Eposta</td>
+                                        <td>@musteri.Telefon</td>
+                                        <td>@musteri.Dogumtarihi</td>
+                                        <td>@musteri.KayitTarihi</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div id="example3_paginate" class="dataTables_paginate paging_simple_numbers">
+                                <!-- Sayfalama düğmeleri buraya gelecek -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
