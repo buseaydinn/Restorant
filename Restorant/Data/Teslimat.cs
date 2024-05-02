@@ -15,6 +15,7 @@ public partial class Teslimat
     public string? OdemeDurum { get; set; }
 
     public string? TeslimDurum { get; set; }
+
     public bool? Gorunurluk { get; set; }
 
     public int? PersonelId { get; set; }

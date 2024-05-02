@@ -42,8 +42,10 @@
                                             <div class="col-lg-6">
                                                 <select class="default-select wide form-control" id="validationCustom05">
                                                     <option data-display="Select">Rol seçiniz</option>
-                                                    <option value="1">Garson</option>
-                                                    <option value="2">Komi</option>
+                                                    @foreach (var rol in ViewBag.Roller)
+                                                    {
+                                                        <option value="@rol.Id">@rol.Ad</option>
+                                                    }
                                                 </select>
                                             </div>
                                         </div>
@@ -78,11 +80,11 @@
                                             <div class="col-lg-6">
                                                 <select asp-for="Cinsiyet" class="default-select wide form-control" id="validationCustom05">
                                                     <option data-display="Select">Cinsiyet seçiniz</option>
-                                                    <option value="True">KADIN</option>
-                                                    <option value="False">ERKEK</option>
+                                                    <option value="KADIN">KADIN</option>
+                                                    <option value="ERKEK">ERKEK</option>
                                                 </select>
-
                                             </div>
+
                                         </div>
                                         <div class="mb-3 row">
                                             <label class="col-lg-4 col-form-label" for="validationCustom06">
@@ -162,3 +164,5 @@
         </form>
     </div>
 </div>
+
+

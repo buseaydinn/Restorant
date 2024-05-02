@@ -8,9 +8,11 @@ namespace Restorant.Data;
 public partial class Urun
 {
     public int Id { get; set; }
+
     [Required(ErrorMessage = "*Zorunlu alan")]
 
     public string? Ad { get; set; }
+
     [Required(ErrorMessage = "*Zorunlu alan")]
 
     public string? Acıklama { get; set; }
@@ -20,6 +22,7 @@ public partial class Urun
     public int? Fiyat { get; set; }
 
     public string? Fotograf { get; set; }
+
     [Required(ErrorMessage = "*Zorunlu alan")]
 
     public string? Aktif { get; set; }
@@ -29,9 +32,10 @@ public partial class Urun
     public int? IndirimYuzdesi{ get; set; }
 
     public DateOnly? IndirimTarihi{ get; set; }
-    public bool? Gorunurluk{ get; set; }
-    public Kategori? Kategori{ get; set; }
 
+    public bool? Gorunurluk{ get; set; }
+
+    public Kategori? Kategori{ get; set; }
 
     public int? KategoriId { get; set; }
 }

@@ -10,6 +10,7 @@ public partial class Rezervasyon
     public DateOnly? Tarih { get; set; }
 
     public int? KisiSayisi { get; set; }
+
     public bool? Gorunurluk { get; set; }
 
     public string? Talep { get; set; }

@@ -10,6 +10,7 @@ public partial class MasaOzellik
     public int OzellikId { get; set; }
 
     public bool? Gorunurluk { get; set; }
+
     public int MasaId { get; set; }
 
     public  Masa Masa { get; set; } = null!;

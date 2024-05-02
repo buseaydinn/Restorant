@@ -17,6 +17,7 @@ public partial class Yorum
     public int? Puan { get; set; }
 
     public int? Begenme { get; set; }
+
     public int? Durum { get; set; }
 
     public bool? Gorunurluk { get; set; }

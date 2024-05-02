@@ -14,6 +14,7 @@ public partial class Kampanya
     public DateTime? GecerlilikTarihi { get; set; }
 
     public bool? Durum { get; set; }
+
     //public bool? Gorunurluk { get; set; }
     public int? MusteriId { get; set; }
 

@@ -7,6 +7,7 @@ namespace Restorant.Models;
 public partial class Masa
 {
     public int Id { get; set; }
+
     [Required(ErrorMessage = "*Zorunlu alan")]
 
     public string? Kod { get; set; }
@@ -14,6 +15,7 @@ public partial class Masa
     public bool? Durum { get; set; }
 
     public int? Kapasite { get; set; }
+
     public int? Qr { get; set; }
 
     public int? Tutar { get; set; }

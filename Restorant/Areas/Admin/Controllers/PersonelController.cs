@@ -21,7 +21,8 @@ namespace Restorant.Areas.Admin.Controllers
         }
 
         public IActionResult PersonelEkle() 
-        { 
+        {
+            ViewBag.Roller = _context.Roller.ToList();
             return View();
         }
 
@@ -30,7 +31,7 @@ namespace Restorant.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (file != null)
+                /*if (file != null)
                 {
                     var uzanti = new[] { ".jpg", ".jpeg", ".png" };
                     var resimuzanti = Path.GetExtension(file.FileName);
@@ -44,6 +45,7 @@ namespace Restorant.Areas.Admin.Controllers
                 {
                     ModelState.AddModelError("Fotograf", "Resim alanı boş olamaz");
                
+                    ViewBag.Roller = _context.Roller.ToList();
                     return View(model);
                 }
 
@@ -53,7 +55,7 @@ namespace Restorant.Areas.Admin.Controllers
                 {
                     await file.CopyToAsync(stream);
                 }
-                model.Fotograf = random;
+                model.Fotograf = random;*/
                 _context.Personeller.Add(model);
                 await _context.SaveChangesAsync();
                 return RedirectToAction("Index");
@@ -74,6 +76,21 @@ namespace Restorant.Areas.Admin.Controllers
         {
             return View();
         }
+
+        public async Task<IActionResult> PersonelSil(int id)
+        {
+            var personel = await _context.Personeller.FindAsync(id);
+            if (personel == null)
+            {
+                return NotFound();
+            }
+
+            personel.Gorunurluk = false;
+            await _context.SaveChangesAsync();
+
+            return RedirectToAction("PersonelListele");
+        }
+
         [HttpPost]
         public async Task<IActionResult> RolEkle(Rol model, int id)
         {

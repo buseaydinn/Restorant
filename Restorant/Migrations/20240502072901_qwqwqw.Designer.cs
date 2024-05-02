@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Restorant.Models;
 
@@ -11,9 +12,11 @@ using Restorant.Models;
 namespace Restorant.Migrations
 {
     [DbContext(typeof(IdentityDataContext))]
-    partial class IdentityDataContextModelSnapshot : ModelSnapshot
+    [Migration("20240502072901_qwqwqw")]
+    partial class qwqwqw
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -1129,9 +1132,9 @@ namespace Restorant.Migrations
                         .IsRequired()
                         .HasColumnType("date");
 
-                    b.Property<string>("Cinsiyet")
+                    b.Property<bool?>("Cinsiyet")
                         .IsRequired()
-                        .HasColumnType("longtext");
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<DateOnly?>("DogumTarihi")
                         .IsRequired()
@@ -1149,7 +1152,7 @@ namespace Restorant.Migrations
 
                     b.Property<decimal?>("Maas")
                         .IsRequired()
-                        .HasColumnType("decimal (10,2)");
+                        .HasColumnType("decimal(65,30)");
 
                     b.Property<int?>("RolId")
                         .HasColumnType("int");

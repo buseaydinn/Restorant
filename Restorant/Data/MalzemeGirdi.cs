@@ -8,6 +8,7 @@ public partial class MalzemeGirdi
 {
 
     public int Id { get; set; }
+
     public int? GirdiId { get; set; }
 
     public int? MalzemeId { get; set; }

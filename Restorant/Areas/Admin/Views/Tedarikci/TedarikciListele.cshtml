@@ -16,7 +16,10 @@
                                     <th>Ad Soyad </th>
                                     <th>Firma Ad</th>
                                     <th>Adres</th>
-                                   
+                                    <th>Telefon</th>
+                                    <th>Eposta</th>
+                                    <th>İşlemler</th>
+
                                 </tr>
                             </thead>
                             <tbody>
@@ -27,7 +30,12 @@
                                         <td>@personel.AdSoyad</td>
                                         <td>@personel.Firma</td>
                                         <td>@personel.Adres</td>
-                                       
+                                        <td>@personel.Telefon</td>
+                                        <td>@personel.Eposta</td>
+                                        <td>
+                                            <a asp-action="TedarikciSil" asp-route-id="@personel.Id"  class="btn btn-primary mb-1 me-1">Tedarikçi Sil</a>
+                                        </td>
+
                                     </tr>
                                 }
                             </tbody>

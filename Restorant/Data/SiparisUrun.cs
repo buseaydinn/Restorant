@@ -11,6 +11,7 @@ public partial class SiparisUrun
     public int? Miktar { get; set; }
 
     public int SiparisId { get; set; }
+
     public bool? Gorunurluk { get; set; }
 
     public int UrunId { get; set; }

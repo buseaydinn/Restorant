@@ -43,6 +43,21 @@ namespace Restorant.Areas.Admin.Controllers
 
             // Verileri View'e gönder
             return View(TedarikciListele);
+            
         }
+        public async Task<IActionResult> TedarikciSil(int id)
+        {
+            var tedarikci = await _context.Tedarikciler.FindAsync(id);
+            if (tedarikci == null)
+            {
+                return NotFound();
+            }
+
+            tedarikci.Gorunurluk = false;
+            await _context.SaveChangesAsync();
+
+            return RedirectToAction("TedarikciListele");
+        }
+
     }
 }

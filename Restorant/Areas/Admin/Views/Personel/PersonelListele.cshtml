@@ -21,6 +21,7 @@
                                     <th>Başlama Tarihi</th>
                                     <th>Cinsiyet</th>
                                     <th>Şifre</th>
+                                    <th>İşlemler</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -36,6 +37,9 @@
                                         <td>@personel.BaslamaTarihi</td>
                                         <td>@personel.Cinsiyet</td>
                                         <td>@personel.Sifre</td>
+                                        <td>
+                                            <a asp-action="PersonelSil" asp-route-id="@personel.Id" class="btn btn-primary mb-1 me-1">Personel Sil</a>
+                                        </td>
                                     </tr>
                                 }
                             </tbody>

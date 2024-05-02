@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Restorant.Models;
 
@@ -11,9 +12,11 @@ using Restorant.Models;
 namespace Restorant.Migrations
 {
     [DbContext(typeof(IdentityDataContext))]
-    partial class IdentityDataContextModelSnapshot : ModelSnapshot
+    [Migration("20240430143234_silmeislemi")]
+    partial class silmeislemi
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -305,9 +308,8 @@ namespace Restorant.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<string>("Adres")
-                        .IsRequired()
-                        .HasColumnType("longtext");
+                    b.Property<int?>("AdresId")
+                        .HasColumnType("int");
 
                     b.Property<string>("Eposta")
                         .HasColumnType("longtext");
@@ -322,6 +324,8 @@ namespace Restorant.Migrations
                         .HasColumnType("longtext");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("AdresId");
 
                     b.ToTable("Tedarikciler");
                 });
@@ -1129,9 +1133,9 @@ namespace Restorant.Migrations
                         .IsRequired()
                         .HasColumnType("date");
 
-                    b.Property<string>("Cinsiyet")
+                    b.Property<bool?>("Cinsiyet")
                         .IsRequired()
-                        .HasColumnType("longtext");
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<DateOnly?>("DogumTarihi")
                         .IsRequired()
@@ -1149,7 +1153,7 @@ namespace Restorant.Migrations
 
                     b.Property<decimal?>("Maas")
                         .IsRequired()
-                        .HasColumnType("decimal (10,2)");
+                        .HasColumnType("decimal(65,30)");
 
                     b.Property<int?>("RolId")
                         .HasColumnType("int");
@@ -1419,6 +1423,15 @@ namespace Restorant.Migrations
                     b.Navigation("Malzeme");
 
                     b.Navigation("Tedarikci");
+                });
+
+            modelBuilder.Entity("Restorant.Data.Tedarikci", b =>
+                {
+                    b.HasOne("Restorant.Data.Adres", "Adres")
+                        .WithMany()
+                        .HasForeignKey("AdresId");
+
+                    b.Navigation("Adres");
                 });
 
             modelBuilder.Entity("Restorant.Data.Teslimat", b =>

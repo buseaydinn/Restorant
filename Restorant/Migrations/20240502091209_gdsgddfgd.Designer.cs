@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Restorant.Models;
 
@@ -11,9 +12,11 @@ using Restorant.Models;
 namespace Restorant.Migrations
 {
     [DbContext(typeof(IdentityDataContext))]
-    partial class IdentityDataContextModelSnapshot : ModelSnapshot
+    [Migration("20240502091209_gdsgddfgd")]
+    partial class gdsgddfgd
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -1149,7 +1152,7 @@ namespace Restorant.Migrations
 
                     b.Property<decimal?>("Maas")
                         .IsRequired()
-                        .HasColumnType("decimal (10,2)");
+                        .HasColumnType("decimal(65,30)");
 
                     b.Property<int?>("RolId")
                         .HasColumnType("int");

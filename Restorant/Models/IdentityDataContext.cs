@@ -2,6 +2,10 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Restorant.Data;
+using Restorant.Migrations;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Model;
+using System;
+using Restorant.Models;
 
 namespace Restorant.Models
 {
@@ -72,8 +76,16 @@ namespace Restorant.Models
         public DbSet<Urun> Urunler { get; set; }
 
         public DbSet<UrunMalzeme> UrunMalzemeler { get; set; }
-
         public DbSet<Yorum> Yorumlar { get; set; }
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
 
+            builder.Entity<Personel>
+                ().Property(p => p.Maas)
+                .HasColumnType("decimal (10,2)");
+
+
+        }
     }
 }

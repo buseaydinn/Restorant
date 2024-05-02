@@ -23,9 +23,10 @@ public partial class Musteri
     public bool? Gorunurluk { get; set; }
     public int? MasaId { get; set; }
    
-
     public  ICollection<Bildirim> Bildirimlers { get; set; } = new List<Bildirim>();
+
     public  ICollection<Adres> Adresler { get; set; } = new List<Adres>();
+
     public  ICollection<Kampanya> Kampanyalars { get; set; } = new List<Kampanya>();
 
    // public  Masa? Masa { get; set; }
