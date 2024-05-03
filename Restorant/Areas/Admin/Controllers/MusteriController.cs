@@ -42,6 +42,21 @@ namespace Restorant.Areas.Admin.Controllers
                 // Verileri View'e gönder
                 return View(musteriListesi);
             }
+
+        public async Task<IActionResult> MusteriSil(int id)
+        {
+            var musteri = await _context.Musteriler.FindAsync(id);
+            if (musteri == null)
+            {
+                return NotFound();
+            }
+
+            musteri.Gorunurluk = false;
+            await _context.SaveChangesAsync();
+
+            return RedirectToAction("MusteriListele");
         }
+
+    }
     }
 

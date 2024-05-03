@@ -16,6 +16,7 @@ public partial class Tedarikci
       public string? Telefon { get; set; }
 
     public bool? Gorunurluk { get; set; } 
+
     public string Adres { get; set; } 
 
     public string? Eposta { get; set; }

@@ -1,12 +1,12 @@
-﻿@model Urun
+﻿@model Menu
 <div class="content-body default-height">
     <div class="container-fluid">
-        <form asp-controller="Urun" asp-action="UrunEkle" method="post" novalidate>
+        <form asp-controller="Menu" asp-action="MenuEkle" method="post" novalidate>
             <div class="row">
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="card-title">Ürün Ekleme Sayfası</h4>
+                            <h4 class="card-title">Menü Ekleme Sayfası</h4>
                         </div>
                         <div class="card-body">
                             <div class="form-validation">
@@ -14,60 +14,48 @@
                                     <div class="col-xl-6">
                                         <div class="mb-3 row">
                                             <label class="col-lg-4 col-form-label" for="Ad">Ad</label>
-                                            <div class="col-lg-6">
+                                            <div class="col-lg-8">
                                                 <input asp-for="Ad" type="text" class="form-control" id="Ad" placeholder="Ürün Adını gir">
                                                 <span asp-validation-for="Ad" class="text-danger"></span>
                                             </div>
                                         </div>
                                         <div class="mb-3 row">
-                                            <label class="col-lg-4 col-form-label" for="Acıklama">Açıklama</label>
-                                            <div class="col-lg-6">
-                                                <input asp-for="Acıklama" type="text" class="form-control" id="Acıklama" placeholder="Açıklama giriniz">
-                                                <span asp-validation-for="Acıklama" class="text-danger"></span>
-                                            </div>
-                                        </div>
-                                        <div class="mb-3 row">
-                                            <label class="col-lg-4 col-form-label" for="Detay">Detay</label>
-                                            <div class="col-lg-6">
-                                                <input asp-for="Detay" type="text" class="form-control" id="Detay" placeholder="Detay giriniz">
-                                                <span asp-validation-for="Detay" class="text-danger"></span>
+                                            <label class="col-lg-4 col-form-label" for="Aciklama">Açıklama</label>
+                                            <div class="col-lg-8">
+                                                <input asp-for="Aciklama" type="text" class="form-control" id="Aciklama" placeholder="Açıklama giriniz">
+                                                <span asp-validation-for="Aciklama" class="text-danger"></span>
                                             </div>
                                         </div>
                                         <div class="mb-3 row">
                                             <label class="col-lg-4 col-form-label" for="Fiyat">Fiyat</label>
-                                            <div class="col-lg-6">
+                                            <div class="col-lg-8">
                                                 <input asp-for="Fiyat" type="text" class="form-control" id="Fiyat" placeholder="Fiyat giriniz">
                                                 <span asp-validation-for="Fiyat" class="text-danger"></span>
                                             </div>
                                         </div>
-
                                         <div class="mb-3 row">
-                                            <label class="col-lg-4 col-form-label" for="validationCustom05">
-                                                Kategori Tür Seç
-                                                <span class="text-danger"></span>
-                                            </label>
-                                            <div class="col-lg-6">
-                                                <select asp-for="Kategori" class="default-select wide form-control" id="validationCustom05">
-                                                    <option data-display="Select">Tür seçiniz</option>
-
-                                                    <option value="Masa">Masa</option>
-                                                    <option value="Ürün">Ürün</option>
-                                                    <option value="Menü">Menü</option>
-
-                                                </select>
+                                            <label class="col-lg-4 col-form-label" for="Kategori">Kategori</label>
+                                            <div class="col-lg-8">
+                                                <input asp-for="Kategori" type="text" class="form-control" id="Kategori" placeholder="Kategori giriniz">
+                                                <span asp-validation-for="Kategori" class="text-danger"></span>
                                             </div>
                                         </div>
-
                                         <div class="mb-3 row">
-                                            <label class="col-lg-4 col-form-label" for="formFileMultiple">Resim Yükle</label>
-                                            <div class="col-lg-6">
-                                                <!-- Değişiklik burada -->
+                                            <label class="col-lg-4 col-form-label" for="IndirimliFiyat">İndirimli Fiyat</label>
+                                            <div class="col-lg-8">
+                                                <input asp-for="IndirimliFiyat" type="text" class="form-control" id="IndirimliFiyat" placeholder="İndirimli Fiyat giriniz">
+                                                <span asp-validation-for="IndirimliFiyat" class="text-danger"></span>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3 row">
+                                            <label class="col-lg-4 col-form-label" for="ResimYukle">Resim Yükle</label>
+                                            <div class="col-lg-8">
                                                 <input class="form-control" type="file" id="formFileMultiple" multiple style="background-color: #f8f9fa;">
                                             </div>
                                         </div>
 
-                                        <input type="hidden" value=true asp-for="Aktif">
 
+                                        <input type="hidden" value="true" asp-for="Gorunurluk">
                                         <div class="row">
                                             <div class="col-lg-12">
                                                 <button type="submit" class="btn me-2 btn-primary">Gönder</button>

@@ -7,52 +7,42 @@
                 <div class="card-header">
                     <h4 class="card-title">Ürün Listesi</h4>
                 </div>
-                <div class="card-body">
-                    <div class="table-responsive">
-                        <table id="example3" class="display" style="min-width: 845px">
-                            <thead>
-                                <tr>
-                                    <th>Id</th>
-                                    <th>Ad</th>
-                                    <th>Açıklama</th>
-                                    <th>Detay</th>
-                                    <th>Fiyat</th>
-                                    <th>Aktif</th>
-                                    <th>İndirimli Fiyat</th>
-                                    <th>İndirim Yüzdesi</th>
-                                    <th>İndirim Tarihi</th>
-                                    <th>Kategori Id</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach (var urun in Model)
-                                {
-                                    <tr>
-                                        <td>@urun.Id</td>
-                                        <td>@urun.Ad</td>
-                                        <td>@urun.Acıklama</td>
-                                        <td>@urun.Detay</td>
-                                        <td>@urun.Fiyat</td>
-                                        <td>@urun.Aktif</td>
-                                        <td>@urun.IndirimliFiyat</td>
-                                        <td>@urun.IndirimYuzdesi</td>
-                                        <td>@urun.IndirimTarihi</td>
-                                        <td>@urun.KategoriId</td>
-                                    </tr>
-                                }
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div id="example3_paginate" class="dataTables_paginate paging_simple_numbers">
-                                <!-- Sayfalama düğmeleri buraya gelecek -->
+                <div class="row">
+                    @foreach (var urun in Model)
+                    {
+                        <div class="col-lg-12 col-xxl-4 col-xl-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="row m-b-30">
+                                        <div class="col-md-5 col-xxl-12">
+                                            <div class="new-arrival-product mb-4 mb-xxl-4 mb-md-0">
+                                                <div class="new-arrivals-img-contnent">
+                                                    <img class="img-fluid" src="../images/product/2.jpg" alt="" style="max-width: 170%; max-height: 160px;">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-7 col-xxl-12">
+                                            <div class="new-arrival-content position-relative">
+                                                <h4 class="text-center"><a href="#">@urun.Ad</a></h4>
+                                                <div class="comment-review star-rating">
+                                                    <p>
+                                                        Stok Durumu <span class="item">
+                                                            @urun.Gorunurluk   <i class="fa fa-check-circle text-success"></i>
+                                                        </span>
+                                                    </p>
+                                                    <p style="margin-bottom: 0;">Ürün Fiyatı: <span class="item">@urun.Fiyat</span> ₺</p>
+                                                    <p style="margin-bottom: 0;">Ürün Detay: <span class="item">@urun.Detay</span></p>
+                                                    <p>Katagori <span class="item">@urun.Kategori</span> </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    }
                 </div>
             </div>
         </div>
     </div>
 </div>
-

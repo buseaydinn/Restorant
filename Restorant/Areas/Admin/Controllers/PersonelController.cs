@@ -31,31 +31,6 @@ namespace Restorant.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                /*if (file != null)
-                {
-                    var uzanti = new[] { ".jpg", ".jpeg", ".png" };
-                    var resimuzanti = Path.GetExtension(file.FileName);
-                    if (!uzanti.Contains(resimuzanti))
-                    {
-                        ModelState.AddModelError("Fotograf", "Geçerli bir resim seçiniz. *jpg,jpeg,png");
-                        return View(model);
-                    }
-                }
-                else
-                {
-                    ModelState.AddModelError("Fotograf", "Resim alanı boş olamaz");
-               
-                    ViewBag.Roller = _context.Roller.ToList();
-                    return View(model);
-                }
-
-                var random = string.Format($"{Guid.NewGuid().ToString()}{Path.GetExtension(file.FileName)}");
-                var resimyolu = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/img", random);
-                using (var stream = new FileStream(resimyolu, FileMode.Create))
-                {
-                    await file.CopyToAsync(stream);
-                }
-                model.Fotograf = random;*/
                 _context.Personeller.Add(model);
                 await _context.SaveChangesAsync();
                 return RedirectToAction("Index");

@@ -5,7 +5,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <h4 class="card-title">Müşteri Listesi</h4>
+                    <h4 class="card-title">Müşteri Listesi <i class="fa-duotone fa-person"></i></h4>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -18,6 +18,8 @@
                                     <th>Telefon</th>
                                     <th>Doğum Tarihi</th>
                                     <th>KayitTarihi</th>
+                                    <th>MasaId</th>
+                                    <th>İşlemler</th>
                                  
                                 </tr>
                             </thead>
@@ -32,6 +34,11 @@
                                         <td>@musteri.Telefon</td>
                                         <td>@musteri.Dogumtarihi</td>
                                         <td>@musteri.KayitTarihi</td>
+                                        <td>@musteri.MasaId</td>
+                                        <td>
+                                            <a asp-action="MusteriSil" asp-route-id="@musteri.Id" class="btn btn-danger btn-sm rounded-circle">
+                                                <i class="fa fa-trash"></i>
+                                            </a>                                        </td>
                                     </tr>
                                 }
                             </tbody>

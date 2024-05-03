@@ -7,7 +7,7 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="card-title">Müşteri Ekleme Sayfası</h4>
+                            <h4 class="card-title">Müşteri Ekleme Sayfası <i class="fa-duotone fa-person"></i></h4>
                         </div>
                         <div class="card-body">
                             <div class="form-validation">
@@ -41,6 +41,8 @@
                                                 <span asp-validation-for="Telefon" class="text-danger"></span>
                                             </div>
                                         </div>
+                                    </div>
+                                    <div class="col-xl-6">
                                         <div class="mb-3 row">
                                             <label class="col-lg-4 col-form-label" for="validationCustom05">Doğum Tarihi</label>
                                             <div class="col-lg-6">
@@ -53,6 +55,13 @@
                                             <div class="col-lg-6">
                                                 <input asp-for="KayitTarihi" type="date" class="form-control" id="KayitTarihi" placeholder=" Kayıt Tarihini giriniz">
                                                 <span asp-validation-for="KayitTarihi" class="text-danger"></span>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3 row">
+                                            <label class="col-lg-4 col-form-label" for="validationCustom04"> MasaId</label>
+                                            <div class="col-lg-6">
+                                                <input asp-for="MasaId" type="tel" class="form-control" id="MasaId" placeholder=" MasaId  gir">
+                                                <span asp-validation-for="MasaId" class="text-danger"></span>
                                             </div>
                                         </div>
                                         <button type="submit" class="btn me-2 btn-primary">Gönder</button>

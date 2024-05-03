@@ -20,6 +20,7 @@
     <meta property="og:image" content="../../social-image.png">
     <meta name="format-detection" content="telephone=no">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <link href="/admin/images/favicon.png" type="" rel="icon">
     <link href="/admin/images/favicon.png" type="" rel="shortcut icon">
     <link rel="stylesheet" href="/admin/vendor/bootstrap-select/dist/css/bootstrap-select.min.css">		<!-- Page level css : Dashboard  -->
@@ -27,6 +28,11 @@
     <link rel="stylesheet" href="/admin/cdn.lineicons.com/2.0/LineIcons.css">		<!-- End Page level css : Dashboard  -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&amp;family=Roboto:wght@100;300;400;500;700;900&amp;display=swap">
     <link rel="stylesheet" href="/admin/css/style.css">
+
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.4.2/css/all.css">
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.4.2/css/sharp-solid.css">
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.4.2/css/sharp-regular.css">
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.4.2/css/sharp-light.css">
 
 </head>
 <body>
@@ -900,116 +906,134 @@
                         </a>
 
                     </li>
+
                     <li>
                         <a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-                            <i class="flaticon-app"></i>
+                            <i class="fa-solid fa-users"></i>
+                            <span class="nav-text">Personel İşlemleri</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li><a asp-controller="Personel" asp-action="PersonelEkle">Personel Ekle</a></li>
+                            <li><a asp-controller="Personel" asp-action="PersonelListele">Personel Listesi</a></li>
+                            <li><a asp-controller="Personel" asp-action="RolEkle">Rol Ekle</a></li>
+                            <li><a asp-controller="Personel" asp-action="RolListele">Rol Listesi</a></li>
+                        </ul>
+                    </li>
+
+
+                    <li>
+                        <a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                            <i class="fa-regular fa-truck-field"></i>
+                            <span class="nav-text">Tedarikçi İşlemleri</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li><a asp-controller="Tedarikci" asp-action="TedarikciEkle">Tedarikçi Ekle</a></li>
+                            <li><a asp-controller="Tedarikci" asp-action="TedarikciListele">Tedarikçi Listesi</a></li>
+
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                            <i class="fa-duotone fa-person-dress"></i>
+                            <span class="nav-text">Müşteri İşlemleri</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li><a asp-controller="Musteri" asp-action="MusteriEkle">Müşteri Ekle</a></li>
+                            <li><a asp-controller="Musteri" asp-action="MusteriListele">Müşteri Listesi</a></li>
+
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                            <i class="fa-solid fa-list"></i>
+                            <span class="nav-text">Kategori İşlemleri</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li><a asp-controller="Kategori" asp-action="KategoriEkle">Kategori Ekle</a></li>
+                            <li><a asp-controller="Kategori" asp-action="KategoriListele">Kategori Listesi</a></li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                            <i class="fa-solid fa-box"></i>
+                            <span class="nav-text">Malzeme İşlemleri</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li><a asp-controller="Malzeme" asp-action="MalzemeEkle">Malzeme Ekle</a></li>
+                            <li><a asp-controller="Malzeme" asp-action="MalzemeListele">Malzeme Listesi</a></li>
+                        </ul>
+                    </li>
+
+
+                    <li>
+                        <a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                            <i class="fa-solid fa-burger"></i>
                             <span class="nav-text">Ürün İşlemleri</span>
                         </a>
                         <ul aria-expanded="false">
-                            <li><a asp-controller="Urun" asp-action="UrunEkle">Urun Ekle</a></li>
-                            <li><a asp-controller="Urun" asp-action="UrunListele">Urun Listesi</a></li>
-
-
+                            <li><a asp-controller="Urun" asp-action="UrunEkle">Ürün Ekle</a></li>
+                            <li><a asp-controller="Urun" asp-action="UrunListele">Ürün Listesi</a></li>
+                        </ul>
                     </li>
-                </ul>
-                <li>
-                    <a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-                        <i class="flaticon-star"></i>
-                        <span class="nav-text">Menü İşlemleri</span>
-                    </a>
-                    <ul aria-expanded="false">
-                        <li><a href="javascript:void()">Menü Ekle</a></li>
-                        <li><a href="javascript:void()">Menü Listesi</a></li>
 
-                    </ul>
-                </li>
-                <li>
-                    <a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-                        <i class="flaticon-plugin"></i>
-                        <span class="nav-text">Personel İşlemleri</span>
-                    </a>
-                    <ul aria-expanded="false">
-                        <li><a asp-controller="Personel" asp-action="PersonelEkle">Personel Ekle</a></li>
-                        <li><a asp-controller="Personel" asp-action="PersonelListele">Personel Listesi</a></li>
-                        <li><a asp-controller="Personel" asp-action="RolEkle">Rol Ekle</a></li>
-                        <li><a asp-controller="Personel" asp-action="RolListele">Rol Listesi</a></li>
-
-                    </ul>
-                </li>
-
-                <li>
-                    <a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-                        <i class="flaticon-email"></i>
-                        <span class="nav-text">Yorum İşlemleri</span>
-                    </a>
-                    <ul aria-expanded="false">
-                        <li><a href="javascript:void()">Yorum Düzenleme</a></li>
+                    <li>
+                        <a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                            <i class="fa-regular fa-book-open-reader"></i>
+                            <span class="nav-text">Menü İşlemleri</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li><a asp-controller="Menu" asp-action="MenuEkle">Menü Ekle</a></li>
+                            <li><a asp-controller="Menu" asp-action="MenuListele">Menü Listesi</a></li>
+                        </ul>
+                    </li>
 
 
-                    </ul>
-                </li>
-                <li>
-                    <a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-                        <i class="flaticon-form"></i>
-                        <span class="nav-text">Masa İşlemleri</span>
-                    </a>
-                    <ul aria-expanded="false">
-                        <li><a asp-controller="Masa" asp-action="MasaEkle">Masa Ekle</a></li>
-                        <li><a asp-controller="Masa" asp-action="MasaListele">Masa Listesi</a></li>
-                        <li><a href="javascript:void()">Masa Özelliği Ekle</a></li>
+                    <li>
+                        <a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                            <i class="fa-sharp fa-solid fa-table-picnic"></i>
+                            <span class="nav-text">Masa İşlemleri</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li><a asp-controller="Masa" asp-action="MasaEkle">Masa Ekle</a></li>
+                            <li><a asp-controller="Masa" asp-action="MasaListele">Masa Listesi</a></li>
+                            <li><a href="javascript:void()">Masa Özelliği Ekle</a></li>
 
 
-                    </ul>
-                </li>
-                <li>
-                    <a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-                        <i class="flaticon-plugin"></i>
-                        <span class="nav-text">Müşteri İşlemleri</span>
-                    </a>
-                    <ul aria-expanded="false">
-                        <li><a asp-controller="Musteri" asp-action="MusteriEkle">Musteri Ekle</a></li>
-                        <li><a asp-controller="Musteri" asp-action="MusteriListele">Musteri Listesi</a></li>
-
-                    </ul>
-                </li>
-                <li>
-                    <a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-                        <i class="flaticon-landing-page"></i>
-                        <span class="nav-text">Malzeme İşlemleri</span>
-                    </a>
-                    <ul aria-expanded="false">
-                        <li><a asp-controller="Malzeme" asp-action="MalzemeEkle">Malzeme Ekle</a></li>
-                        <li><a asp-controller="Malzeme" asp-action="MalzemeListele">Malzeme Listesi</a></li>
-
-                    </ul>
-                </li>
-                <li>
-                    <a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-                        <i class="flaticon-landing-page"></i>
-                        <span class="nav-text">Stok İşlemleri</span>
-                    </a>
-                    <ul aria-expanded="false">
-                        <li><a href="javascript:void()">Stok Girdileri</a>
-                        <li><a href="javascript:void()">Stok Listesi</a>
-
-                    </ul>
-                </li>
-                <li>
-                    <a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-                        <i class="flaticon-landing-page"></i>
-                        <span class="nav-text">Tedarikçi İşlemleri</span>
-                    </a>
-                    <ul aria-expanded="false">
-                        <li><a asp-controller="Tedarikci" asp-action="TedarikciEkle">Tedarikci Ekle</a></li>
-                        <li><a asp-controller="Tedarikci" asp-action="TedarikciListele">Tedarikci Listesi</a></li>
-
-                    </ul>
-                </li>
-                <br />
-                <br>
+                        </ul>
+                    </li>
 
 
-            </div>
+                    <li>
+                        <a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                            <i class="fa-solid fa-layer-minus"></i>
+                            <span class="nav-text">Stok İşlemleri</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li><a href="javascript:void()">Stok Girdileri</a>
+                            <li><a href="javascript:void()">Stok Listesi</a>
+
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                            <i class="fa-solid fa-comments"></i>
+                            <span class="nav-text">Yorum İşlemleri</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li><a href="javascript:void()">Yorum Düzenleme</a></li>
+
+
+                        </ul>
+                    </li>
+                    <br />
+                    <br>
+
+
+</div>
         </div>
         @RenderBody()
         <div class="footer">

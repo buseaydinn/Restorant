@@ -40,5 +40,18 @@ namespace Restorant.Areas.Admin.Controllers
             // Verileri View'e gönder
             return View(MalzemeListesi);
         }
+        public async Task<IActionResult> MalzemeSil(int id)
+        {
+            var malzeme = await _context.Malzemeler.FindAsync(id);
+            if (malzeme == null)
+            {
+                return NotFound();
+            }
+
+            malzeme.Gorunurluk = false;
+            await _context.SaveChangesAsync();
+
+            return RedirectToAction("MalzemeListele");
+        }
     }
 }

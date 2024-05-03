@@ -24,14 +24,31 @@
                                             </div>
                                         </div>
                                         <div class="mb-3 row">
-                                            <label class="col-lg-4 col-form-label" for="validationCustom01">
-                                                Malzeme Tür
+                                            <label class="col-lg-4 col-form-label" for="validationCustom05">
+                                                Malzeme Tür Seç
                                                 <span class="text-danger"></span>
                                             </label>
                                             <div class="col-lg-6">
-                                                <input asp-for="Turu" type="text" class="form-control" id="validationCustom01"
-                                                       placeholder="Malzeme türünü gir">
-                                                <span asp-validation-for="Turu" class="text-danger"></span>
+                                                <select asp-for="Turu" class="default-select wide form-control" id="validationCustom05">
+                                                    <option data-display="Select">Tür seçiniz</option>
+
+                                                    <option value="Kilogram">Kilogram</option>
+                                                    <option value="Litre">Litre</option>
+                                                    <option value="Adet">Adet</option>
+
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="mb-3 row">
+                                            <label class="col-lg-4 col-form-label" for="validationCustom01">
+                                                Malzeme Stok
+                                                <span class="text-danger"></span>
+                                            </label>
+                                            <div class="col-lg-6">
+                                                <input asp-for="Stok" type="text" class="form-control" id="validationCustom01"
+                                                       placeholder="Malzeme stok gir">
+                                                <span asp-validation-for="Stok" class="text-danger"></span>
                                             </div>
                                         </div>
                                         <div class="mb-3 row">
@@ -40,8 +57,8 @@
                                                 <span class="text-danger"></span>
                                             </label>
                                             <div class="col-lg-6">
-                                                <input asp-for="Fiyat" type="text" class="form-control" id="validationCustom01"
-                                                       placeholder="Malzeme fiyatını  gir">
+                                                <input asp-for="Fiyat" type="text" class="form-control" id="validationCustom01" placeholder="Malzeme fiyatını gir">
+                                                
                                                 <span asp-validation-for="Fiyat" class="text-danger"></span>
                                             </div>
                                         </div>

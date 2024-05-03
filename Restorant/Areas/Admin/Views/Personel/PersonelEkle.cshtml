@@ -7,8 +7,10 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="card-title">Personel Ekleme Sayfası</h4>
+                            <h4 class="card-title">Personel Ekleme Sayfası <i class="fa-light fa-users"></i></h4>
                         </div>
+
+
                         <div class="card-body">
                             <div class="form-validation">
                                 <div class="row">
@@ -115,15 +117,16 @@
                                                 <span class="text-danger"></span>
                                             </label>
                                             <div class="col-lg-6">
-                                                <input asp-for="Telefon" type="text" class="form-control" id="validationCustom01"
-                                                       placeholder="Telefon numarası gir">
+                                                <input asp-for="Telefon" type="text" class="form-control" id="validationCustom01" placeholder="Telefon numarası gir">
                                                 <span asp-validation-for="Telefon" class="text-danger"></span>
                                             </div>
-                                            <br />
-                                            <div class="mb-3">
-                                                <input name="file" class="form-control" type="file" id="formFileMultiple" multiple>
+                                        </div>
+                                        <div class="mb-3 row">
+                                            <label class="col-lg-4 col-form-label" for="formFileMultiple">Resim Yükle</label>
+                                            <div class="col-lg-6">
+                                                <!-- Değişiklik burada -->
+                                                <input class="form-control" type="file" id="formFileMultiple" multiple style="background-color: #f8f9fa;">
                                             </div>
-
                                         </div>
                                     </div>
                                 </div>

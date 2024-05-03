@@ -41,5 +41,23 @@ namespace Restorant.Areas.Admin.Controllers
             // Verileri View'e gönder
             return View(urunListesi);
         }
+
+        public async Task<IActionResult> UrunSil(int id)
+        {
+            var urun = await _context.Urunler.FindAsync(id);
+            if (urun == null)
+            {
+                return NotFound();
+            }
+
+            urun.Gorunurluk = false;
+            await _context.SaveChangesAsync();
+
+            return RedirectToAction("UrunListele");
+        }
+
+
+
+
     }
 }
