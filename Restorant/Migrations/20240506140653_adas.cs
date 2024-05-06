@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Restorant.Migrations
 {
     /// <inheritdoc />
-    public partial class bcbccbcbhcbyudvcducv : Migration
+    public partial class adas : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -356,12 +356,12 @@ namespace Restorant.Migrations
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     Aciklama = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    Fiyat = table.Column<decimal>(type: "decimal(65,30)", nullable: false),
+                    Fiyat = table.Column<float>(type: "float", nullable: false),
                     Gorunurluk = table.Column<bool>(type: "tinyint(1)", nullable: true),
                     Fotograf = table.Column<string>(type: "longtext", nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     Akitf = table.Column<bool>(type: "tinyint(1)", nullable: false),
-                    IndirimliFiyat = table.Column<decimal>(type: "decimal(65,30)", nullable: true),
+                    IndirimliFiyat = table.Column<float>(type: "float", nullable: true),
                     IndirimYuzdesi = table.Column<int>(type: "int", nullable: true),
                     IndirimTarihi = table.Column<DateOnly>(type: "date", nullable: true),
                     KategoriId = table.Column<int>(type: "int", nullable: true)
@@ -392,8 +392,7 @@ namespace Restorant.Migrations
                     Fiyat = table.Column<int>(type: "int", nullable: true),
                     Fotograf = table.Column<string>(type: "longtext", nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    Aktif = table.Column<string>(type: "longtext", nullable: false)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    Aktif = table.Column<bool>(type: "tinyint(1)", nullable: false),
                     IndirimliFiyat = table.Column<decimal>(type: "decimal(65,30)", nullable: true),
                     IndirimYuzdesi = table.Column<int>(type: "int", nullable: true),
                     IndirimTarihi = table.Column<DateOnly>(type: "date", nullable: true),
@@ -767,17 +766,15 @@ namespace Restorant.Migrations
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     Fiyat = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    StokId = table.Column<string>(type: "longtext", nullable: true)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
-                    StokId1 = table.Column<int>(type: "int", nullable: true),
+                    StokId = table.Column<int>(type: "int", nullable: true),
                     Gorunurluk = table.Column<bool>(type: "tinyint(1)", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Malzemeler", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Malzemeler_Stoklar_StokId1",
-                        column: x => x.StokId1,
+                        name: "FK_Malzemeler_Stoklar_StokId",
+                        column: x => x.StokId,
                         principalTable: "Stoklar",
                         principalColumn: "Id");
                 })
@@ -1074,31 +1071,6 @@ namespace Restorant.Migrations
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
 
-            migrationBuilder.CreateTable(
-                name: "MalzemeGirdiler",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    GirdiId = table.Column<int>(type: "int", nullable: true),
-                    MalzemeId = table.Column<int>(type: "int", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_MalzemeGirdiler", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_MalzemeGirdiler_Malzemeler_MalzemeId",
-                        column: x => x.MalzemeId,
-                        principalTable: "Malzemeler",
-                        principalColumn: "Id");
-                    table.ForeignKey(
-                        name: "FK_MalzemeGirdiler_StokGirdiler_GirdiId",
-                        column: x => x.GirdiId,
-                        principalTable: "StokGirdiler",
-                        principalColumn: "Id");
-                })
-                .Annotation("MySql:CharSet", "utf8mb4");
-
             migrationBuilder.CreateIndex(
                 name: "IX_Adresler_MusteriId",
                 table: "Adresler",
@@ -1172,19 +1144,9 @@ namespace Restorant.Migrations
                 column: "MusteriId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_MalzemeGirdiler_GirdiId",
-                table: "MalzemeGirdiler",
-                column: "GirdiId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_MalzemeGirdiler_MalzemeId",
-                table: "MalzemeGirdiler",
-                column: "MalzemeId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Malzemeler_StokId1",
+                name: "IX_Malzemeler_StokId",
                 table: "Malzemeler",
-                column: "StokId1");
+                column: "StokId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Masalar_PersonelId",
@@ -1385,9 +1347,6 @@ namespace Restorant.Migrations
                 name: "Kampanyalar");
 
             migrationBuilder.DropTable(
-                name: "MalzemeGirdiler");
-
-            migrationBuilder.DropTable(
                 name: "MasaOzellikler");
 
             migrationBuilder.DropTable(
@@ -1409,6 +1368,9 @@ namespace Restorant.Migrations
                 name: "SiparisUrunler");
 
             migrationBuilder.DropTable(
+                name: "StokGirdiler");
+
+            migrationBuilder.DropTable(
                 name: "TeslimatAdresler");
 
             migrationBuilder.DropTable(
@@ -1422,9 +1384,6 @@ namespace Restorant.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
-
-            migrationBuilder.DropTable(
-                name: "StokGirdiler");
 
             migrationBuilder.DropTable(
                 name: "Ozellikler");
@@ -1445,10 +1404,10 @@ namespace Restorant.Migrations
                 name: "Teslimatlar");
 
             migrationBuilder.DropTable(
-                name: "Urunler");
+                name: "Malzemeler");
 
             migrationBuilder.DropTable(
-                name: "Malzemeler");
+                name: "Urunler");
 
             migrationBuilder.DropTable(
                 name: "Adresler");
@@ -1466,10 +1425,10 @@ namespace Restorant.Migrations
                 name: "Personeller");
 
             migrationBuilder.DropTable(
-                name: "Kategoriler");
+                name: "Stoklar");
 
             migrationBuilder.DropTable(
-                name: "Stoklar");
+                name: "Kategoriler");
 
             migrationBuilder.DropTable(
                 name: "Musteriler");

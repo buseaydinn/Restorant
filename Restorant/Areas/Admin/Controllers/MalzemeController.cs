@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using Restorant.Data;
 using Restorant.Models;
 namespace Restorant.Areas.Admin.Controllers
 {
@@ -24,6 +26,8 @@ namespace Restorant.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
+                model.Stok.Miktar = 0;
+                model.Stok.Gorunurluk =true;
                 _context.Malzemeler.Add(model);
                 await _context.SaveChangesAsync();
                 return RedirectToAction("Index");
@@ -35,7 +39,9 @@ namespace Restorant.Areas.Admin.Controllers
         }
         public IActionResult MalzemeListele()
         {
-            List<Malzeme> MalzemeListesi = _context.Malzemeler.ToList();
+         var MalzemeListesi = _context.Malzemeler.Include(x=>x.Stok).ToList();
+       
+
 
             // Verileri View'e gönder
             return View(MalzemeListesi);

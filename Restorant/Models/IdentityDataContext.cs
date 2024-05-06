@@ -26,8 +26,7 @@ namespace Restorant.Models
 
         public DbSet<Kategori> Kategoriler { get; set; }
 
-        public DbSet<MalzemeGirdi> MalzemeGirdiler { get; set; }
-
+       
         public DbSet<Malzeme> Malzemeler { get; set; }
 
         public DbSet<Masa> Masalar { get; set; }

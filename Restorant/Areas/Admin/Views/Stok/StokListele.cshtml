@@ -1,11 +1,11 @@
-﻿@model IEnumerable<Malzeme>
+﻿@model IEnumerable<Stok>
 
 <div class="content-body default-height">
     <div class="container-fluid">
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <h4 class="card-title"><i class="fa-duotone fa-bags-shopping"></i> Malzeme Listesi</h4>
+                    <h4 class="card-title"><i class="fa-duotone fa-bags-shopping"></i> Stok Listesi</h4>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -13,32 +13,27 @@
                             <thead>
                                 <tr>
                                     <th>Id </th>
-                                    <th>Ad </th>
-                                    <th>Tür</th>
-                                    <th>Fiyat</th>
-                                    <th>Stok</th>
-                                    <th>Maksimum Stok</th>
-                                    <th>Minimum Stok</th>
+                                    <th>Miktar </th>
+                                    <th>MinStok</th>
+                                    <th>MaxStok</th>
                                     <th>İşlemler</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach (var personel in Model)
+                                @foreach (var stok in Model)
                                 {
                                     <tr>
-                                        <td>@personel.Id</td>
-                                        <td>@personel.Ad</td>
-                                        <td>@personel.Turu</td>
-                                        <td>@personel.Fiyat</td>
-                                        <td>@personel.Stok.Miktar</td>
-                                        <td>@personel.Stok.MaxStok</td>
-                                        <td>@personel.Stok.MinStok</td>
+                                        <td>@stok.Id</td>
+                                        <td>@stok.Miktar</td>
+                                        <td>@stok.MinStok</td>
+                                        <td>@stok.MaxStok</td>
+
                                         <td>
-                                        
-                                            <a asp-action="MalzemeSil" asp-route-id="@personel.Id" class="btn btn-danger btn-sm rounded-circle">
+
+                                            <a asp-action="StokSil" asp-route-id="@stok.Id" class="btn btn-danger btn-sm rounded-circle">
                                                 <i class="fa fa-trash"></i>
                                             </a>
-                                        </td>                                        
+                                        </td>
                                     </tr>
                                 }
                             </tbody>
@@ -56,3 +51,4 @@
         </div>
     </div>
 </div>
+

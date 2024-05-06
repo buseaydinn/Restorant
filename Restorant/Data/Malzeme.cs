@@ -23,7 +23,7 @@ public partial class Malzeme
 
     public string? Fiyat {  get; set; } 
 
-    public string? StokId {  get; set; }   
+    public int? StokId {  get; set; }   
     
     public Stok? Stok { get; set; } 
 

@@ -12,8 +12,8 @@ using Restorant.Models;
 namespace Restorant.Migrations
 {
     [DbContext(typeof(IdentityDataContext))]
-    [Migration("20240506075037_nccbdhcbdhcvdsgvhshv")]
-    partial class nccbdhcbdhcvdsgvhshv
+    [Migration("20240506140653_adas")]
+    partial class adas
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -438,9 +438,8 @@ namespace Restorant.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<string>("Aktif")
-                        .IsRequired()
-                        .HasColumnType("longtext");
+                    b.Property<bool>("Aktif")
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<string>("Detay")
                         .HasColumnType("longtext");
@@ -793,10 +792,7 @@ namespace Restorant.Migrations
                     b.Property<bool?>("Gorunurluk")
                         .HasColumnType("tinyint(1)");
 
-                    b.Property<string>("StokId")
-                        .HasColumnType("longtext");
-
-                    b.Property<int?>("StokId1")
+                    b.Property<int?>("StokId")
                         .HasColumnType("int");
 
                     b.Property<string>("Turu")
@@ -805,32 +801,9 @@ namespace Restorant.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("StokId1");
+                    b.HasIndex("StokId");
 
                     b.ToTable("Malzemeler");
-                });
-
-            modelBuilder.Entity("Restorant.Models.MalzemeGirdi", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int?>("GirdiId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("MalzemeId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("GirdiId");
-
-                    b.HasIndex("MalzemeId");
-
-                    b.ToTable("MalzemeGirdiler");
                 });
 
             modelBuilder.Entity("Restorant.Models.Masa", b =>
@@ -978,13 +951,12 @@ namespace Restorant.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<bool?>("Akitf")
-                        .IsRequired()
+                    b.Property<bool>("Akitf")
                         .HasColumnType("tinyint(1)");
 
-                    b.Property<decimal?>("Fiyat")
+                    b.Property<float?>("Fiyat")
                         .IsRequired()
-                        .HasColumnType("decimal(65,30)");
+                        .HasColumnType("float");
 
                     b.Property<string>("Fotograf")
                         .HasColumnType("longtext");
@@ -998,8 +970,8 @@ namespace Restorant.Migrations
                     b.Property<int?>("IndirimYuzdesi")
                         .HasColumnType("int");
 
-                    b.Property<decimal?>("IndirimliFiyat")
-                        .HasColumnType("decimal(65,30)");
+                    b.Property<float?>("IndirimliFiyat")
+                        .HasColumnType("float");
 
                     b.Property<int?>("KategoriId")
                         .HasColumnType("int");
@@ -1147,8 +1119,7 @@ namespace Restorant.Migrations
                     b.Property<bool?>("Gorunurluk")
                         .HasColumnType("tinyint(1)");
 
-                    b.Property<decimal?>("Maas")
-                        .IsRequired()
+                    b.Property<decimal>("Maas")
                         .HasColumnType("decimal (10,2)");
 
                     b.Property<int?>("RolId")
@@ -1558,24 +1529,9 @@ namespace Restorant.Migrations
                 {
                     b.HasOne("Restorant.Data.Stok", "Stok")
                         .WithMany()
-                        .HasForeignKey("StokId1");
+                        .HasForeignKey("StokId");
 
                     b.Navigation("Stok");
-                });
-
-            modelBuilder.Entity("Restorant.Models.MalzemeGirdi", b =>
-                {
-                    b.HasOne("Restorant.Data.StokGirdi", "Girdi")
-                        .WithMany()
-                        .HasForeignKey("GirdiId");
-
-                    b.HasOne("Restorant.Models.Malzeme", "Malzeme")
-                        .WithMany()
-                        .HasForeignKey("MalzemeId");
-
-                    b.Navigation("Girdi");
-
-                    b.Navigation("Malzeme");
                 });
 
             modelBuilder.Entity("Restorant.Models.Masa", b =>
