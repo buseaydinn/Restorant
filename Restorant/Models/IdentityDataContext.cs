@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Restorant.Data;
-using Restorant.Migrations;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Model;
 using System;
 using Restorant.Models;
@@ -85,7 +84,7 @@ namespace Restorant.Models
                 ().Property(p => p.Maas)
                 .HasColumnType("decimal (10,2)");
 
-
         }
+
     }
 }

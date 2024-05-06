@@ -12,8 +12,8 @@ using Restorant.Models;
 namespace Restorant.Migrations
 {
     [DbContext(typeof(IdentityDataContext))]
-    [Migration("20240416121949_baba")]
-    partial class baba
+    [Migration("20240506085154_asxx")]
+    partial class asxx
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -173,6 +173,27 @@ namespace Restorant.Migrations
                     b.ToTable("Adresler");
                 });
 
+            modelBuilder.Entity("Restorant.Data.Odeme", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("varchar(255)");
+
+                    b.Property<int>("SiparisId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Tur")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("Tutar")
+                        .HasColumnType("decimal(65,30)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("SiparisId");
+
+                    b.ToTable("Odeme");
+                });
+
             modelBuilder.Entity("Restorant.Data.SiparisUrun", b =>
                 {
                     b.Property<int>("Id")
@@ -213,9 +234,6 @@ namespace Restorant.Migrations
                     b.Property<bool?>("Gorunurluk")
                         .HasColumnType("tinyint(1)");
 
-                    b.Property<int>("MalzemeId")
-                        .HasColumnType("int");
-
                     b.Property<int?>("MaxStok")
                         .HasColumnType("int");
 
@@ -243,19 +261,32 @@ namespace Restorant.Migrations
 
                     MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int?>("AlısFiyati")
+                    b.Property<int>("Ad")
+                        .HasColumnType("int");
+
+                    b.Property<bool?>("Gorunurluk")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<int?>("MalzemeId")
                         .HasColumnType("int");
 
                     b.Property<int?>("Miktar")
+                        .IsRequired()
                         .HasColumnType("int");
 
+                    b.Property<string>("SonStok")
+                        .HasColumnType("longtext");
+
                     b.Property<DateTime?>("Tarih")
+                        .IsRequired()
                         .HasColumnType("datetime(6)");
 
                     b.Property<int?>("TedarikciId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("MalzemeId");
 
                     b.HasIndex("TedarikciId");
 
@@ -271,12 +302,17 @@ namespace Restorant.Migrations
                     MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("AdSoyad")
+                        .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<int?>("AdresId")
-                        .HasColumnType("int");
+                    b.Property<string>("Adres")
+                        .IsRequired()
+                        .HasColumnType("longtext");
 
-                    b.Property<string>("FirmaAd")
+                    b.Property<string>("Eposta")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Firma")
                         .HasColumnType("longtext");
 
                     b.Property<bool?>("Gorunurluk")
@@ -286,8 +322,6 @@ namespace Restorant.Migrations
                         .HasColumnType("longtext");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("AdresId");
 
                     b.ToTable("Tedarikciler");
                 });
@@ -397,13 +431,15 @@ namespace Restorant.Migrations
                     MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Acıklama")
+                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<string>("Ad")
+                        .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<string>("Aktif")
-                        .HasColumnType("longtext");
+                    b.Property<bool>("Aktif")
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<string>("Detay")
                         .HasColumnType("longtext");
@@ -413,6 +449,9 @@ namespace Restorant.Migrations
 
                     b.Property<string>("Fotograf")
                         .HasColumnType("longtext");
+
+                    b.Property<bool?>("Gorunurluk")
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<DateOnly?>("IndirimTarihi")
                         .HasColumnType("date");
@@ -427,6 +466,8 @@ namespace Restorant.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("KategoriId");
 
                     b.ToTable("Urunler");
                 });
@@ -447,6 +488,9 @@ namespace Restorant.Migrations
 
                     b.Property<int?>("Miktar")
                         .HasColumnType("int");
+
+                    b.Property<bool?>("Secenek")
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<int>("UrunId")
                         .HasColumnType("int");
@@ -472,6 +516,9 @@ namespace Restorant.Migrations
                         .HasColumnType("longtext");
 
                     b.Property<int?>("Begenme")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("Durum")
                         .HasColumnType("int");
 
                     b.Property<bool?>("Gorunurluk")
@@ -648,8 +695,8 @@ namespace Restorant.Migrations
                     b.Property<string>("Yer")
                         .HasColumnType("longtext");
 
-                    b.Property<TimeOnly?>("Zaman")
-                        .HasColumnType("time(6)");
+                    b.Property<DateTime?>("Zaman")
+                        .HasColumnType("datetime(6)");
 
                     b.HasKey("Id");
 
@@ -671,9 +718,6 @@ namespace Restorant.Migrations
 
                     b.Property<DateTime?>("GecerlilikTarihi")
                         .HasColumnType("datetime(6)");
-
-                    b.Property<bool?>("Gorunurluk")
-                        .HasColumnType("tinyint(1)");
 
                     b.Property<int?>("Indirim")
                         .HasColumnType("int");
@@ -721,6 +765,9 @@ namespace Restorant.Migrations
                     b.Property<bool?>("Gorunurluk")
                         .HasColumnType("tinyint(1)");
 
+                    b.Property<string>("Tur")
+                        .HasColumnType("longtext");
+
                     b.HasKey("Id");
 
                     b.ToTable("Kategoriler");
@@ -735,9 +782,11 @@ namespace Restorant.Migrations
                     MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Ad")
+                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<string>("Fiyat")
+                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<bool?>("Gorunurluk")
@@ -749,7 +798,8 @@ namespace Restorant.Migrations
                     b.Property<int?>("StokId1")
                         .HasColumnType("int");
 
-                    b.Property<string>("Tür")
+                    b.Property<string>("Turu")
+                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.HasKey("Id");
@@ -799,13 +849,17 @@ namespace Restorant.Migrations
                     b.Property<int?>("Kapasite")
                         .HasColumnType("int");
 
-                    b.Property<string>("Kod")
-                        .HasColumnType("longtext");
-
-                    b.Property<int?>("OdenenTutar")
+                    b.Property<int?>("Kategori")
                         .HasColumnType("int");
 
+                    b.Property<string>("Kod")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
                     b.Property<int?>("PersonelId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("Qr")
                         .HasColumnType("int");
 
                     b.Property<int?>("Tutar")
@@ -884,12 +938,23 @@ namespace Restorant.Migrations
                     b.Property<int>("MasaId")
                         .HasColumnType("int");
 
+                    b.Property<int>("MusteriId")
+                        .HasColumnType("int");
+
+                    b.Property<decimal?>("OdemeTutar")
+                        .HasColumnType("decimal(65,30)");
+
                     b.Property<int>("SiparisId")
                         .HasColumnType("int");
+
+                    b.Property<decimal?>("Tutar")
+                        .HasColumnType("decimal(65,30)");
 
                     b.HasKey("Id");
 
                     b.HasIndex("MasaId");
+
+                    b.HasIndex("MusteriId");
 
                     b.HasIndex("SiparisId");
 
@@ -905,19 +970,19 @@ namespace Restorant.Migrations
                     MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Aciklama")
+                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<string>("Ad")
+                        .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<bool?>("Akitf")
+                    b.Property<bool>("Akitf")
                         .HasColumnType("tinyint(1)");
 
-                    b.Property<string>("Detay")
-                        .HasColumnType("longtext");
-
-                    b.Property<int?>("Fiyat")
-                        .HasColumnType("int");
+                    b.Property<decimal?>("Fiyat")
+                        .IsRequired()
+                        .HasColumnType("decimal(65,30)");
 
                     b.Property<string>("Fotograf")
                         .HasColumnType("longtext");
@@ -934,7 +999,12 @@ namespace Restorant.Migrations
                     b.Property<decimal?>("IndirimliFiyat")
                         .HasColumnType("decimal(65,30)");
 
+                    b.Property<int?>("KategoriId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("KategoriId");
 
                     b.ToTable("Menuler");
                 });
@@ -951,6 +1021,9 @@ namespace Restorant.Migrations
                         .HasColumnType("tinyint(1)");
 
                     b.Property<int>("MenuId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Miktar")
                         .HasColumnType("int");
 
                     b.Property<int>("UrunId")
@@ -976,9 +1049,6 @@ namespace Restorant.Migrations
                     b.Property<string>("Ad")
                         .HasColumnType("longtext");
 
-                    b.Property<int?>("AdresId")
-                        .HasColumnType("int");
-
                     b.Property<DateOnly?>("Dogumtarihi")
                         .HasColumnType("date");
 
@@ -1001,10 +1071,6 @@ namespace Restorant.Migrations
                         .HasColumnType("longtext");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("AdresId");
-
-                    b.HasIndex("MasaId");
 
                     b.ToTable("Musteriler");
                 });
@@ -1030,8 +1096,8 @@ namespace Restorant.Migrations
 
                     MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("Ad")
-                        .HasColumnType("longtext");
+                    b.Property<int>("Ad")
+                        .HasColumnType("int");
 
                     b.Property<bool?>("Gorunurluk")
                         .HasColumnType("tinyint(1)");
@@ -1057,16 +1123,13 @@ namespace Restorant.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<int?>("AdresId")
-                        .HasColumnType("int");
-
                     b.Property<DateOnly?>("BaslamaTarihi")
                         .IsRequired()
                         .HasColumnType("date");
 
-                    b.Property<bool?>("Cinsiyet")
+                    b.Property<string>("Cinsiyet")
                         .IsRequired()
-                        .HasColumnType("tinyint(1)");
+                        .HasColumnType("longtext");
 
                     b.Property<DateOnly?>("DogumTarihi")
                         .IsRequired()
@@ -1084,7 +1147,7 @@ namespace Restorant.Migrations
 
                     b.Property<decimal?>("Maas")
                         .IsRequired()
-                        .HasColumnType("decimal(65,30)");
+                        .HasColumnType("decimal (10,2)");
 
                     b.Property<int?>("RolId")
                         .HasColumnType("int");
@@ -1103,8 +1166,6 @@ namespace Restorant.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("AdresId");
-
                     b.HasIndex("RolId");
 
                     b.ToTable("Personeller");
@@ -1121,7 +1182,13 @@ namespace Restorant.Migrations
                     b.Property<bool?>("Gorunurluk")
                         .HasColumnType("tinyint(1)");
 
+                    b.Property<string>("KayisizMusteriId")
+                        .HasColumnType("longtext");
+
                     b.Property<int?>("KisiSayisi")
+                        .HasColumnType("int");
+
+                    b.Property<int>("MusteriId")
                         .HasColumnType("int");
 
                     b.Property<string>("Onay")
@@ -1150,9 +1217,11 @@ namespace Restorant.Migrations
                     MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Ad")
+                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<DateTime?>("EklenmeTarihi")
+                        .IsRequired()
                         .HasColumnType("datetime(6)");
 
                     b.Property<bool?>("Gorunurluk")
@@ -1171,8 +1240,8 @@ namespace Restorant.Migrations
 
                     MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("Adres")
-                        .HasColumnType("longtext");
+                    b.Property<int?>("AdresId")
+                        .HasColumnType("int");
 
                     b.Property<bool?>("Gorunurluk")
                         .HasColumnType("tinyint(1)");
@@ -1189,9 +1258,6 @@ namespace Restorant.Migrations
                     b.Property<string>("OdemeDurum")
                         .HasColumnType("longtext");
 
-                    b.Property<string>("OdemeTuru")
-                        .HasColumnType("longtext");
-
                     b.Property<DateOnly?>("Tarih")
                         .HasColumnType("date");
 
@@ -1202,6 +1268,8 @@ namespace Restorant.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("AdresId");
 
                     b.HasIndex("KasaId");
 
@@ -1295,12 +1363,23 @@ namespace Restorant.Migrations
             modelBuilder.Entity("Restorant.Data.Adres", b =>
                 {
                     b.HasOne("Restorant.Models.Musteri", "Musteri")
-                        .WithMany()
+                        .WithMany("Adresler")
                         .HasForeignKey("MusteriId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Musteri");
+                });
+
+            modelBuilder.Entity("Restorant.Data.Odeme", b =>
+                {
+                    b.HasOne("Restorant.Models.Siparis", "Siparis")
+                        .WithMany("Odemeler")
+                        .HasForeignKey("SiparisId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Siparis");
                 });
 
             modelBuilder.Entity("Restorant.Data.SiparisUrun", b =>
@@ -1333,20 +1412,17 @@ namespace Restorant.Migrations
 
             modelBuilder.Entity("Restorant.Data.StokGirdi", b =>
                 {
+                    b.HasOne("Restorant.Models.Malzeme", "Malzeme")
+                        .WithMany()
+                        .HasForeignKey("MalzemeId");
+
                     b.HasOne("Restorant.Data.Tedarikci", "Tedarikci")
                         .WithMany("Stokgirdilers")
                         .HasForeignKey("TedarikciId");
 
+                    b.Navigation("Malzeme");
+
                     b.Navigation("Tedarikci");
-                });
-
-            modelBuilder.Entity("Restorant.Data.Tedarikci", b =>
-                {
-                    b.HasOne("Restorant.Data.Adres", "Adres")
-                        .WithMany("Tedarikcilers")
-                        .HasForeignKey("AdresId");
-
-                    b.Navigation("Adres");
                 });
 
             modelBuilder.Entity("Restorant.Data.Teslimat", b =>
@@ -1361,7 +1437,7 @@ namespace Restorant.Migrations
             modelBuilder.Entity("Restorant.Data.TeslimatAdres", b =>
                 {
                     b.HasOne("Restorant.Data.Adres", "Adres")
-                        .WithMany("Teslimatadreslers")
+                        .WithMany()
                         .HasForeignKey("AdresId");
 
                     b.HasOne("Restorant.Models.Musteri", "Musteri")
@@ -1394,10 +1470,19 @@ namespace Restorant.Migrations
                     b.Navigation("Teslimat");
                 });
 
+            modelBuilder.Entity("Restorant.Data.Urun", b =>
+                {
+                    b.HasOne("Restorant.Models.Kategori", "Kategori")
+                        .WithMany()
+                        .HasForeignKey("KategoriId");
+
+                    b.Navigation("Kategori");
+                });
+
             modelBuilder.Entity("Restorant.Data.UrunMalzeme", b =>
                 {
                     b.HasOne("Restorant.Models.Malzeme", "Malzeme")
-                        .WithMany()
+                        .WithMany("urunMalzemes")
                         .HasForeignKey("MalzemeId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -1470,7 +1555,7 @@ namespace Restorant.Migrations
             modelBuilder.Entity("Restorant.Models.Malzeme", b =>
                 {
                     b.HasOne("Restorant.Data.Stok", "Stok")
-                        .WithMany("Malzemelers")
+                        .WithMany()
                         .HasForeignKey("StokId1");
 
                     b.Navigation("Stok");
@@ -1503,7 +1588,7 @@ namespace Restorant.Migrations
             modelBuilder.Entity("Restorant.Models.MasaOzellik", b =>
                 {
                     b.HasOne("Restorant.Models.Masa", "Masa")
-                        .WithMany()
+                        .WithMany("masaOzelliks")
                         .HasForeignKey("MasaId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -1546,6 +1631,12 @@ namespace Restorant.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("Restorant.Models.Musteri", "Musteri")
+                        .WithMany()
+                        .HasForeignKey("MusteriId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("Restorant.Models.Siparis", "Siparis")
                         .WithMany()
                         .HasForeignKey("SiparisId")
@@ -1554,7 +1645,18 @@ namespace Restorant.Migrations
 
                     b.Navigation("Masa");
 
+                    b.Navigation("Musteri");
+
                     b.Navigation("Siparis");
+                });
+
+            modelBuilder.Entity("Restorant.Models.Menu", b =>
+                {
+                    b.HasOne("Restorant.Models.Kategori", "Kategori")
+                        .WithMany()
+                        .HasForeignKey("KategoriId");
+
+                    b.Navigation("Kategori");
                 });
 
             modelBuilder.Entity("Restorant.Models.MenuUrun", b =>
@@ -1576,25 +1678,8 @@ namespace Restorant.Migrations
                     b.Navigation("Urun");
                 });
 
-            modelBuilder.Entity("Restorant.Models.Musteri", b =>
-                {
-                    b.HasOne("Restorant.Data.Adres", null)
-                        .WithMany("Musterilers")
-                        .HasForeignKey("AdresId");
-
-                    b.HasOne("Restorant.Models.Masa", "Masa")
-                        .WithMany("Musterilers")
-                        .HasForeignKey("MasaId");
-
-                    b.Navigation("Masa");
-                });
-
             modelBuilder.Entity("Restorant.Models.Personel", b =>
                 {
-                    b.HasOne("Restorant.Data.Adres", null)
-                        .WithMany("Personellers")
-                        .HasForeignKey("AdresId");
-
                     b.HasOne("Restorant.Models.Rol", "Rol")
                         .WithMany("Personellers")
                         .HasForeignKey("RolId");
@@ -1604,6 +1689,10 @@ namespace Restorant.Migrations
 
             modelBuilder.Entity("Restorant.Models.Siparis", b =>
                 {
+                    b.HasOne("Restorant.Data.Adres", "Adres")
+                        .WithMany()
+                        .HasForeignKey("AdresId");
+
                     b.HasOne("Restorant.Models.Kasa", "Kasa")
                         .WithMany("Siparislers")
                         .HasForeignKey("KasaId");
@@ -1615,6 +1704,8 @@ namespace Restorant.Migrations
                     b.HasOne("Restorant.Data.Yorum", "Yorum")
                         .WithMany("Siparislers")
                         .HasForeignKey("YorumId");
+
+                    b.Navigation("Adres");
 
                     b.Navigation("Kasa");
 
@@ -1642,22 +1733,6 @@ namespace Restorant.Migrations
                     b.Navigation("Siparis");
                 });
 
-            modelBuilder.Entity("Restorant.Data.Adres", b =>
-                {
-                    b.Navigation("Musterilers");
-
-                    b.Navigation("Personellers");
-
-                    b.Navigation("Tedarikcilers");
-
-                    b.Navigation("Teslimatadreslers");
-                });
-
-            modelBuilder.Entity("Restorant.Data.Stok", b =>
-                {
-                    b.Navigation("Malzemelers");
-                });
-
             modelBuilder.Entity("Restorant.Data.Tedarikci", b =>
                 {
                     b.Navigation("Stokgirdilers");
@@ -1682,13 +1757,20 @@ namespace Restorant.Migrations
                     b.Navigation("Siparislers");
                 });
 
+            modelBuilder.Entity("Restorant.Models.Malzeme", b =>
+                {
+                    b.Navigation("urunMalzemes");
+                });
+
             modelBuilder.Entity("Restorant.Models.Masa", b =>
                 {
-                    b.Navigation("Musterilers");
+                    b.Navigation("masaOzelliks");
                 });
 
             modelBuilder.Entity("Restorant.Models.Musteri", b =>
                 {
+                    b.Navigation("Adresler");
+
                     b.Navigation("Bildirimlers");
 
                     b.Navigation("Kampanyalars");
@@ -1724,6 +1806,8 @@ namespace Restorant.Migrations
             modelBuilder.Entity("Restorant.Models.Siparis", b =>
                 {
                     b.Navigation("Durumlars");
+
+                    b.Navigation("Odemeler");
 
                     b.Navigation("Teslimatsiparislers");
                 });

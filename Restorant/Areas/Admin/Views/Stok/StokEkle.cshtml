@@ -1,12 +1,12 @@
-﻿@model Menu
+﻿@model Stok
 <div class="content-body default-height">
     <div class="container-fluid">
-        <form asp-controller="Menu" asp-action="MenuEkle" method="post" novalidate>
+        <form asp-controller="Stok" asp-action="StokEkle" method="post" novalidate>
             <div class="row">
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="card-title"><i class="fa-regular fa-book-open-reader"></i> Menü Ekle</h4>
+                            <h4 class="card-title"><i class="fa-duotone fa-arrow-trend-up"></i> Stok Ekleme Sayfası</h4>
 
                         </div>
                         <div class="card-body">
@@ -14,51 +14,42 @@
                                 <div class="row">
                                     <div class="col-xl-6">
                                         <div class="mb-3 row">
-                                            <label class="col-lg-4 col-form-label" for="Ad">Ad</label>
+                                            <label class="col-lg-4 col-form-label" for="Miktar">Miktar</label>
                                             <div class="col-lg-8">
-                                                <input asp-for="Ad" type="text" class="form-control" id="Ad" placeholder="Ürün Adını gir">
-                                                <span asp-validation-for="Ad" class="text-danger"></span>
+                                                <input asp-for="Miktar" type="text" class="form-control" id="Ad" placeholder="Miktar  gir">
+                                                <span asp-validation-for="Miktar" class="text-danger"></span>
                                             </div>
                                         </div>
                                         <div class="mb-3 row">
-                                            <label class="col-lg-4 col-form-label" for="Aciklama">Açıklama</label>
+                                            <label class="col-lg-4 col-form-label" for="MinStok">MinStok</label>
                                             <div class="col-lg-8">
-                                                <input asp-for="Aciklama" type="text" class="form-control" id="Aciklama" placeholder="Açıklama giriniz">
-                                                <span asp-validation-for="Aciklama" class="text-danger"></span>
+                                                <input asp-for="MinStok" type="text" class="form-control" id="Aciklama" placeholder="Minimum Stok giriniz">
+                                                <span asp-validation-for="MinStok" class="text-danger"></span>
                                             </div>
                                         </div>
                                         <div class="mb-3 row">
-                                            <label class="col-lg-4 col-form-label" for="Fiyat">Fiyat</label>
+                                            <label class="col-lg-4 col-form-label" for="MaxStok">MaxStok</label>
                                             <div class="col-lg-8">
-                                                <input asp-for="Fiyat" type="text" class="form-control" id="Fiyat" placeholder="Fiyat giriniz">
-                                                <span asp-validation-for="Fiyat" class="text-danger"></span>
+                                                <input asp-for="MaxStok" type="text" class="form-control" id="Fiyat" placeholder="Maximum Stok giriniz">
+                                                <span asp-validation-for="MaxStok" class="text-danger"></span>
                                             </div>
                                         </div>
                                         <div class="mb-3 row">
                                             <label class="col-lg-4 col-form-label" for="validationCustom05">
-                                                Kategori Tür Seç
+                                                Tedarikçi  Seç
                                                 <span class="text-danger"></span>
                                             </label>
                                             <div class="col-lg-8">
-                                                <select asp-for="KategoriId" class="default-select wide form-control" id="validationCustom05">
-                                                    <option data-display="Select">Tür seçiniz</option>
-                                                    @foreach (var kategori in ViewBag.Kategori)
+                                                <select asp-for="TedarikciId" class="default-select wide form-control" id="validationCustom05">
+                                                    <option data-display="Select">Tedarikçi seçiniz</option>
+                                                    @foreach (var tedarikci in ViewBag.Tedarikci)
                                                     {
-                                                        <option value="@kategori.Id">@kategori.Ad</option>
+                                                        <option value="@tedarikci.Id">@tedarikci.AdSoyad</option>
                                                     }
                                                 </select>
                                             </div>
                                         </div>
-                               
-                                        <div class="mb-3 row">
-                                            <label class="col-lg-4 col-form-label" for="ResimYukle">Resim Yükle</label>
-                                            <div class="col-lg-8">
-                                                <input class="form-control" type="file" id="formFileMultiple" multiple style="background-color: #f8f9fa;">
-                                            </div>
-                                        </div>
 
-
-                                        <input type="hidden" value=true asp-for="Akitf">
                                         <div class="row">
                                             <div class="col-lg-12">
                                                 <button type="submit" class="btn me-2 btn-primary">Gönder</button>

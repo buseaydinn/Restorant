@@ -6,7 +6,8 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="card-title">Ürün Ekleme Sayfası</h4>
+                            <h4 class="card-title"><i class="fa-solid fa-burger"></i>Ürün Ekleme Sayfası</h4>
+
                         </div>
                         <div class="card-body">
                             <div class="form-validation">
@@ -47,12 +48,12 @@
                                                 <span class="text-danger"></span>
                                             </label>
                                             <div class="col-lg-6">
-                                                <select asp-for="Kategori" class="default-select wide form-control" id="validationCustom05">
+                                                <select asp-for="KategoriId" class="default-select wide form-control" id="validationCustom05">
                                                     <option data-display="Select">Tür seçiniz</option>
-
-                                                    <option value="Masa">Masa</option>
-                                                    <option value="Ürün">Ürün</option>
-                                                    <option value="Menü">Menü</option>
+                                                    @foreach (var kategori in ViewBag.Kategori)
+                                                    {
+                                                        <option value="@kategori.Id">@kategori.Ad</option>
+                                                    }
 
                                                 </select>
                                             </div>

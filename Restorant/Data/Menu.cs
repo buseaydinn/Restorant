@@ -12,12 +12,13 @@ public partial class Menu
 
     public string? Ad { get; set; }
 
+
     [Required(ErrorMessage = "*Zorunlu alan")]
     public string? Aciklama { get; set; }
 
     [Required(ErrorMessage = "*Zorunlu alan")]
 
-    public decimal? Fiyat { get; set; }
+    public float? Fiyat { get; set; }
 
     public bool? Gorunurluk { get; set; }
 
@@ -26,13 +27,14 @@ public partial class Menu
 
     [Required(ErrorMessage = "*Zorunlu alan")]
 
-    public bool? Akitf { get; set; }
+    public bool Akitf { get; set; }
 
-    public decimal? IndirimliFiyat { get; set; }
+    public float? IndirimliFiyat { get; set; }
 
     public int? IndirimYuzdesi { get; set; }
 
     public DateOnly? IndirimTarihi { get; set; }
+
     public int? KategoriId { get; set; }
 
     public Kategori? Kategori { get; set; }

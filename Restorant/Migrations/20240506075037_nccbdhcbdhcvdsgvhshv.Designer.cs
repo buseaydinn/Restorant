@@ -12,8 +12,8 @@ using Restorant.Models;
 namespace Restorant.Migrations
 {
     [DbContext(typeof(IdentityDataContext))]
-    [Migration("20240502091209_gdsgddfgd")]
-    partial class gdsgddfgd
+    [Migration("20240506075037_nccbdhcbdhcvdsgvhshv")]
+    partial class nccbdhcbdhcvdsgvhshv
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -233,9 +233,6 @@ namespace Restorant.Migrations
 
                     b.Property<bool?>("Gorunurluk")
                         .HasColumnType("tinyint(1)");
-
-                    b.Property<int>("MalzemeId")
-                        .HasColumnType("int");
 
                     b.Property<int?>("MaxStok")
                         .HasColumnType("int");
@@ -769,7 +766,7 @@ namespace Restorant.Migrations
                     b.Property<bool?>("Gorunurluk")
                         .HasColumnType("tinyint(1)");
 
-                    b.Property<string>("Tür")
+                    b.Property<string>("Tur")
                         .HasColumnType("longtext");
 
                     b.HasKey("Id");
@@ -1152,7 +1149,7 @@ namespace Restorant.Migrations
 
                     b.Property<decimal?>("Maas")
                         .IsRequired()
-                        .HasColumnType("decimal(65,30)");
+                        .HasColumnType("decimal (10,2)");
 
                     b.Property<int?>("RolId")
                         .HasColumnType("int");
@@ -1187,7 +1184,13 @@ namespace Restorant.Migrations
                     b.Property<bool?>("Gorunurluk")
                         .HasColumnType("tinyint(1)");
 
+                    b.Property<string>("KayisizMusteriId")
+                        .HasColumnType("longtext");
+
                     b.Property<int?>("KisiSayisi")
+                        .HasColumnType("int");
+
+                    b.Property<int>("MusteriId")
                         .HasColumnType("int");
 
                     b.Property<string>("Onay")
@@ -1554,7 +1557,7 @@ namespace Restorant.Migrations
             modelBuilder.Entity("Restorant.Models.Malzeme", b =>
                 {
                     b.HasOne("Restorant.Data.Stok", "Stok")
-                        .WithMany("Malzemelers")
+                        .WithMany()
                         .HasForeignKey("StokId1");
 
                     b.Navigation("Stok");
@@ -1730,11 +1733,6 @@ namespace Restorant.Migrations
                     b.Navigation("Menu");
 
                     b.Navigation("Siparis");
-                });
-
-            modelBuilder.Entity("Restorant.Data.Stok", b =>
-                {
-                    b.Navigation("Malzemelers");
                 });
 
             modelBuilder.Entity("Restorant.Data.Tedarikci", b =>

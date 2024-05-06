@@ -32,7 +32,7 @@ public partial class Personel
 
     [Required(ErrorMessage = "*Zorunlu alan")]
 
-    public decimal? Maas { get; set; }
+    public float? Maas { get; set; }
 
 
     [Required(ErrorMessage = "*Zorunlu alan")]

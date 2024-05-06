@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 using Restorant.Models;
 
 namespace Restorant.Areas.Admin.Controllers
@@ -20,13 +21,15 @@ namespace Restorant.Areas.Admin.Controllers
         }
          public IActionResult MenuEkle() 
         {
-            ViewBag.Menuler = _context.Menuler.ToList();
+            ViewBag.Kategori = _context.Kategoriler.ToList();
             return View();
         }
 
         [HttpPost]
         public async Task<IActionResult> MenuEkle(Menu model, int id,IFormFile?file)
         {
+            ViewBag.Kategori = _context.Kategoriler.ToList();
+
             if (ModelState.IsValid)
             {
                 _context.Menuler.Add(model);
@@ -40,7 +43,7 @@ namespace Restorant.Areas.Admin.Controllers
         }
         public IActionResult MenuListele()
         {
-            List<Menu> menuListesi = _context.Menuler.ToList();
+            List<Menu> menuListesi = _context.Menuler.Include(x => x.Kategori).ToList();
 
             // Verileri View'e gönder
             return View(menuListesi);

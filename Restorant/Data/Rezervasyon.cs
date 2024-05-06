@@ -17,5 +17,9 @@ public partial class Rezervasyon
 
     public string? Onay { get; set; }
 
+    public int MusteriId { get; set; }
+
+    public string? KayisizMusteriId { get; set; }
+
     public DateOnly? TalepTarihi { get; set; }
 }

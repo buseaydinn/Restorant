@@ -1,36 +1,40 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Restorant.Data;
 using Restorant.Models;
+
 namespace Restorant.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    public class UrunController : Controller
+    public class StokController : Controller
     {
+
         private readonly IdentityDataContext _context;
 
-        public UrunController(IdentityDataContext context)
+        public StokController(IdentityDataContext context)
         {
             _context = context;
         }
+
         public IActionResult Index()
         {
             return View();
         }
-        public IActionResult UrunEkle()
+        public IActionResult StokEkle()
         {
-            ViewBag.Kategori = _context.Kategoriler.ToList();
-
+            ViewBag.Tedarikci = _context.Tedarikciler.ToList();
             return View();
         }
+
         [HttpPost]
-        public async Task<IActionResult> UrunEkle(Urun model, int id)
+        public async Task<IActionResult> StokEkle(Stok model, int id, IFormFile? file)
         {
-          ViewBag.Kategori = _context.Kategoriler.ToList();
+            ViewBag.Tedarikci = _context.Tedarikciler.ToList();
 
             if (ModelState.IsValid)
             {
-                _context.Urunler.Add(model);
+                _context.Stoklar.Add(model);
                 await _context.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
@@ -39,17 +43,17 @@ namespace Restorant.Areas.Admin.Controllers
                 return View(model);
             }
         }
-        public IActionResult UrunListele()
+        public IActionResult StokListele()
         {
-            List<Urun> urunListesi = _context.Urunler.Include(x => x.Kategori).ToList();
+            List<Stok> stokListesi = _context.Stoklar.Include(x => x.Tedarikci).ToList();
 
-            // Verileri View'e gönder
-            return View(urunListesi);
+
+            return View(StokListele);
+
         }
-
-        public async Task<IActionResult> UrunSil(int id)
+        public async Task<IActionResult> StokSil(int id)
         {
-            var urun = await _context.Urunler.FindAsync(id);
+            var urun = await _context.Stoklar.FindAsync(id);
             if (urun == null)
             {
                 return NotFound();
@@ -58,11 +62,7 @@ namespace Restorant.Areas.Admin.Controllers
             urun.Gorunurluk = false;
             await _context.SaveChangesAsync();
 
-            return RedirectToAction("UrunListele");
+            return RedirectToAction("StokListele");
         }
-
-
-
-
     }
 }

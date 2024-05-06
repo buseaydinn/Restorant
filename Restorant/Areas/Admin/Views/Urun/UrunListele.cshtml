@@ -5,7 +5,8 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <h4 class="card-title">Ürün Listesi</h4>
+                    <h4 class="card-title"><i class="fa-solid fa-burger"></i> Ürün Listesi</h4>
+
                 </div>
                 <div class="row">
                     @foreach (var urun in Model)
@@ -32,7 +33,7 @@
                                                     </p>
                                                     <p style="margin-bottom: 0;">Ürün Fiyatı: <span class="item">@urun.Fiyat</span> ₺</p>
                                                     <p style="margin-bottom: 0;">Ürün Detay: <span class="item">@urun.Detay</span></p>
-                                                    <p>Katagori <span class="item">@urun.Kategori</span> </p>
+                                                    <p>Katagori <span class="item">@urun.Kategori.Ad</span> </p>
                                                 </div>
                                             </div>
                                         </div>

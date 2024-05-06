@@ -5,7 +5,7 @@
 namespace Restorant.Migrations
 {
     /// <inheritdoc />
-    public partial class denemeyaptik : Migration
+    public partial class nccbdhcbdhcvdsgvhshv : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

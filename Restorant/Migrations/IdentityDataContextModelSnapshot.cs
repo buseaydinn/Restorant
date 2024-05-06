@@ -231,9 +231,6 @@ namespace Restorant.Migrations
                     b.Property<bool?>("Gorunurluk")
                         .HasColumnType("tinyint(1)");
 
-                    b.Property<int>("MalzemeId")
-                        .HasColumnType("int");
-
                     b.Property<int?>("MaxStok")
                         .HasColumnType("int");
 
@@ -438,9 +435,8 @@ namespace Restorant.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<string>("Aktif")
-                        .IsRequired()
-                        .HasColumnType("longtext");
+                    b.Property<bool>("Aktif")
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<string>("Detay")
                         .HasColumnType("longtext");
@@ -766,7 +762,7 @@ namespace Restorant.Migrations
                     b.Property<bool?>("Gorunurluk")
                         .HasColumnType("tinyint(1)");
 
-                    b.Property<string>("Tür")
+                    b.Property<string>("Tur")
                         .HasColumnType("longtext");
 
                     b.HasKey("Id");
@@ -978,13 +974,12 @@ namespace Restorant.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<bool?>("Akitf")
-                        .IsRequired()
+                    b.Property<bool>("Akitf")
                         .HasColumnType("tinyint(1)");
 
-                    b.Property<decimal?>("Fiyat")
+                    b.Property<float?>("Fiyat")
                         .IsRequired()
-                        .HasColumnType("decimal(65,30)");
+                        .HasColumnType("float");
 
                     b.Property<string>("Fotograf")
                         .HasColumnType("longtext");
@@ -998,8 +993,8 @@ namespace Restorant.Migrations
                     b.Property<int?>("IndirimYuzdesi")
                         .HasColumnType("int");
 
-                    b.Property<decimal?>("IndirimliFiyat")
-                        .HasColumnType("decimal(65,30)");
+                    b.Property<float?>("IndirimliFiyat")
+                        .HasColumnType("float");
 
                     b.Property<int?>("KategoriId")
                         .HasColumnType("int");
@@ -1147,8 +1142,7 @@ namespace Restorant.Migrations
                     b.Property<bool?>("Gorunurluk")
                         .HasColumnType("tinyint(1)");
 
-                    b.Property<decimal?>("Maas")
-                        .IsRequired()
+                    b.Property<decimal>("Maas")
                         .HasColumnType("decimal (10,2)");
 
                     b.Property<int?>("RolId")
@@ -1184,7 +1178,13 @@ namespace Restorant.Migrations
                     b.Property<bool?>("Gorunurluk")
                         .HasColumnType("tinyint(1)");
 
+                    b.Property<string>("KayisizMusteriId")
+                        .HasColumnType("longtext");
+
                     b.Property<int?>("KisiSayisi")
+                        .HasColumnType("int");
+
+                    b.Property<int>("MusteriId")
                         .HasColumnType("int");
 
                     b.Property<string>("Onay")
@@ -1551,7 +1551,7 @@ namespace Restorant.Migrations
             modelBuilder.Entity("Restorant.Models.Malzeme", b =>
                 {
                     b.HasOne("Restorant.Data.Stok", "Stok")
-                        .WithMany("Malzemelers")
+                        .WithMany()
                         .HasForeignKey("StokId1");
 
                     b.Navigation("Stok");
@@ -1727,11 +1727,6 @@ namespace Restorant.Migrations
                     b.Navigation("Menu");
 
                     b.Navigation("Siparis");
-                });
-
-            modelBuilder.Entity("Restorant.Data.Stok", b =>
-                {
-                    b.Navigation("Malzemelers");
                 });
 
             modelBuilder.Entity("Restorant.Data.Tedarikci", b =>

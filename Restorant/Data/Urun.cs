@@ -25,7 +25,7 @@ public partial class Urun
 
     [Required(ErrorMessage = "*Zorunlu alan")]
 
-    public string? Aktif { get; set; }
+    public bool Aktif { get; set; }
 
     public decimal? IndirimliFiyat { get; set; }
 
