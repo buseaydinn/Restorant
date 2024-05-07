@@ -34,7 +34,7 @@ namespace Restorant.Areas.Admin.Controllers
             {
                 _context.Menuler.Add(model);
                 await _context.SaveChangesAsync();
-                return RedirectToAction("Index");
+                return RedirectToAction("MenuListele");
             }
             else
             {

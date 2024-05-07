@@ -30,7 +30,7 @@ namespace Restorant.Areas.Admin.Controllers
                 _context.Tedarikciler.Add(model);
                 await _context.SaveChangesAsync();
 
-                return RedirectToAction("Index");
+                return RedirectToAction("TedarikciListele");
             }
             else
             {

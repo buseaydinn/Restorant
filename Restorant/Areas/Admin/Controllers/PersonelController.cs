@@ -33,7 +33,7 @@ namespace Restorant.Areas.Admin.Controllers
             {
                 _context.Personeller.Add(model);
                 await _context.SaveChangesAsync();
-                return RedirectToAction("Index");
+                return RedirectToAction("PersonelListele");
             }
             else
             {
@@ -73,7 +73,7 @@ namespace Restorant.Areas.Admin.Controllers
             {
                 _context.Roller.Add(model);
                 await _context.SaveChangesAsync();
-                return RedirectToAction("Index");
+                return RedirectToAction("RolListele");
             }
             else
             {

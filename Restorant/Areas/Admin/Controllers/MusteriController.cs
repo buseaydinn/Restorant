@@ -28,7 +28,7 @@ namespace Restorant.Areas.Admin.Controllers
                 _context.Musteriler.Add(model);
                 await _context.SaveChangesAsync();
 
-                return RedirectToAction("Index");
+                return RedirectToAction("MusteriListele");
             }
             else
             {

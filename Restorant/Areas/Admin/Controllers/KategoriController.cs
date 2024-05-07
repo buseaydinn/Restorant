@@ -31,7 +31,7 @@ namespace Restorant.Areas.Admin.Controllers
             {
                 _context.Kategoriler.Add(model);
                 await _context.SaveChangesAsync();
-                return RedirectToAction("Index");
+                return RedirectToAction("KategoriListele");
             }
             else
             {
