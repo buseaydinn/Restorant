@@ -1,4 +1,4 @@
-﻿@model Stok
+﻿@model StokGirdi
 <div class="content-body default-height">
     <div class="container-fluid">
         <form asp-controller="Stok" asp-action="StokEkle" method="post" novalidate>
@@ -14,24 +14,25 @@
                                 <div class="row">
                                     <div class="col-xl-6">
                                         <div class="mb-3 row">
+                                            <label class="col-lg-4 col-form-label" for="validationCustom05">
+                                                Malzeme   Seç
+                                                <span class="text-danger"></span>
+                                            </label>
+                                            <div class="col-lg-8">
+                                                <select asp-for="MalzemeId" class="default-select wide form-control" id="validationCustom05">
+                                                    <option data-display="Select">Malzeme seçiniz</option>
+                                                    @foreach (var malzeme in ViewBag.Malzeme)
+                                                    {
+                                                        <option value="@malzeme.Id">@malzeme.Ad</option>
+                                                    }
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3 row">
                                             <label class="col-lg-4 col-form-label" for="Miktar">Miktar</label>
                                             <div class="col-lg-8">
                                                 <input asp-for="Miktar" type="text" class="form-control" id="Ad" placeholder="Miktar  gir">
                                                 <span asp-validation-for="Miktar" class="text-danger"></span>
-                                            </div>
-                                        </div>
-                                        <div class="mb-3 row">
-                                            <label class="col-lg-4 col-form-label" for="MinStok">MinStok</label>
-                                            <div class="col-lg-8">
-                                                <input asp-for="MinStok" type="text" class="form-control" id="Aciklama" placeholder="Minimum Stok giriniz">
-                                                <span asp-validation-for="MinStok" class="text-danger"></span>
-                                            </div>
-                                        </div>
-                                        <div class="mb-3 row">
-                                            <label class="col-lg-4 col-form-label" for="MaxStok">MaxStok</label>
-                                            <div class="col-lg-8">
-                                                <input asp-for="MaxStok" type="text" class="form-control" id="Fiyat" placeholder="Maximum Stok giriniz">
-                                                <span asp-validation-for="MaxStok" class="text-danger"></span>
                                             </div>
                                         </div>
                                         <div class="mb-3 row">
@@ -49,6 +50,8 @@
                                                 </select>
                                             </div>
                                         </div>
+                                        <input asp-for="Tarih" type="hidden" class="form-control" value=@DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss") required="">
+                                        <input type="hidden" asp-for="SonStok" value=0 />
 
                                         <div class="row">
                                             <div class="col-lg-12">

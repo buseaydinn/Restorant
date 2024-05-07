@@ -24,17 +24,18 @@ namespace Restorant.Areas.Admin.Controllers
         public IActionResult StokEkle()
         {
             ViewBag.Tedarikci = _context.Tedarikciler.ToList();
+            ViewBag.Malzeme = _context.Malzemeler.ToList();
+
             return View();
         }
 
         [HttpPost]
-        public async Task<IActionResult> StokEkle(Stok model, int id, IFormFile? file)
+        public async Task<IActionResult> StokEkle(StokGirdi model, int id, IFormFile? file)
         {
-            ViewBag.Tedarikci = _context.Tedarikciler.ToList();
-
+            
             if (ModelState.IsValid)
             {
-                _context.Stoklar.Add(model);
+                _context.StokGirdiler.Add(model);
                 await _context.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
@@ -45,10 +46,10 @@ namespace Restorant.Areas.Admin.Controllers
         }
         public IActionResult StokListele()
         {
-            List<Stok> stokListesi = _context.Stoklar.Include(x => x.Tedarikci).ToList();
+            List<StokGirdi> stokListesi = _context.StokGirdiler.Include(x => x.Tedarikci).ToList();
+            ViewBag.Malzeme = _context.Malzemeler.ToList();
 
-
-            return View(StokListele);
+            return View(stokListesi);
 
         }
         public async Task<IActionResult> StokSil(int id)
@@ -64,5 +65,6 @@ namespace Restorant.Areas.Admin.Controllers
 
             return RedirectToAction("StokListele");
         }
+
     }
 }

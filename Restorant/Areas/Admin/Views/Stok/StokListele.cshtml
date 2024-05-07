@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Stok>
+﻿@model List<StokGirdi>
 
 <div class="content-body default-height">
     <div class="container-fluid">
@@ -13,9 +13,11 @@
                             <thead>
                                 <tr>
                                     <th>Id </th>
+                                    <th>Malzeme Ad </th>
                                     <th>Miktar </th>
-                                    <th>MinStok</th>
-                                    <th>MaxStok</th>
+                                    <th>Tarih </th>
+                                    <th>Tedarikçi </th>
+                                    <th>Son Stok </th>
                                     <th>İşlemler</th>
                                 </tr>
                             </thead>
@@ -24,9 +26,11 @@
                                 {
                                     <tr>
                                         <td>@stok.Id</td>
+                                        <td>@stok.Malzeme.Ad</td>
                                         <td>@stok.Miktar</td>
-                                        <td>@stok.MinStok</td>
-                                        <td>@stok.MaxStok</td>
+                                        <td>@stok.Tarih</td>
+                                        <td>@stok.Tedarikci.AdSoyad</td>
+                                        <td>@stok.SonStok</td>
 
                                         <td>
 
