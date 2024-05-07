@@ -29,5 +29,6 @@ public partial class Malzeme
 
     public bool? Gorunurluk { get; set; }
 
+
    public ICollection<UrunMalzeme> urunMalzemes {  get; set; }=new List<UrunMalzeme>(); 
 }

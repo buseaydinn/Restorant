@@ -10,11 +10,8 @@ public partial class StokGirdi
     public int Id { get; set; }
 
     [Required(ErrorMessage = "*Zorunlu alan")]
-    public int Ad { get; set; }
 
-    [Required(ErrorMessage = "*Zorunlu alan")]
-
-    public int? Miktar { get; set; }
+    public int Miktar { get; set; }
 
 
     [Required(ErrorMessage = "*Zorunlu alan")]

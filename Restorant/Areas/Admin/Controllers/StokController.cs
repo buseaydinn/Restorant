@@ -23,6 +23,7 @@ namespace Restorant.Areas.Admin.Controllers
         }
         public IActionResult StokEkle()
         {
+        
             ViewBag.Tedarikci = _context.Tedarikciler.ToList();
             ViewBag.Malzeme = _context.Malzemeler.ToList();
 
@@ -30,14 +31,29 @@ namespace Restorant.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> StokEkle(StokGirdi model, int id, IFormFile? file)
+        public IActionResult StokEkle(StokGirdi model, int id, IFormFile? file)
         {
-            
+
             if (ModelState.IsValid)
             {
-                _context.StokGirdiler.Add(model);
-                await _context.SaveChangesAsync();
-                return RedirectToAction("Index");
+                // Veritabanından ilgili stoğu bul
+                var stok = _context.Stoklar.FirstOrDefault(x => x.Id == model.MalzemeId);
+
+                // Stoğu bulamazsanız hata döndür
+                if (stok == null)
+                {
+                    ModelState.AddModelError(string.Empty, "Belirtilen stok bulunamadı.");
+                    return View(model);
+                }
+
+                // Stoğun miktarını model nesnesine ekle
+                stok.Miktar += model.Miktar;
+
+                _context.Update(stok);
+                _context.Add(model);
+                _context.SaveChanges();
+
+                return RedirectToAction("StokListele");
             }
             else
             {

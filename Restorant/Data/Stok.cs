@@ -8,7 +8,7 @@ public partial class Stok
 {
     public int Id { get; set; }
 
-    public int? Miktar { get; set; }
+    public int Miktar { get; set; }
 
     public int? MinStok { get; set; }
 

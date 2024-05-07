@@ -30,7 +30,7 @@ namespace Restorant.Areas.Admin.Controllers
                 model.Stok.Gorunurluk =true;
                 _context.Malzemeler.Add(model);
                 await _context.SaveChangesAsync();
-                return RedirectToAction("Index");
+                return RedirectToAction("MalzemeListele");
             }
             else
             {
