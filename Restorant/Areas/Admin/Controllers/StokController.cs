@@ -45,6 +45,7 @@ namespace Restorant.Areas.Admin.Controllers
                     ModelState.AddModelError(string.Empty, "Belirtilen stok bulunamadı.");
                     return View(model);
                 }
+                model.SonStok = stok.Miktar;
 
                 // Stoğun miktarını model nesnesine ekle
                 stok.Miktar += model.Miktar;
@@ -62,11 +63,13 @@ namespace Restorant.Areas.Admin.Controllers
         }
         public IActionResult StokListele()
         {
-            List<StokGirdi> stokListesi = _context.StokGirdiler.Include(x => x.Tedarikci).ToList();
+            // Stok girdilerini ID'ye göre tersten sıralayarak en son eklenenin başa gelmesini sağlar
+            List<StokGirdi> stokListesi = _context.StokGirdiler.Include(x => x.Tedarikci).OrderByDescending(x => x.Id).ToList();
+
+            // Malzeme listesi ViewBag aracılığıyla view'e gönderilir
             ViewBag.Malzeme = _context.Malzemeler.ToList();
 
             return View(stokListesi);
-
         }
         public async Task<IActionResult> StokSil(int id)
         {

@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Restorant.Models;
 
@@ -11,9 +12,11 @@ using Restorant.Models;
 namespace Restorant.Migrations
 {
     [DbContext(typeof(IdentityDataContext))]
-    partial class IdentityDataContextModelSnapshot : ModelSnapshot
+    [Migration("20240508063642_hsbscbjjb")]
+    partial class hsbscbjjb
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -816,7 +819,7 @@ namespace Restorant.Migrations
                     b.Property<int?>("Kapasite")
                         .HasColumnType("int");
 
-                    b.Property<int?>("KategoriId")
+                    b.Property<int?>("Kategori")
                         .HasColumnType("int");
 
                     b.Property<string>("Kod")
@@ -826,15 +829,13 @@ namespace Restorant.Migrations
                     b.Property<int?>("PersonelId")
                         .HasColumnType("int");
 
-                    b.Property<string>("Qr")
-                        .HasColumnType("longtext");
+                    b.Property<int?>("Qr")
+                        .HasColumnType("int");
 
                     b.Property<int?>("Tutar")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("KategoriId");
 
                     b.HasIndex("PersonelId");
 
@@ -1531,15 +1532,9 @@ namespace Restorant.Migrations
 
             modelBuilder.Entity("Restorant.Models.Masa", b =>
                 {
-                    b.HasOne("Restorant.Models.Kategori", "Kategori")
-                        .WithMany()
-                        .HasForeignKey("KategoriId");
-
                     b.HasOne("Restorant.Models.Personel", "Personel")
                         .WithMany("Masalars")
                         .HasForeignKey("PersonelId");
-
-                    b.Navigation("Kategori");
 
                     b.Navigation("Personel");
                 });

@@ -16,11 +16,11 @@ public partial class Masa
 
     public int? Kapasite { get; set; }
 
-    public int? Qr { get; set; }
+    public string? Qr { get; set; }
 
     public int? Tutar { get; set; }
 
-    public int? Kategori { get; set; }
+    public int? KategoriId { get; set; }
 
     public bool? Gorunurluk { get; set; }
 
@@ -29,4 +29,6 @@ public partial class Masa
     public  ICollection<MasaOzellik> masaOzelliks { get; set; } = new List<MasaOzellik>();
 
     public  Personel? Personel { get; set; }
+
+    public  Kategori? Kategori { get; set; }
 }

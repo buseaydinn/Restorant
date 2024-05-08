@@ -1,1 +1,61 @@
-﻿<p> bu sayfa yapılacak</p>
+﻿@model Masa
+
+<div class="content-body default-height">
+    <div class="container-fluid">
+        <form asp-controller="Masa" asp-action="MasaEkle" method="post" novalidate>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="card-title"><i class="fa-duotone fa-person"></i> Masa Ekleme Sayfası</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-validation">
+                                <div class="row">
+                                    <div class="col-xl-6">
+
+                                        <div class="mb-3 row">
+                                            <label class="col-lg-4 col-form-label" for="validationCustom01">Masa Kodu</label>
+                                            <div class="col-lg-6">
+                                                <input asp-for="Kod" type="text" class="form-control" id="Ad" placeholder=" Kod gir">
+                                                <span asp-validation-for="Kod" class="text-danger"></span>
+                                            </div>
+                                        </div>
+
+                                        <div class="mb-3 row">
+                                            <label class="col-lg-4 col-form-label" for="validationCustom01">Masa Kapasitesi</label>
+                                            <div class="col-lg-6">
+                                                <input asp-for="Kapasite" type="number" class="form-control" id="Kapasite" placeholder=" Kapasite gir" min="0">
+                                                <span asp-validation-for="Kapasite" class="text-danger"></span>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="mb-3 row">
+                                            <label class="col-lg-4 col-form-label" for="validationCustom05"> Kategori</label>
+                                            <div class="col-lg-6">
+                                                <select asp-for="KategoriId" class="default-select wide form-control" id="validationCustom05">
+                                                    <option data-display="Select">Masa Kategorisi Seçiniz</option>
+                                                    @foreach (var kategori in ViewBag.Kategoriler)
+                                                    {
+                                                        <option value="@kategori.Id">@kategori.Ad</option>
+                                                    }
+                                                </select>
+                                                <span asp-validation-for="KategoriId" class="text-danger"></span>
+                                            </div>
+                                        </div>
+                                    
+                                    <div class="col-xl-6">
+                        
+                                        <button type="submit" class="btn me-2 btn-primary">Gönder</button>
+                                        <button type="submit" class="btn btn-danger light">İptal Etmek</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

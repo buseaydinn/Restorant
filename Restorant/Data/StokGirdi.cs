@@ -18,7 +18,7 @@ public partial class StokGirdi
 
     public DateTime? Tarih { get; set; }
 
-    public string? SonStok { get; set; }
+    public int? SonStok { get; set; }
 
     public bool? Gorunurluk { get; set; }
 

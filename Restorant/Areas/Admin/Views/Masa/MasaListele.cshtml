@@ -1,0 +1,55 @@
+﻿@model IEnumerable<Masa>
+
+<div class="content-body default-height">
+    <div class="container-fluid">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title"><i class="fa-regular fa-truck-field"></i> Masa Listesi</h4>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table id="example3" class="display" style="min-width: 845px">
+                            <thead>
+                                <tr>
+                                    <th>Id </th>
+                                    <th>Kod </th>
+                                    <th>Kapasite</th>
+                                    <th>Kategori</th>
+                                    <th>İşlemler</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var masa in Model)
+                                {
+                                    <tr>
+                                        <td>@masa.Id</td>
+                                        <td>@masa.Kod</td>
+                                        <td>@masa.Kapasite</td>
+                                        <td>@masa.Kategori.Ad</td>
+                                        <td>
+                                            <a asp-action="MasaSil" asp-route-id="@masa.Id" class="btn btn-danger btn-sm rounded-circle">
+                                                <i class="fa fa-trash"></i>
+                                            </a>
+
+
+
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div id="example3_paginate" class="dataTables_paginate paging_simple_numbers">
+                                <!-- Sayfalama düğmeleri buraya gelecek -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
