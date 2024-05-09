@@ -29,13 +29,18 @@
                                         <td>@masa.Kapasite</td>
                                         <td>@masa.Kategori.Ad</td>
                                         <td>
-                                            <a asp-action="MasaSil" asp-route-id="@masa.Id" class="btn btn-danger btn-sm rounded-circle">
-                                                <i class="fa fa-trash"></i>
-                                            </a>
+                                            <div style="display: flex; align-items: center;">
+                                                <a asp-action="MasaSil" asp-route-id="@masa.Id" class="btn btn-danger btn-sm rounded-circle me-2">
+                                                    <i class="fa fa-trash"></i>
+                                                </a>
+                                                <a asp-controller="MasaGuncelle" asp-action="MasaGuncelle" asp-route-id="@masa.Id" class="btn btn-success btn-sm rounded-circle me-2">
+                                                    <i class="fas fa-sync-alt"></i>
+                                                </a>
+                                            </div>
 
 
 
-                                    </tr>
+</tr>
                                 }
                             </tbody>
                         </table>

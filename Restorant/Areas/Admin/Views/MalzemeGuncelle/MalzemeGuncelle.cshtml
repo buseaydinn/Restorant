@@ -1,0 +1,86 @@
+﻿@model Malzeme
+
+<div class="content-body default-height ">
+    <div class="container-fluid">
+        <form asp-controller="MalzemeGuncelle" asp-action="MalzemeGuncelle" method="post" novalidate>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="card-title"><i class="fa-duotone fa-bags-shopping"></i> Malzeme Ekleme Sayfası</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-validation">
+                                <div class="row">
+                                    <div class="col-xl-6">
+                                        <div class="mb-3 row">
+                                            <label class="col-lg-4 col-form-label" for="validationCustom01">
+                                                Malzeme Adı
+                                            </label>
+                                            <div class="col-lg-6">
+                                                <input asp-for="Ad" type="text" class="form-control" id="validationCustom01"
+                                                       placeholder="Malzeme Adını gir">
+                                                <span asp-validation-for="Ad" class="text-danger"></span>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3 row">
+                                            <label class="col-lg-4 col-form-label" for="validationCustom05">
+                                                Malzeme Tür Seç
+                                                <span class="text-danger"></span>
+                                            </label>
+                                            <div class="col-lg-6">
+                                                <select asp-for="Turu" class="default-select wide form-control" id="validationCustom05">
+                                                    <option data-display="Select">Tür seçiniz</option>
+
+                                                    <option value="Kilogram">Kilogram</option>
+                                                    <option value="Litre">Litre</option>
+                                                    <option value="Adet">Adet</option>
+
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="mb-3 row">
+                                            <label class="col-lg-4 col-form-label" for="validationCustom01">
+                                                Malzeme Fiyat
+                                                <span class="text-danger"></span>
+                                            </label>
+                                            <div class="col-lg-6">
+                                                <input asp-for="Fiyat" type="text" class="form-control" id="validationCustom01" placeholder="Malzeme fiyatını gir">
+
+                                                <span asp-validation-for="Fiyat" class="text-danger"></span>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3 row">
+                                            <label class="col-lg-4 col-form-label" for="MinStok">MinStok</label>
+                                            <div class="col-lg-6">
+                                                <input asp-for="Stok.MinStok" type="number" class="form-control" id="Aciklama" placeholder="Minimum Stok giriniz">
+                                                <span asp-validation-for="Stok.MinStok" class="text-danger"></span>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3 row">
+                                            <label class="col-lg-4 col-form-label" for="MaxStok">MaxStok</label>
+                                            <div class="col-lg-6">
+                                                <input asp-for="Stok.MaxStok" type="number" class="form-control" id="Fiyat" placeholder="Maximum Stok giriniz">
+                                                <span asp-validation-for="Stok.MaxStok" class="text-danger"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="basic-form">
+                                            <button type="submit" class="btn me-2 btn-primary">Gönder</button>
+                                            <button type="submit" class="btn btn-danger light">İptal Etmek</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
