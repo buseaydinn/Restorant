@@ -32,11 +32,16 @@
                                         <td>@musteri.Telefon</td>
                                         <td>@musteri.Dogumtarihi</td>
                                         <td>@musteri.KayitTarihi</td>
-                                      
                                         <td>
-                                            <a asp-action="MusteriSil" asp-route-id="@musteri.Id" class="btn btn-danger btn-sm rounded-circle">
+                                        <div style="display: flex; align-items: center;">
+                                            <a asp-action="MusteriSil" asp-route-id="@musteri.Id" class="btn btn-danger btn-sm rounded-circle me-2">
                                                 <i class="fa fa-trash"></i>
-                                            </a>                                        </td>
+                                            </a>
+                                            <a asp-controller="MusteriGuncelle" asp-action="MusteriGuncelle" asp-route-id="@musteri.Id" class="btn btn-success btn-sm rounded-circle me-2">
+                                                <i class="fas fa-sync-alt"></i>
+                                            </a>
+                                        </div>
+                                        </td>
                                     </tr>
                                 }
                             </tbody>

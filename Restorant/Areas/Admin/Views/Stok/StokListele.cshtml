@@ -34,9 +34,14 @@
 
                                         <td>
 
-                                            <a asp-action="StokSil" asp-route-id="@stok.Id" class="btn btn-danger btn-sm rounded-circle">
-                                                <i class="fa fa-trash"></i>
-                                            </a>
+                                            <div style="display: flex; align-items: center;">
+                                                <a asp-action="StokSil" asp-route-id="@stok.Id" class="btn btn-danger btn-sm rounded-circle me-2">
+                                                    <i class="fa fa-trash"></i>
+                                                </a>
+                                                <a asp-controller="StokGuncelle" asp-action="StokGuncelle" asp-route-id="@stok.Id" class="btn btn-success btn-sm rounded-circle me-2">
+                                                    <i class="fas fa-sync-alt"></i>
+                                                </a>
+                                            </div>
                                         </td>
                                     </tr>
                                 }

@@ -1,0 +1,73 @@
+﻿@model StokGirdi
+<div class="content-body default-height">
+    <div class="container-fluid">
+        <form asp-controller="StokGuncelle" asp-action="StokGuncelle" method="post" novalidate>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="card-title"><i class="fa-duotone fa-arrow-trend-up"></i> Stok Ekleme Sayfası</h4>
+
+                        </div>
+                        <div class="card-body">
+                            <div class="form-validation">
+                                <div class="row">
+                                    <div class="col-xl-6">
+                                        <div class="mb-3 row">
+                                            <label class="col-lg-4 col-form-label" for="validationCustom05">
+                                                Malzeme   Seç
+                                                <span class="text-danger"></span>
+                                            </label>
+                                            <div class="col-lg-8">
+                                                <select asp-for="MalzemeId" class="default-select wide form-control" id="validationCustom05">
+                                                    <option data-display="Select">Malzeme seçiniz</option>
+                                                    @foreach (var malzeme in ViewBag.Malzeme)
+                                                    {
+                                                        <option value="@malzeme.Id">@malzeme.Ad</option>
+                                                    }
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3 row">
+                                            <label class="col-lg-4 col-form-label" for="validationCustom05">
+                                                Tedarikçi  Seç
+                                                <span class="text-danger"></span>
+                                            </label>
+                                            <div class="col-lg-8">
+                                                <select asp-for="TedarikciId" class="default-select wide form-control" id="validationCustom05">
+                                                    <option data-display="Select">Tedarikçi seçiniz</option>
+                                                    @foreach (var tedarikci in ViewBag.Tedarikci)
+                                                    {
+                                                        <option value="@tedarikci.Id">@tedarikci.AdSoyad</option>
+                                                    }
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3 row">
+                                            <label class="col-lg-4 col-form-label" for="validationCustom02">Miktar Gir</label>
+                                            <div class="col-lg-8">
+                                                <input asp-for="Miktar" type="number" class="form-control" id="Miktar" placeholder="Miktar gir" min="0" step="1">
+                                                <span asp-validation-for="Miktar" class="text-danger"></span>
+                                            </div>
+                                        </div>
+
+
+                                        <input asp-for="Tarih" type="hidden" class="form-control" value=@DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss") required="">
+
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <button type="submit" class="btn me-2 btn-primary">Gönder</button>
+                                                <button type="button" class="btn btn-danger light" onclick="window.history.back();">İptal Etmek</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
