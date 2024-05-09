@@ -53,15 +53,15 @@
                                         </div>
                                         <div class="mb-3 row">
                                             <label class="col-lg-4 col-form-label" for="MinStok">MinStok</label>
-                                            <div class="col-lg-8">
-                                                <input asp-for="Stok.MinStok" type="text" class="form-control" id="Aciklama" placeholder="Minimum Stok giriniz">
+                                            <div class="col-lg-6">
+                                                <input asp-for="Stok.MinStok" type="number" class="form-control" id="Aciklama" placeholder="Minimum Stok giriniz">
                                                 <span asp-validation-for="Stok.MinStok" class="text-danger"></span>
                                             </div>
                                         </div>
                                         <div class="mb-3 row">
                                             <label class="col-lg-4 col-form-label" for="MaxStok">MaxStok</label>
-                                            <div class="col-lg-8">
-                                                <input asp-for="Stok.MaxStok" type="text" class="form-control" id="Fiyat" placeholder="Maximum Stok giriniz">
+                                            <div class="col-lg-6">
+                                                <input asp-for="Stok.MaxStok" type="number" class="form-control" id="Fiyat" placeholder="Maximum Stok giriniz">
                                                 <span asp-validation-for="Stok.MaxStok" class="text-danger"></span>
                                             </div>
                                         </div>

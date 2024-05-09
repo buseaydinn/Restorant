@@ -10,7 +10,7 @@ public partial class Ozellik
 
     [Required(ErrorMessage = "*Zorunlu alan")]
 
-    public int Ad { get; set; }
+    public string Ad { get; set; }
 
     public bool? Gorunurluk { get; set; }
   

@@ -1,0 +1,43 @@
+﻿@model List<Ozellik>
+
+<div class="content-body default-height">
+    <div class="container-fluid">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title"><i class="fa-duotone fa-bags-shopping"></i> Masa Özellik Listesi</h4>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table id="example3" class="display" style="min-width: 845px">
+                            <thead>
+                                <tr>
+                                    <th>Id </th>
+                                    <th>Masa Özellik Ad </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var ozellik in Model)
+                                {
+                                    <tr>
+                                        <td>@ozellik.Id</td>
+                                        <td>@ozellik.Ad</td>
+                                      
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div id="example3_paginate" class="dataTables_paginate paging_simple_numbers">
+                                <!-- Sayfalama düğmeleri buraya gelecek -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

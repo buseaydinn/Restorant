@@ -50,20 +50,8 @@
                                                 <span asp-validation-for="Dogumtarihi" class="text-danger"></span>
                                             </div>
                                         </div>
-                                        <div class="mb-3 row">
-                                            <label class="col-lg-4 col-form-label" for="validationCustom06">Kayıt Tarihi</label>
-                                            <div class="col-lg-6">
-                                                <input asp-for="KayitTarihi" type="date" class="form-control" id="KayitTarihi" placeholder=" Kayıt Tarihini giriniz">
-                                                <span asp-validation-for="KayitTarihi" class="text-danger"></span>
-                                            </div>
-                                        </div>
-                                        <div class="mb-3 row">
-                                            <label class="col-lg-4 col-form-label" for="validationCustom04"> MasaId</label>
-                                            <div class="col-lg-6">
-                                                <input asp-for="MasaId" type="tel" class="form-control" id="MasaId" placeholder=" MasaId  gir">
-                                                <span asp-validation-for="MasaId" class="text-danger"></span>
-                                            </div>
-                                        </div>
+                                        <input asp-for="KayitTarihi" type="hidden" class="form-control" value=@DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss") required="">
+
                                         <button type="submit" class="btn me-2 btn-primary">Gönder</button>
                                         <button type="submit" class="btn btn-danger light">İptal Etmek</button>
                                     </div>
