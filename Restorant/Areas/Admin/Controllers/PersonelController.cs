@@ -87,6 +87,19 @@ namespace Restorant.Areas.Admin.Controllers
             // Verileri View'e gönder
             return View(rolListesi);
         }
+        public async Task<IActionResult> RolSil(int id)
+        {
+            var rol = await _context.Roller.FindAsync(id);
+            if (rol == null)
+            {
+                return NotFound();
+            }
+
+            rol.Gorunurluk = false;
+            await _context.SaveChangesAsync();
+
+            return RedirectToAction("RolListele");
+        }
     }
     }
     
