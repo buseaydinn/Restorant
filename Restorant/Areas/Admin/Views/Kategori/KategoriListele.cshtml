@@ -26,11 +26,20 @@
                                         <td>@kategori.Id</td>
                                         <td>@kategori.Ad</td>
                                         <td>@kategori.Tur</td>
-              
                                         <td>
-                                            <a asp-action="KategoriSil" asp-route-id="@kategori.Id" class="btn btn-danger btn-sm rounded-circle">
-                                                <i class="fa fa-trash"></i>
-                                            </a>                                        
+                                            <div style="display: flex; align-items: center;">
+                                                <a asp-action="KategoriSil" asp-route-id="@kategori.Id" class="btn btn-danger btn-sm rounded-circle me-2">
+                                                    <i class="fa fa-trash"></i>
+                                                </a>
+                                                <a asp-controller="KategoriGuncelle" asp-action="KategoriGuncelle" asp-route-id="@kategori.Id" class="btn btn-success btn-sm rounded-circle me-2">
+                                                    <i class="fas fa-sync-alt"></i>
+                                                </a>
+                                            </div>
+
+                                        </td>
+
+
+
                                     </tr>
                                 }
                             </tbody>
