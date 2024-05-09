@@ -33,11 +33,16 @@
                                         <td>@personel.Telefon</td>
                                         <td>@personel.Eposta</td>
                                         <td>
-                                            <a asp-action="TedarikciSil" asp-route-id="@personel.Id" class="btn btn-danger btn-sm rounded-circle">
-                                                <i class="fa fa-trash"></i>
-                                            </a>
-                                            
-                                       
+                                            <div style="display: flex; align-items: center;">
+                                                <a asp-action="TedarikciSil" asp-route-id="@personel.Id" class="btn btn-danger btn-sm rounded-circle me-2">
+                                                    <i class="fa fa-trash"></i>
+                                                </a>
+                                                <a asp-controller="TedarikciGuncelle" asp-action="TedarikciGuncelle" asp-route-id="@personel.Id" class="btn btn-success btn-sm rounded-circle me-2">
+                                                    <i class="fas fa-sync-alt"></i>
+                                                </a>
+                                            </div>
+
+                                        </td>
 
                                     </tr>
                                 }
