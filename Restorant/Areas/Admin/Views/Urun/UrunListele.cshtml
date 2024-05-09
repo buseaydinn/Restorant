@@ -34,6 +34,14 @@
                                                     <p style="margin-bottom: 0;">Ürün Fiyatı: <span class="item">@urun.Fiyat</span> ₺</p>
                                                     <p style="margin-bottom: 0;">Ürün Detay: <span class="item">@urun.Detay</span></p>
                                                     <p>Katagori <span class="item">@urun.Kategori.Ad</span> </p>
+                                                    <div style="display: flex; align-items: center;">
+                                                        <a asp-action="UrunSil" asp-route-id="@urun.Id" class="btn btn-danger btn-sm rounded-circle me-2">
+                                                            <i class="fa fa-trash"></i>
+                                                        </a>
+                                                        <a asp-controller="UrunGuncelle" asp-action="UrunGuncelle" asp-route-id="@urun.Id" class="btn btn-success btn-sm rounded-circle me-2">
+                                                            <i class="fas fa-sync-alt"></i>
+                                                        </a>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
