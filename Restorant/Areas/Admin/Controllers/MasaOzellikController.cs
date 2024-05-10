@@ -27,14 +27,14 @@ namespace Restorant.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> MasaOzellikEkle(Ozellik model, IFormFile? file)
+        public IActionResult MasaOzellikEkle(Ozellik model, IFormFile? file)
         {
             ViewBag.Ozellik = _context.Ozellikler.ToList();
 
             if (ModelState.IsValid)
             {
-                _context.Ozellikler.Add(model);
-                await _context.SaveChangesAsync();
+                _context.Add(model);
+                _context.SaveChangesAsync();
                 return RedirectToAction("MasaOzellikListele");
             }
             else
@@ -45,8 +45,8 @@ namespace Restorant.Areas.Admin.Controllers
 
         public IActionResult MasaOzellikListele()
         {
-            var ozellikler = _context.MasaOzellikler.Select(m => new Ozellik { /* Gerekli alanları atama */ }).ToList();
-            return View(ozellikler);
+            var ozellikler = _context.Ozellikler.ToList();
+                return View(ozellikler);
         }
 
     }

@@ -34,6 +34,14 @@
                                                     <p style="margin-bottom: 0;">Menü Fiyatı: <span class="item">@menu.Fiyat</span> ₺</p>
                                                     <p style="margin-bottom: 0;">Menü Detay: <span class="item">@menu.Aciklama</span></p>
                                                     <p>Katagori <span class="item">@menu.Kategori.Ad</span> </p>
+                                                    <div style="display: flex; align-items: center;">
+                                                        <a asp-action="MenuSil" asp-route-id="@menu.Id" class="btn btn-danger btn-sm rounded-circle me-2">
+                                                            <i class="fa fa-trash"></i>
+                                                        </a>
+                                                        <a asp-controller="MenuGuncelle" asp-action="MenuGuncelle" asp-route-id="@menu.Id" class="btn btn-success btn-sm rounded-circle me-2">
+                                                            <i class="fas fa-sync-alt"></i>
+                                                        </a>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
