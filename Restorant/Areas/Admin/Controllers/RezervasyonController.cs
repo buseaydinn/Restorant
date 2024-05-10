@@ -21,6 +21,8 @@ namespace Restorant.Areas.Admin.Controllers
 
         public IActionResult RezervasyonEkle()
         {
+            ViewBag.Masalar = _context.Masalar.ToList();
+
             return View();
         }
         [HttpPost]
@@ -40,10 +42,8 @@ namespace Restorant.Areas.Admin.Controllers
 
         public IActionResult RezervasyonListele()
         {
-            var RezervasyonListesi = _context.Rezervasyonlar.ToList();
-
             // Verileri View'e gönder
-            return View(RezervasyonListesi);
+            return View("RezervasyonListesi");
         }
         public async Task<IActionResult> RezervasyonSil(int id)
         {
