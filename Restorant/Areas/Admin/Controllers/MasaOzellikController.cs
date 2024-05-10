@@ -34,7 +34,7 @@ namespace Restorant.Areas.Admin.Controllers
             if (ModelState.IsValid)
             {
                 _context.Add(model);
-                _context.SaveChangesAsync();
+                _context.SaveChanges();
                 return RedirectToAction("MasaOzellikListele");
             }
             else
