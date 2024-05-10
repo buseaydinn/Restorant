@@ -26,6 +26,7 @@ namespace Restorant.Areas.Admin.Controllers
             //ViewBag.Masalar = _context.Masalar.ToList();
             ViewBag.Kategoriler = _context.Kategoriler.ToList();
             ViewBag.Personeller = _context.Personeller.ToList();
+            ViewBag.Ozellikler = _context.Ozellikler.ToList();
 
 
             return View();

@@ -28,7 +28,7 @@
     <link rel="stylesheet" href="/admin/cdn.lineicons.com/2.0/LineIcons.css">		<!-- End Page level css : Dashboard  -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&amp;family=Roboto:wght@100;300;400;500;700;900&amp;display=swap">
     <link rel="stylesheet" href="/admin/css/style.css">
-
+    <link href="~/admin/vendor/select2/css/select2.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.4.2/css/all.css">
     <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.4.2/css/sharp-solid.css">
     <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.4.2/css/sharp-regular.css">
@@ -1018,15 +1018,14 @@
                         </ul>
                     </li>
 
-
                     <li>
                         <a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-                            <i class="fa-duotone fa-arrow-trend-up"></i>
-                            <span class="nav-text">Stok İşlemleri</span>
+                            <i class="fa-duotone fa-phone"></i>
+                            <span class="nav-text">Rezervasyon İşlemleri</span>
                         </a>
                         <ul aria-expanded="false">
-                            <li><a asp-controller="Stok" asp-action="StokEkle">Stok Girdileri </a></li>
-                            <li><a asp-controller="Stok" asp-action="StokListele">Stok Listesi</a></li>
+                            <li><a asp-controller="Rezervasyon" asp-action="RezervasyonEkle"> Rezervasyon Ekle</a></li>
+                            <li><a asp-controller="Rezervasyon" asp-action="RezervasyonListele">Rezervasyon Listesi</a></li>
 
 
 
@@ -1055,7 +1054,7 @@
         <div class="footer">
             <div class="copyright">
                 <p>
-                     BUSE AYDIN<a href="http://dexignzone.com/" target="_blank"></a> 
+                    BUSE AYDIN<a href="http://dexignzone.com/" target="_blank"></a>
                 </p>
             </div>
         </div>
@@ -1076,10 +1075,11 @@
     <script src="/admin/js/dashboard/dashboard-1.js"></script>		<!-- Page level Js : Dashboard  -->
     <script src="/admin/js/custom.min.js"></script>
     <script src="/admin/js/deznav-init.js"></script>
-
+    <script src="~/admin/vendor/select2/js/select2.full.min.js"></script>
     <script src="../vendor/datatables/js/jquery.dataTables.min.js"></script>
+    <script src="~/admin/js/plugins-init/select2-init.js"></script>
     <script src="../js/plugins-init/datatables.init.js"></script>		<!-- End Page level css : table-datatable-basic  -->
-    
+
 </body>
 
 <!-- Mirrored from koki.dexignzone.com/cakephp/demo/koki-admin/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 01 Apr 2024 12:04:21 GMT -->
