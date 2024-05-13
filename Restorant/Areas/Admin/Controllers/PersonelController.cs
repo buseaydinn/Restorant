@@ -31,6 +31,34 @@ namespace Restorant.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
+                if (file != null)
+                {
+                    var uzanti = new[] { ".jpg", ".jpeg", ".png" };
+                    var resimuzanti = Path.GetExtension(file.FileName);
+                    if (!uzanti.Contains(resimuzanti))
+                    {
+                        ModelState.AddModelError("PersonelFotograf", "Geçerli bir fotoğraf formatı seçiniz. *jpg,jpeg,png");
+                    }
+
+                    var random = string.Format($"{Guid.NewGuid().ToString()}{Path.GetExtension(file.FileName)}");
+                    var resimyolu = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/img", random);
+                    using (var stream = new FileStream(resimyolu, FileMode.Create))
+                    {
+                        await file.CopyToAsync(stream);
+                    }
+                    model.Fotograf = random;
+                }
+                else
+                {
+                    if (model.Id != 0)
+                    {
+                        model.Fotograf = _context.Personeller
+                            .Where(x => x.Id == model.Id)
+                            .Select(x => x.Fotograf)
+                            .FirstOrDefault();
+                    }
+                }
+
                 _context.Personeller.Add(model);
                 await _context.SaveChangesAsync();
                 return RedirectToAction("PersonelListele");

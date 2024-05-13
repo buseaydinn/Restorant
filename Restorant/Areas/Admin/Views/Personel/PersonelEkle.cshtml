@@ -88,11 +88,13 @@
                                                 <span asp-validation-for="Telefon" class="text-danger"></span>
                                             </div>
                                         </div>
-                                        <div class="mb-3 row">
-                                            <label class="col-lg-4 col-form-label" for="formFileMultiple">Resim Yükle</label>
-                                            <div class="col-lg-6">
-                                                <input class="form-control" type="file" id="formFileMultiple" multiple style="background-color: #f8f9fa;">
-                                            </div>
+
+                                        @*enctype="multipart/form-data"*@
+
+                                        <div class="col-md-6 mb-3">
+                                            <label for="formFile" class="form-label">Personel Fotoğrafı</label>
+                                            <input asp-for="Fotograf" id="formFile" class="form-control" name="file" type="file">
+                                            <span class="validation-text" asp-validation-for="Fotograf"></span>
                                         </div>
                                     </div>
                                 </div>
@@ -131,3 +133,11 @@
         </form>
     </div>
 </div>
+
+<script>
+    document.querySelector("#formFile").onchange = function () {
+        const fileName = this.files[0]?.name;
+        const label = document.querySelector("label[for=formFile]");
+        label.innerText = fileName ?? "Fotoğraf Yükle";
+    };
+</script>
