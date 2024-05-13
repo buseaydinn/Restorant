@@ -26,12 +26,12 @@ namespace Restorant.Areas.Admin.Controllers
             return View();
         }
         [HttpPost]
-        public async Task<IActionResult> RezervasyonEkle(Rezervasyon model, int id, IFormFile? file)
+        public IActionResult RezervasyonEkle(MasaRezervasyon model)
         {
             if (ModelState.IsValid)
             {
-                _context.Rezervasyonlar.Add(model);
-                await _context.SaveChangesAsync();
+                _context.MasaRezervasyonlar.Add(model);
+                _context.SaveChanges();
                 return RedirectToAction("RezervasyonListele");
             }
             else
@@ -42,8 +42,8 @@ namespace Restorant.Areas.Admin.Controllers
 
         public IActionResult RezervasyonListele()
         {
-            // Verileri View'e gönder
-            return View("RezervasyonListesi");
+            List<MasaRezervasyon> masaRezervasyonListesi = _context.MasaRezervasyonlar.Include(x=>x.Rezervasyon).ToList();
+            return View(masaRezervasyonListesi);
         }
         public async Task<IActionResult> RezervasyonSil(int id)
         {
