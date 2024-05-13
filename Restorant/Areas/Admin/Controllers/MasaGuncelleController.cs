@@ -20,7 +20,7 @@ namespace Restorant.Areas.Admin.Controllers
         {
             return View();
         }
-        public IActionResult MasaGuncelle(int id)
+        public IActionResult MasaGunceklle(int id)
         {
             ViewBag.Kategoriler = _context.Kategoriler.ToList();
 
