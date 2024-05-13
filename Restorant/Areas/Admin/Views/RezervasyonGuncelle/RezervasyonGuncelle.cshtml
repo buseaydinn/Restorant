@@ -1,0 +1,89 @@
+﻿@model MasaRezervasyon
+
+<div class="content-body default-height">
+    <div class="container-fluid">
+        <form asp-controller="RezervasyonGuncelle" asp-action="RezervasyonGuncelle" method="post" novalidate>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="card-title"><i class="fa-duotone fa-person"></i> Rezervasyon Güncelleme Sayfası</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-validation">
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="mb-3 row">
+                                            <label class="col-lg-4 col-form-label" for="validationCustom01">Kişi Sayısı</label>
+                                            <div class="col-lg-8">
+                                                <input asp-for="Rezervasyon.KisiSayisi" type="number" class="form-control" id="Ad" placeholder="Adını gir">
+                                                <span asp-validation-for="Rezervasyon.KisiSayisi" class="text-danger"></span>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3 row">
+                                            <label class="col-lg-4 col-form-label" for="validationCustom02"> Tarih</label>
+                                            <div class="col-lg-8">
+                                                <input asp-for="Rezervasyon.Tarih" type="date" class="form-control" id="Soyad" placeholder="Soyadını gir">
+                                                <span asp-validation-for="Rezervasyon.Tarih" class="text-danger"></span>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3 row">
+                                            <label class="col-lg-4 col-form-label" for="validationCustom03">Baslangıç Saati</label>
+                                            <div class="col-lg-8">
+                                                <input asp-for="Rezervasyon.BaslangicSaati" type="time" class="form-control" id="Eposta" placeholder="E-posta gir">
+                                                <span asp-validation-for="Rezervasyon.BaslangicSaati" class="text-danger"></span>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3 row">
+                                            <label class="col-lg-4 col-form-label" for="validationCustom04">Bitiş Saati</label>
+                                            <div class="col-lg-8">
+                                                <input asp-for="Rezervasyon.BitisSaati" type="time" class="form-control" id="Telefon" placeholder="Telefon numarasını gir">
+                                                <span asp-validation-for="Rezervasyon.BitisSaati" class="text-danger"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="mb-3 row">
+                                            <label class="col-lg-4 col-form-label" for="validationCustom05">Masa seç</label>
+                                            <div class="col-lg-8">
+                                                <select asp-for="MasaId" class="default-select wide form-control" id="validationCustom05">
+                                                    <option data-display="Select">Masa seçiniz</option>
+                                                    @foreach (var masa in ViewBag.Masalar)
+                                                    {
+                                                        <option value="@masa.Id">@masa.Kod</option>
+                                                    }
+                                                </select>
+                                                <span asp-validation-for="MasaId" class="text-danger"></span>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3 row">
+                                            <label class="col-lg-4 col-form-label" for="validationCustom06">Rezervasyon Talep</label>
+                                            <div class="col-lg-8">
+                                                <input asp-for="Rezervasyon.Talep" type="text" class="form-control" id="Dogumtarihi" placeholder="Rezervasyon Talep" required>
+                                                <span asp-validation-for="Rezervasyon.Talep" class="text-danger"></span>
+                                            </div>
+                                        </div> <div class="row">
+                                            <div class="col-lg-12 offset-lg-12">
+                                                <button type="submit" class="btn me-2 btn-primary">Gönder</button>
+                                                <button type="submit" class="btn btn-danger light">İptal Etmek</button>
+                                            </div>
+                                        </div>
+                                        <input asp-for="Rezervasyon.Onay" type="hidden" class="form-control" value="true" required="">
+                                    </div>
+
+                                </div>
+                                @*<div class="row">
+                                    <div class="col-lg-12 offset-lg-12">
+                                        <button type="submit" class="btn me-2 btn-primary">Gönder</button>
+                                        <button type="submit" class="btn btn-danger light">İptal Etmek</button>
+                                    </div>
+                                </div>*@
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
