@@ -16,45 +16,48 @@
                                         <div class="mb-3 row">
                                             <label class="col-lg-4 col-form-label" for="validationCustom01">Müşteri Adı</label>
                                             <div class="col-lg-6">
-                                                <input asp-for="Ad" type="text" class="form-control" id="Ad" placeholder=" Adını gir">
+                                                <input asp-for="Ad" type="text" class="form-control" id="Ad" placeholder="Adını gir">
                                                 <span asp-validation-for="Ad" class="text-danger"></span>
                                             </div>
                                         </div>
                                         <div class="mb-3 row">
                                             <label class="col-lg-4 col-form-label" for="validationCustom02">Müşteri Soyadı</label>
                                             <div class="col-lg-6">
-                                                <input asp-for="Soyad" type="text" class="form-control" id="Soyad" placeholder=" Soyadını gir">
+                                                <input asp-for="Soyad" type="text" class="form-control" id="Soyad" placeholder="Soyadını gir">
                                                 <span asp-validation-for="Soyad" class="text-danger"></span>
                                             </div>
                                         </div>
                                         <div class="mb-3 row">
                                             <label class="col-lg-4 col-form-label" for="validationCustom03">Müşteri E-posta</label>
                                             <div class="col-lg-6">
-                                                <input asp-for="Eposta" type="email" class="form-control" id="Eposta" placeholder=" E-posta  gir">
+                                                <input asp-for="Eposta" type="email" class="form-control" id="Eposta" placeholder="E-posta gir">
                                                 <span asp-validation-for="Eposta" class="text-danger"></span>
                                             </div>
                                         </div>
                                         <div class="mb-3 row">
                                             <label class="col-lg-4 col-form-label" for="validationCustom04">Müşteri Telefon</label>
                                             <div class="col-lg-6">
-                                                <input asp-for="Telefon" type="tel" class="form-control" id="Telefon" placeholder=" Telefon numarasını gir">
+                                                <input asp-for="Telefon" type="tel" class="form-control" id="Telefon" placeholder="Telefon numarasını gir">
                                                 <span asp-validation-for="Telefon" class="text-danger"></span>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3 row">
+                                            <label class="col-lg-4 col-form-label" for="Dogumtarihi">Doğum Tarihi</label>
+                                            <div class="col-lg-6">
+                                                <input asp-for="Dogumtarihi" type="date" class="form-control" id="Dogumtarihi" placeholder="Doğum Tarihini giriniz" required>
+                                                <span asp-validation-for="Dogumtarihi" class="text-danger"></span>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-xl-6">
-                                        <div class="mb-3 row">
-                                            <label class="col-lg-4 col-form-label" for="validationCustom05">Doğum Tarihi</label>
-                                            <div class="col-lg-6">
-                                                <input asp-for="Dogumtarihi" type="date" class="form-control" id="Dogumtarihi" placeholder=" Doğum Tarihini giriniz" required>
-                                                <span asp-validation-for="Dogumtarihi" class="text-danger"></span>
-                                            </div>
-                                        </div>
-                                        <input asp-for="KayitTarihi" type="hidden" class="form-control" value=@DateTime.Now.ToString("dd/MM/yyyy") required="">
-
-                                        <button type="submit" class="btn me-2 btn-primary">Gönder</button>
-                                        <button type="submit" class="btn btn-danger light">İptal Etmek</button>
+                                        <!-- Değişiklik burada -->
+                                        <input asp-for="KayitTarihi" type="hidden" class="form-control" value="@DateTime.Now.ToString("dd/MM/yyyy")" required>
                                     </div>
+                                </div>
+                                <div class="col-xl-12">
+                                    <br />
+                                    <button type="submit" class="btn me-2 btn-primary">Gönder</button>
+                                    <button type="submit" class="btn btn-danger light">İptal Etmek</button>
                                 </div>
                             </div>
                         </div>
@@ -64,4 +67,3 @@
         </form>
     </div>
 </div>
-

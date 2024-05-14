@@ -39,26 +39,40 @@ namespace Restorant.Areas.Admin.Controllers
             return View(menu);
         }
         [HttpPost]
-        public IActionResult MenuGuncelle(Menu model)
+        public async Task<IActionResult> MenuGuncelle(Menu model, int id, IFormFile? file)
         {
 
-
-            if (!ModelState.IsValid)
+            if (file != null)
             {
-                return View(model); // Geçersiz model ise formu tekrar gösterin.
-            }
+                var uzanti = new[] { ".jpg", ".jpeg", ".png" };
+                var resimuzanti = Path.GetExtension(file.FileName);
+                if (!uzanti.Contains(resimuzanti))
+                {
+                    ModelState.AddModelError("MenuFotograf", "Geçerli bir fotoğraf formatı seçiniz. *jpg,jpeg,png");
+                }
 
-            var menu = _context.Menuler.FirstOrDefault(x => x.Id == model.Id);
-            if (menu == null)
-            {
-                return NotFound(); // Eğer personel bulunamazsa 404 hatası döndürün.
-            }
+                var random = string.Format($"{Guid.NewGuid().ToString()}{Path.GetExtension(file.FileName)}");
+                var resimyolu = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/img", random);
+                using (var stream = new FileStream(resimyolu, FileMode.Create))
+                {
+                    await file.CopyToAsync(stream);
+                }
+                model.Fotograf = random;
 
-            // Önceki soruguyu untracked yani takipsiz yapma
-            var entry = _context.Entry(menu);
-            entry.State = EntityState.Detached;
-            _context.Update(model); // Güncellenmiş personel bilgilerini kaydedin.
-            _context.SaveChanges();
+
+                var menu = _context.Menuler.FirstOrDefault(x => x.Id == model.Id);
+                if (menu == null)
+                {
+                    return NotFound(); // Eğer personel bulunamazsa 404 hatası döndürün.
+                }
+
+                // Önceki soruguyu untracked yani takipsiz yapma
+                var entry = _context.Entry(menu);
+                entry.State = EntityState.Detached;
+                _context.Update(model); // Güncellenmiş personel bilgilerini kaydedin.
+                _context.SaveChanges();
+
+            }
 
             return RedirectToAction("MenuListele", "Menu"); // İşlem başarılıysa ana sayfaya yönlendirin.
         }

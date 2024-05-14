@@ -7,12 +7,12 @@ using Restorant.Models;
 namespace Restorant.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    public class MasaGuncelleController : Controller
+    public class StokGuncelleController : Controller
     {
 
         private readonly IdentityDataContext _context;
 
-        public MasaGuncelleController(IdentityDataContext context)
+        public StokGuncelleController(IdentityDataContext context)
         {
             _context = context;
         }
@@ -20,24 +20,28 @@ namespace Restorant.Areas.Admin.Controllers
         {
             return View();
         }
-        public IActionResult MasaGuncelle(int id)
+
+        public IActionResult StokGuncelle(int id)
         {
-            ViewBag.Kategoriler = _context.Kategoriler.ToList();
+            ViewBag.StokGirdi = _context.StokGirdiler.ToList();
+            ViewBag.Malzeme = _context.Malzemeler.ToList();
+            ViewBag.Tedarikci = _context.Tedarikciler.ToList();
+
 
             // IdentityDataContext.Personeller özelliğinden belirli bir personeli alın.
-            var masa = _context.Masalar.FirstOrDefault(p => p.Id == id);
+            var stok = _context.StokGirdiler.FirstOrDefault(p => p.Id == id);
 
             // Eğer personel bulunamazsa 404 hatası döndürün.
-            if (masa == null)
+            if (stok == null)
             {
                 return NotFound();
             }
 
             // PersonelGuncelleModel oluştururken doğru personel nesnesini kullanın.
-            return View(masa);
+            return View(stok);
         }
         [HttpPost]
-        public IActionResult MasaGuncelle(Masa model)
+        public IActionResult StokGuncelle(StokGirdi model)
         {
 
 
@@ -46,21 +50,27 @@ namespace Restorant.Areas.Admin.Controllers
                 return View(model); // Geçersiz model ise formu tekrar gösterin.
             }
 
-            var masa = _context.Masalar.FirstOrDefault(x => x.Id == model.Id);
-            if (masa == null)
+            var stok = _context.StokGirdiler.FirstOrDefault(x => x.Id == model.Id);
+            if (stok == null)
             {
                 return NotFound(); // Eğer personel bulunamazsa 404 hatası döndürün.
             }
 
             // Önceki soruguyu untracked yani takipsiz yapma
-            var entry = _context.Entry(masa);
+            var entry = _context.Entry(stok);
             entry.State = EntityState.Detached;
             _context.Update(model); // Güncellenmiş personel bilgilerini kaydedin.
             _context.SaveChanges();
 
-            return RedirectToAction("MasaListele", "Masa"); // İşlem başarılıysa ana sayfaya yönlendirin.
+            return RedirectToAction("StokListele", "StokGirdi"); // İşlem başarılıysa ana sayfaya yönlendirin.
         }
+
     }
 }
 
-   
+
+
+
+
+
+
