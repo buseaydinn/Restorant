@@ -1,7 +1,7 @@
 ﻿@model Menu
 <div class="content-body default-height">
     <div class="container-fluid">
-        <form asp-controller="Menu" asp-action="MenuEkle" method="post" novalidate>
+        <form asp-controller="Menu" asp-action="MenuEkle" enctype="multipart/form-data"  method="post" novalidate>
             <div class="row">
                 <div class="col-lg-12">
                     <div class="card">
@@ -49,12 +49,11 @@
                                                 </select>
                                             </div>
                                         </div>
-                               
-                                        <div class="mb-3 row">
-                                            <label class="col-lg-4 col-form-label" for="ResimYukle">Resim Yükle</label>
-                                            <div class="col-lg-8">
-                                                <input class="form-control" type="file" id="formFileMultiple" multiple style="background-color: #f8f9fa;">
-                                            </div>
+
+                                        <div class="col-md-6 mb-3">
+                                            <label for="formFile" class="form-label">Menu  Fotoğrafı</label>
+                                            <input asp-for="Fotograf" id="formFile" class="form-control" name="file" type="file">
+                                            <span class="validation-text" asp-validation-for="Fotograf"></span>
                                         </div>
 
 
@@ -75,3 +74,10 @@
         </form>
     </div>
 </div>
+<script>
+    document.querySelector("#formFile").onchange = function () {
+        const fileName = this.files[0]?.name;
+        const label = document.querySelector("label[for=formFile]");
+        label.innerText = fileName ?? "Fotoğraf Yükle";
+    };
+</script>

@@ -24,12 +24,42 @@ namespace Restorant.Areas.Admin.Controllers
             return View();
         }
         [HttpPost]
-        public async Task<IActionResult> UrunEkle(Urun model, int id)
+        public async Task<IActionResult> UrunEkle(Urun model, int id,IFormFile? file)
         {
           ViewBag.Kategori = _context.Kategoriler.ToList();
 
             if (ModelState.IsValid)
             {
+                if (file != null)
+                {
+                    var uzanti = new[] { ".jpg", ".jpeg", ".png" };
+                    var resimuzanti = Path.GetExtension(file.FileName);
+                    if (!uzanti.Contains(resimuzanti))
+                    {
+                        ModelState.AddModelError("UrunFotograf", "Geçerli bir fotoğraf formatı seçiniz. *jpg,jpeg,png");
+                    }
+
+                    var random = string.Format($"{Guid.NewGuid().ToString()}{Path.GetExtension(file.FileName)}");
+                    var resimyolu = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/img", random);
+                    using (var stream = new FileStream(resimyolu, FileMode.Create))
+                    {
+                        await file.CopyToAsync(stream);
+                    }
+                    model.Fotograf = random;
+                }
+                else
+                {
+                    if (model.Id != 0)
+                    {
+                        model.Fotograf = _context.Urunler
+                            .Where(x => x.Id == model.Id)
+                            .Select(x => x.Fotograf)
+                            .FirstOrDefault();
+                    }
+                }
+
+
+
                 _context.Urunler.Add(model);
                 await _context.SaveChangesAsync();
                 return RedirectToAction("UrunListele");
