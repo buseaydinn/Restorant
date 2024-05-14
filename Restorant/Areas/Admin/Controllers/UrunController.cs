@@ -20,6 +20,7 @@ namespace Restorant.Areas.Admin.Controllers
         public IActionResult UrunEkle()
         {
             ViewBag.Kategori = _context.Kategoriler.ToList();
+            ViewBag.Malzemeler = _context.Malzemeler.ToList();
 
             return View();
         }
@@ -27,6 +28,7 @@ namespace Restorant.Areas.Admin.Controllers
         public async Task<IActionResult> UrunEkle(Urun model, int id,IFormFile? file)
         {
           ViewBag.Kategori = _context.Kategoriler.ToList();
+          ViewBag.Malzemeler = _context.Malzemeler.ToList();
 
             if (ModelState.IsValid)
             {
@@ -90,9 +92,6 @@ namespace Restorant.Areas.Admin.Controllers
 
             return RedirectToAction("UrunListele");
         }
-
-
-
 
     }
 }

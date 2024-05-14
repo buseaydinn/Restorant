@@ -67,12 +67,24 @@ namespace Restorant.Areas.Admin.Controllers
         }
         public IActionResult MasaListele()
         {
-            List<Masa> masaListesi = _context.Masalar.Include(x=>x.Kategori).ToList();
+            List<Masa> masaListesi = _context.Masalar.Include(x => x.Kategori).ToList();
 
 
             // Verileri View'e gönder
             return View(masaListesi);
         }
-        
+public async Task<IActionResult> MasaSil(int id)
+{
+    var masa = await _context.Menuler.FindAsync(id);
+    if (masa == null)
+    {
+        return NotFound();
+    }
+
+    masa.Gorunurluk = false;
+    await _context.SaveChangesAsync();
+
+    return RedirectToAction("MasaListele");
+}
     }
 }

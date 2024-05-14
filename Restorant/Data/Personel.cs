@@ -21,7 +21,7 @@ public partial class Personel
 
 
     [Required(ErrorMessage = "*Zorunlu alan")]
-
+    
     public string? Eposta { get; set; }
 
 

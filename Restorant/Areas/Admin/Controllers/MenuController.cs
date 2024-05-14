@@ -19,16 +19,18 @@ namespace Restorant.Areas.Admin.Controllers
         {
             return View();
         }
-         public IActionResult MenuEkle() 
+        public IActionResult MenuEkle()
         {
             ViewBag.Kategori = _context.Kategoriler.ToList();
+            ViewBag.Urunler = _context.Urunler.ToList();
             return View();
         }
 
         [HttpPost]
-        public async Task<IActionResult> MenuEkle(Menu model, int id,IFormFile?file)
+        public async Task<IActionResult> MenuEkle(Menu model, int id, IFormFile? file)
         {
             ViewBag.Kategori = _context.Kategoriler.ToList();
+            ViewBag.Urunler = _context.Urunler.ToList();
 
             if (ModelState.IsValid)
             {
@@ -76,6 +78,20 @@ namespace Restorant.Areas.Admin.Controllers
 
             // Verileri View'e gönder
             return View(menuListesi);
+        }
+
+        public async Task<IActionResult> MenuSil(int id)
+        {
+            var menu = await _context.Menuler.FindAsync(id);
+            if (menu == null)
+            {
+                return NotFound();
+            }
+
+            menu.Gorunurluk = false;
+            await _context.SaveChangesAsync();
+
+            return RedirectToAction("MenuListele");
         }
     }
 }
