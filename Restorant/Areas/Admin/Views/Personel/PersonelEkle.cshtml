@@ -20,6 +20,7 @@
                                                 <span asp-validation-for="Ad" class="text-danger"></span>
                                             </div>
                                         </div>
+
                                         <div class="mb-3 row">
                                             <label class="col-lg-4 col-form-label" for="validationCustom01">Personel Soyadı</label>
                                             <div class="col-lg-6">
@@ -27,6 +28,7 @@
                                                 <span asp-validation-for="Soyad" class="text-danger"></span>
                                             </div>
                                         </div>
+
                                         <div class="mb-3 row">
                                             <label class="col-lg-4 col-form-label" for="validationCustom05">Personel Rol Seç</label>
                                             <div class="col-lg-6">
@@ -40,6 +42,7 @@
                                                 <span asp-validation-for="RolId" class="text-danger"></span>
                                             </div>
                                         </div>
+
                                         <div class="mb-3 row">
                                             <label class="col-lg-4 col-form-label" for="validationCustom02">Personel Maaş</label>
                                             <div class="col-lg-6">
@@ -47,6 +50,7 @@
                                                 <span asp-validation-for="Maas" class="text-danger"></span>
                                             </div>
                                         </div>
+
                                         <div class="mb-3 row">
                                             <label class="col-lg-4 col-form-label" for="validationCustom02">Personel Adres</label>
                                             <div class="col-lg-6">
@@ -54,6 +58,7 @@
                                                 <span asp-validation-for="Adres" class="text-danger"></span>
                                             </div>
                                         </div>
+
                                     </div>
                                     <div class="col-xl-6">
                                         <div class="mb-3 row">
@@ -67,6 +72,7 @@
                                                 <span asp-validation-for="Cinsiyet" class="text-danger"></span>
                                             </div>
                                         </div>
+
                                         <div class="mb-3 row">
                                             <label class="col-lg-4 col-form-label" for="validationCustom06">Doğum Tarihi</label>
                                             <div class="col-lg-6">
@@ -74,6 +80,7 @@
                                                 <span asp-validation-for="DogumTarihi" class="text-danger"></span>
                                             </div>
                                         </div>
+
                                         <div class="mb-3 row">
                                             <label class="col-lg-4 col-form-label" for="validationCustom07">İşe Başlama Tarihi</label>
                                             <div class="col-lg-6">
@@ -81,6 +88,7 @@
                                                 <span asp-validation-for="BaslamaTarihi" class="text-danger"></span>
                                             </div>
                                         </div>
+
                                         <div class="mb-3 row">
                                             <label class="col-lg-4 col-form-label" for="validationCustom08">Personel Telefon Numarası</label>
                                             <div class="col-lg-6">
@@ -89,13 +97,13 @@
                                             </div>
                                         </div>
 
-                                        @*enctype="multipart/form-data"*@
-
                                         <div class="col-md-6 mb-3">
                                             <label for="formFile" class="form-label">Personel Fotoğrafı</label>
                                             <input asp-for="Fotograf" id="formFile" class="form-control" name="file" type="file">
                                             <span class="validation-text" asp-validation-for="Fotograf"></span>
                                         </div>
+                               
+
                                     </div>
                                 </div>
                             </div>
@@ -116,6 +124,7 @@
                                     </div>
                                     <span asp-validation-for="Eposta" class="text-danger"></span>
                                 </div>
+
                                 <div class="mb-3">
                                     <label class="text-label form-label" for="dz-password">Kullanıcı Şifresi</label>
                                     <div class="input-group transparent-append">
@@ -123,6 +132,7 @@
                                     </div>
                                     <span asp-validation-for="Sifre" class="text-danger"></span>
                                 </div>
+
                                 <button type="submit" class="btn me-2 btn-primary">Gönder</button>
                                 <button type="submit" class="btn btn-danger light">İptal Etmek</button>
                             </div>
@@ -141,3 +151,7 @@
         label.innerText = fileName ?? "Fotoğraf Yükle";
     };
 </script>
+
+
+
+
