@@ -34,13 +34,19 @@
                                                     </p>
                                                     <p style="margin-bottom: 0;">Menü Fiyatı: <span class="item">@menu.Fiyat</span> ₺</p>
 
-
-                                                    @*<p style="margin-bottom: 0;">Menü Fiyatı: <span class="item">@menu.Fiyat</span> ₺</p>*@
-                                                    @*<p>  ürün eklemenın listelemesi yapılacak</p>*@
-
-
                                                     <p style="margin-bottom: 0;">Menü Detay: <span class="item">@menu.Aciklama</span></p>
                                                     <p>Katagori <span class="item">@menu.Kategori.Ad</span> </p>
+
+                                                    <p>
+                                                        @if (menu.menuurunler != null && menu.menuurunler.Any())
+                                                        {
+                                                            var urunListesi = menu.menuurunler
+                                                                                      .Where(m => m.Urun != null)
+                                                                                      .Select(m => m.Urun.Ad);
+                                                            <span>Malzeme: @string.Join(", ", urunListesi)</span>
+                                                        }
+                                                    </p>
+
                                                     <div style="display: flex; align-items: center;">
                                                         <a asp-action="MenuSil" asp-route-id="@menu.Id" class="btn btn-danger btn-sm rounded-circle me-2">
                                                             <i class="fa fa-trash"></i>
@@ -56,7 +62,9 @@
                                 </div>
                             </div>
                         </div>
-                    }
+                                                   
+                       
+                      }
                 </div>
             </div>
         </div>

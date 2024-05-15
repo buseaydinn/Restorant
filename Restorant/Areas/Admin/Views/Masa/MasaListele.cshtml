@@ -16,6 +16,7 @@
                                     <th>Kod </th>
                                     <th>Kapasite</th>
                                     <th>Kategori</th>
+                                    <th>Masa Özellik</th>
                                     <th>İşlemler</th>
 
                                 </tr>
@@ -28,6 +29,19 @@
                                         <td>@masa.Kod</td>
                                         <td>@masa.Kapasite</td>
                                         <td>@masa.Kategori.Ad</td>
+                                           
+                                        <td>
+                                            @if (masa.masaozellikler != null && masa.masaozellikler.Any())
+                                            {
+                                                var ozellikListesi = masa.masaozellikler
+                                                                          .Where(m => m.Ozellik != null)
+                                                                          .Select(m => m.Ozellik.Ad);
+                                                <span>Özellik: @string.Join(", ", ozellikListesi)</span>
+                                            }
+                                        </td>
+
+
+
                                         <td>
                                             <div style="display: flex; align-items: center;">
                                                 <a asp-action="MasaSil" asp-route-id="@masa.Id" class="btn btn-danger btn-sm rounded-circle me-2">
@@ -40,7 +54,7 @@
 
 
 
-</tr>
+                                    </tr>
                                 }
                             </tbody>
                         </table>

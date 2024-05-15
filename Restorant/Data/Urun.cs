@@ -38,5 +38,6 @@ public partial class Urun
     public Kategori? Kategori{ get; set; }
 
     public int? KategoriId { get; set; }
+    public ICollection<UrunMalzeme> urunmalzemeler { get; set; } = [];
 }
     

@@ -24,6 +24,7 @@ namespace Restorant.Areas.Admin.Controllers
         public IActionResult UrunGuncelle(int id)
         {
             ViewBag.Kategori = _context.Kategoriler.ToList();
+            ViewBag.Malzemeler = _context.Malzemeler.ToList();
 
 
             // IdentityDataContext.Personeller özelliğinden belirli bir personeli alın.
@@ -39,7 +40,7 @@ namespace Restorant.Areas.Admin.Controllers
             return View(urun);
         }
         [HttpPost]
-            public async Task<IActionResult> UrunGuncelle(Urun model, int id, IFormFile? file)
+            public async Task<IActionResult> UrunGuncelle(Urun model, int id, IFormFile? file, List<int> malzemeler)
             {
 
                 if (file != null)
@@ -65,9 +66,18 @@ namespace Restorant.Areas.Admin.Controllers
                     {
                         return NotFound(); // Eğer personel bulunamazsa 404 hatası döndürün.
                     }
-
-                    // Önceki soruguyu untracked yani takipsiz yapma
-                    var entry = _context.Entry(urun);
+                foreach (var item in malzemeler)
+                {
+                    var urunmalzeme = new UrunMalzeme
+                    {
+                        Urun = model,
+                        MalzemeId = item,
+                        Gorunurluk = true,
+                    };
+                    _context.UrunMalzemeler.Add(urunmalzeme);
+                }
+                // Önceki soruguyu untracked yani takipsiz yapma
+                var entry = _context.Entry(urun);
                     entry.State = EntityState.Detached;
                     _context.Update(model); // Güncellenmiş personel bilgilerini kaydedin.
                     _context.SaveChanges();

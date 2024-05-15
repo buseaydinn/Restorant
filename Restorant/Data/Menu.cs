@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Restorant.Data;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
@@ -38,5 +39,6 @@ public partial class Menu
     public int? KategoriId { get; set; }
 
     public Kategori? Kategori { get; set; }
+    public ICollection<MenuUrun> menuurunler { get; set; } = [];
 
 }

@@ -34,7 +34,16 @@
                                                     </p>
                                                     <p style="margin-bottom: 0;">Ürün Fiyatı: <span class="item">@urun.Fiyat</span> ₺</p>
                                                     <p style="margin-bottom: 0;">Ürün Detay: <span class="item">@urun.Detay</span></p>
-                                                    <p>Katagori <span class="item">@urun.Kategori.Ad</span> </p>
+                                                    <p>Katagori <span class="item">@urun.Kategori.Ad</span></p>
+                                                    <p>
+                                                        @if (urun.urunmalzemeler != null && urun.urunmalzemeler.Any())
+                                                        {
+                                                            var malzemeListesi = urun.urunmalzemeler
+                                                                                      .Where(m => m.Malzeme != null)
+                                                                                      .Select(m => m.Malzeme.Ad);
+                                                            <span>Malzeme: @string.Join(", ", malzemeListesi)</span>
+                                                        }
+                                                    </p>
                                                     <div style="display: flex; align-items: center;">
                                                         <a asp-action="UrunSil" asp-route-id="@urun.Id" class="btn btn-danger btn-sm rounded-circle me-2">
                                                             <i class="fa fa-trash"></i>

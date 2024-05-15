@@ -21,4 +21,5 @@ public partial class UrunMalzeme
     public Malzeme? Malzeme { get; set; }
 
     public  Urun Urun { get; set; } = null!;
+
 }

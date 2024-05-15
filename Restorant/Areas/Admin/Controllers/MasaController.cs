@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using QRCoder;
+using Restorant.Data;
 using Restorant.Models;
 using System.Drawing;
 
@@ -33,7 +34,7 @@ namespace Restorant.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> MasaEkle(Masa model, int id, IFormFile? file)
+        public async Task<IActionResult> MasaEkle(Masa model, int id, IFormFile? file, List<int> masaozellikler)
         {
             if (ModelState.IsValid)
             {
@@ -54,6 +55,17 @@ namespace Restorant.Areas.Admin.Controllers
                 // Modelin QR sütununa dosya yolunu ekleyin
                 model.Qr = $"/img/{fileName}";
 
+                foreach (var item in masaozellikler)
+                {
+                    var masaozellik = new MasaOzellik
+                    {
+                        Masa = model,
+                        OzellikId = item,
+                        Gorunurluk = true,
+                    };
+                    _context.MasaOzellikler.Add(masaozellik);
+                }
+
                 _context.Masalar.Add(model);
                 _context.Masalar.Add(model);
                 await _context.SaveChangesAsync();
@@ -67,15 +79,15 @@ namespace Restorant.Areas.Admin.Controllers
         }
         public IActionResult MasaListele()
         {
-            List<Masa> masaListesi = _context.Masalar.Include(x => x.Kategori).ToList();
+            List<Masa> masaListesi = _context.Masalar.Include(x => x.Kategori).Include(x => x.masaozellikler).ThenInclude(x => x.Ozellik).ToList();
 
 
             // Verileri View'e gönder
             return View(masaListesi);
         }
-public async Task<IActionResult> MasaSil(int id)
+         public async Task<IActionResult> MasaSil(int id)
 {
-    var masa = await _context.Menuler.FindAsync(id);
+var masa = await _context.Menuler.FindAsync(id);
     if (masa == null)
     {
         return NotFound();

@@ -26,7 +26,7 @@ public partial class Masa
 
     public int? PersonelId { get; set; }
 
-    public  ICollection<MasaOzellik> masaOzelliks { get; set; } = new List<MasaOzellik>();
+    public ICollection<MasaOzellik> masaozellikler { get; set; } = [];
 
     public  Personel? Personel { get; set; }
 

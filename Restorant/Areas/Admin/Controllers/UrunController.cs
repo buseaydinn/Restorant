@@ -25,10 +25,10 @@ namespace Restorant.Areas.Admin.Controllers
             return View();
         }
         [HttpPost]
-        public async Task<IActionResult> UrunEkle(Urun model, int id,IFormFile? file)
+        public async Task<IActionResult> UrunEkle(Urun model, int id, IFormFile? file, List<int> malzemeler)
         {
-          ViewBag.Kategori = _context.Kategoriler.ToList();
-          ViewBag.Malzemeler = _context.Malzemeler.ToList();
+            ViewBag.Kategori = _context.Kategoriler.ToList();
+            ViewBag.Malzemeler = _context.Malzemeler.ToList();
 
             if (ModelState.IsValid)
             {
@@ -60,6 +60,16 @@ namespace Restorant.Areas.Admin.Controllers
                     }
                 }
 
+                foreach (var item in malzemeler)
+                {
+                    var urunmalzeme = new UrunMalzeme
+                    {
+                        Urun = model,
+                        MalzemeId = item,
+                        Gorunurluk = true,
+                    };
+                    _context.UrunMalzemeler.Add(urunmalzeme);
+                }
 
 
                 _context.Urunler.Add(model);
@@ -73,7 +83,7 @@ namespace Restorant.Areas.Admin.Controllers
         }
         public IActionResult UrunListele()
         {
-            List<Urun> urunListesi = _context.Urunler.Include(x => x.Kategori).ToList();
+            List<Urun> urunListesi = _context.Urunler.Include(x => x.Kategori).Include(x=>x.urunmalzemeler).ThenInclude(x=>x.Malzeme).ToList();
 
             // Verileri View'e gönder
             return View(urunListesi);
