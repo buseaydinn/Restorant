@@ -34,7 +34,7 @@ namespace Restorant.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> MasaEkle(Masa model, int id, IFormFile? file, List<int> masaozellikler)
+        public async Task<IActionResult> MasaEkle(Masa model, int id, IFormFile? file, List<int> MasaOzellik)
         {
             if (ModelState.IsValid)
             {
@@ -55,7 +55,7 @@ namespace Restorant.Areas.Admin.Controllers
                 // Modelin QR sütununa dosya yolunu ekleyin
                 model.Qr = $"/img/{fileName}";
 
-                foreach (var item in masaozellikler)
+                foreach (var item in MasaOzellik)
                 {
                     var masaozellik = new MasaOzellik
                     {

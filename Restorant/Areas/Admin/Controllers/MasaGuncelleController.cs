@@ -23,6 +23,7 @@ namespace Restorant.Areas.Admin.Controllers
         public IActionResult MasaGuncelle(int id)
         {
             ViewBag.Kategoriler = _context.Kategoriler.ToList();
+            ViewBag.Ozellikler = _context.Ozellikler.ToList();
 
             // IdentityDataContext.Personeller özelliğinden belirli bir personeli alın.
             var masa = _context.Masalar.FirstOrDefault(p => p.Id == id);
@@ -37,7 +38,7 @@ namespace Restorant.Areas.Admin.Controllers
             return View(masa);
         }
         [HttpPost]
-        public IActionResult MasaGuncelle(Masa model)
+        public IActionResult MasaGuncelle(Masa model, List<int> MasaOzellik)
         {
 
 
@@ -50,6 +51,17 @@ namespace Restorant.Areas.Admin.Controllers
             if (masa == null)
             {
                 return NotFound(); // Eğer personel bulunamazsa 404 hatası döndürün.
+            }
+
+            foreach (var item in MasaOzellik)
+            {
+                var masaozellik = new MasaOzellik
+                {
+                    Masa = model,
+                    OzellikId = item,
+                    Gorunurluk = true,
+                };
+                _context.MasaOzellikler.Add(masaozellik);
             }
 
             // Önceki soruguyu untracked yani takipsiz yapma

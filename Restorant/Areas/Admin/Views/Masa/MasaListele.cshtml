@@ -36,7 +36,7 @@
                                                 var ozellikListesi = masa.masaozellikler
                                                                           .Where(m => m.Ozellik != null)
                                                                           .Select(m => m.Ozellik.Ad);
-                                                <span>Özellik: @string.Join(", ", ozellikListesi)</span>
+                                                <span> @string.Join(", ", ozellikListesi)</span>
                                             }
                                         </td>
 

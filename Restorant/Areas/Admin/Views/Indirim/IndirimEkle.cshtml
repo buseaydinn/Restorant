@@ -1,0 +1,73 @@
+﻿@model Urun
+
+<div class="content-body default-height">
+    <div class="container-fluid">
+        <form asp-controller="Indirim" asp-action="IndirimEkle" method="post" novalidate>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="card-title"><i class="fa-regular fa-truck-field"></i> İndirim Ekleme Sayfası</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-validation">
+                                <input type="hidden" asp-for="Gorunurluk" value=true />
+                                <div class="mb-3 row">
+                                    <label class="col-lg-4 col-form-label" for="AdSoyad">Ad</label>
+                                    <div class="col-lg-6">
+                                        <input asp-for="Ad" type="text" class="form-control" id="AdSoyad" placeholder="Ad">
+                                        <span asp-validation-for="Ad" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="mb-3 row">
+                                    <label class="col-lg-4 col-form-label" for="Firma">Açıklama</label>
+                                    <div class="col-lg-6">
+                                        <input asp-for="Acıklama" type="text" class="form-control" id="Firma" placeholder="Açıklama">
+                                        <span asp-validation-for="Acıklama" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="mb-3 row">
+                                    <label class="col-lg-4 col-form-label" for="Firma">Detay</label>
+                                    <div class="col-lg-6">
+                                        <input asp-for="Detay" type="text" class="form-control" id="Firma" placeholder="Detay">
+                                        <span asp-validation-for="Detay" class="text-danger"></span>
+                                    </div>
+                                </div>
+
+                                <div class="mb-3 row">
+                                    <label class="col-lg-4 col-form-label" for="Eposta">İndirim Yüzdesi</label>
+                                    <div class="col-lg-6">
+                                        <input asp-for="IndirimYuzdesi" type="number" class="form-control" id="Eposta" placeholder="İndirim Yüzdesi">
+                                        <span asp-validation-for="IndirimYuzdesi" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="mb-3 row">
+                                    <label class="col-lg-4 col-form-label" for="Telefon">İndirimli Fiyat</label>
+                                    <div class="col-lg-6">
+                                        <input asp-for="IndirimliFiyat" type="number" class="form-control" id="Telefon" placeholder="İndirimli Fiyat">
+                                        <span asp-validation-for="IndirimliFiyat" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="mb-3 row">
+                                    <label class="col-lg-4 col-form-label" for="Adres">İndirim Tarihi</label>
+                                    <div class="col-lg-6">
+                                        <input asp-for="IndirimTarihi" type="date" class="form-control" id="Adres" placeholder="İndirim Tarihi">
+                                        <span asp-validation-for="IndirimTarihi" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <button type="submit" class="btn me-2 btn-primary">Gönder</button>
+                                        <button type="button" class="btn btn-danger light" onclick="window.history.back();">İptal Etmek</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
