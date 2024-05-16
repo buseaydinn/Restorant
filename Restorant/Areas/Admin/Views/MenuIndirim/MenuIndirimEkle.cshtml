@@ -1,8 +1,8 @@
-﻿@model Urun
+﻿@model Menu
 
 <div class="content-body default-height">
     <div class="container-fluid">
-        <form asp-controller="Indirim" asp-action="IndirimEkle" method="post" novalidate>
+        <form asp-controller="MenuIndirim" asp-action="MenuIndirimEkle" method="post" novalidate>
             <div class="row">
                 <div class="col-lg-12">
                     <div class="card">
@@ -17,14 +17,12 @@
                                 <input type="hidden" asp-for="Id" value=@Model.Id />
 
                                 <input type="hidden" asp-for="Ad" value=@Model.Ad />
-
-                                <input type="hidden" asp-for="Detay" value=@Model.Detay />
                                 <input type="hidden" asp-for="KategoriId" value=@Model.KategoriId />
                                 <input type="hidden" asp-for="Fotograf" value=@Model.Fotograf />
-                                <input type="hidden" asp-for="Acıklama" value=@Model.Acıklama />
+                                <input type="hidden" asp-for="Aciklama" value=@Model.Aciklama />
                                 <input type="hidden" asp-for="Fiyat" value=@Model.Fiyat />
                                 <input type="hidden" asp-for="Gorunurluk" value=@Model.Gorunurluk />
-                                <input type="hidden" asp-for="Aktif" value=true />
+                                <input type="hidden" asp-for="Akitf" value=true />
 
 
                                 <div class="mb-3 row">
@@ -63,4 +61,6 @@
         </form>
     </div>
 </div>
+
+
 

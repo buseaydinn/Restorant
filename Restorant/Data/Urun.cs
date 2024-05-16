@@ -13,8 +13,6 @@ public partial class Urun
 
     public string? Ad { get; set; }
 
-    [Required(ErrorMessage = "*Zorunlu alan")]
-
     public string? Acıklama { get; set; }
 
     public string? Detay { get; set; }

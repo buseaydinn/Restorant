@@ -44,7 +44,7 @@
 
                                         <div class="mb-3 row">
                                             <label class="col-lg-4 col-form-label" for="validationCustom05">
-                                                Kategori Tür Seç
+                                                Kategori 
                                                 <span class="text-danger"></span>
                                             </label>
                                             <div class="col-lg-6">
@@ -60,7 +60,7 @@
                                         </div>
 
                                         <div class="mb-6 row">
-                                            <label class="col-lg-4 col-form-label" for="validationCustom05"> Malzeme Seçiniz</label>
+                                            <label class="col-lg-4 col-form-label" for="validationCustom05"> Malzeme </label>
                                             <div class="col-lg-6">
                                                 <select class="multi-select" name="Malzemeler[]" multiple="multiple" id="validationCustom05">
                                                     @foreach (var malzeme in ViewBag.Malzemeler)
@@ -69,26 +69,27 @@
                                                     }
                                                 </select>
                                             </div>
-
-
-                                            <div class="mb-3 row">
-                                                <label class="col-lg-4 col-form-label" for="formFile">Ürün Fotoğrafı</label>
-                                                <div class="col-lg-6">
-                                                    <input asp-for="Fotograf" id="formFile" class="form-control" name="file" type="file">
-                                                    <span class="validation-text" asp-validation-for="Fotograf"></span>
-                                                </div>
+                                        </div>
+                                        <p></p>
+                                        <div class="mb-3 row">
+                                            <label class="col-lg-4 col-form-label" for="formFile">Ürün Fotoğrafı</label>
+                                            <div class="col-lg-6">
+                                                <input asp-for="Fotograf" id="formFile" class="form-control" name="file" type="file">
+                                                <span class="validation-text" asp-validation-for="Fotograf"></span>
                                             </div>
+                                        </div>
 
-                                            <input type="hidden" value=true asp-for="Aktif">
 
-                                            <div class="row">
-                                                <div class="col-lg-12">
-                                                    <button type="submit" class="btn me-2 btn-primary">Gönder</button>
-                                                    <button type="button" class="btn btn-danger light" onclick="window.history.back();">İptal Etmek</button>
-                                                </div>
+                                        <input type="hidden" value=true asp-for="Aktif">
+
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <button type="submit" class="btn me-2 btn-primary">Gönder</button>
+                                                <button type="button" class="btn btn-danger light" onclick="window.history.back();">İptal Etmek</button>
                                             </div>
                                         </div>
                                     </div>
+                                 </div>
                             </div>
                         </div>
                     </div>

@@ -91,27 +91,27 @@
     });
 	
 	// 
-    var table = $('#example3, #example4, #example5').DataTable({
-      "language": {
-            "zeroRecords": "Eşleşen kayıt bulunamadı",
-            "info": "_TOTAL_ kayıttan _START_ - _END_ arası gösteriliyor",
-            "infoEmpty": "",
-            "infoFiltered": "(_MAX_ kayıt içinden filtrelendi)",
-            "search": "Ara:",
-            "paginate": {
-                "first": "İlk",
-                "last": "Son",
-                "next": "Sonraki",
-                "previous": "Önceki"
-            },
-            "lengthMenu": "Her sayfada _MENU_ kayıt göster"
-        },
-        "dom": '<"top"ilp>rt<"clear">'
-    });
+//    var table = $('#example3, #example4, #example5').DataTable({
+//      "language": {
+//            "zeroRecords": "Eşleşen kayıt bulunamadı",
+//            "info": "_TOTAL_ kayıttan _START_ - _END_ arası gösteriliyor",
+//            "infoEmpty": "",
+//            "infoFiltered": "(_MAX_ kayıt içinden filtrelendi)",
+//            "search": "Ara:",
+//            "paginate": {
+//                "first": "İlk",
+//                "last": "Son",
+//                "next": "Sonraki",
+//                "previous": "Önceki"
+//            },
+//            "lengthMenu": "Her sayfada _MENU_ kayıt göster"
+//        },
+//        "dom": '<"top"ilp>rt<"clear">'
+//    });
 
-	$('#example tbody').on('click', 'tr', function () {
-		var data = table.row( this ).data();
-	});
-	jQuery('.dataTables_wrapper select').selectpicker();
-})
- (jQuery);
+//	$('#example tbody').on('click', 'tr', function () {
+//		var data = table.row( this ).data();
+//	});
+//	jQuery('.dataTables_wrapper select').selectpicker();
+//})
+// (jQuery);

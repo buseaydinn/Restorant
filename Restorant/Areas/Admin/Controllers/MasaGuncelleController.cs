@@ -38,7 +38,7 @@ namespace Restorant.Areas.Admin.Controllers
             return View(masa);
         }
         [HttpPost]
-        public IActionResult MasaGuncelle(Masa model, List<int> MasaOzellik)
+        public IActionResult MasaGuncelle(Masa model/*, List<int> MasaOzellik*/)
         {
 
 
@@ -53,16 +53,16 @@ namespace Restorant.Areas.Admin.Controllers
                 return NotFound(); // Eğer personel bulunamazsa 404 hatası döndürün.
             }
 
-            foreach (var item in MasaOzellik)
-            {
-                var masaozellik = new MasaOzellik
-                {
-                    Masa = model,
-                    OzellikId = item,
-                    Gorunurluk = true,
-                };
-                _context.MasaOzellikler.Add(masaozellik);
-            }
+            //foreach (var item in MasaOzellik)
+            //{
+            //    var masaozellik = new MasaOzellik
+            //    {
+            //        Masa = model,
+            //        OzellikId = item,
+            //        Gorunurluk = true,
+            //    };
+            //    _context.MasaOzellikler.Add(masaozellik);
+            //}
 
             // Önceki soruguyu untracked yani takipsiz yapma
             var entry = _context.Entry(masa);

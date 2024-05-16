@@ -23,7 +23,7 @@ namespace Restorant.Areas.Admin.Controllers
 
         public IActionResult StokGuncelle(int id)
         {
-            ViewBag.StokGirdi = _context.StokGirdiler.ToList();
+            //ViewBag.StokGirdi = _context.StokGirdiler.ToList();
             ViewBag.Malzeme = _context.Malzemeler.ToList();
             ViewBag.Tedarikci = _context.Tedarikciler.ToList();
 

@@ -36,7 +36,7 @@
                                         </div>
                                         <div class="mb-3 row">
                                             <label class="col-lg-4 col-form-label" for="validationCustom05">
-                                                Kategori Tür Seç
+                                                Kategori Tür 
                                                 <span class="text-danger"></span>
                                             </label>
                                             <div class="col-lg-8">
@@ -52,7 +52,7 @@
 
 
                                         <div class="mb-6 row">
-                                            <label class="col-lg-4 col-form-label" for="validationCustom05"> Ürün Seçiniz</label>
+                                            <label class="col-lg-4 col-form-label" for="validationCustom05"> Ürün</label>
                                             <div class="col-lg-8">
                                                 <select class="multi-select" name="Urunler[]" multiple="multiple" id="validationCustom05">
                                                     @foreach (var urun in ViewBag.Urunler)
@@ -61,25 +61,26 @@
                                                     }
                                                 </select>
                                             </div>
-
-                                            <p></p>
-                                            <div class="mb-3 row">
-                                                <label class="col-lg-4 col-form-label" for="formFile">Menü Fotoğrafı</label>
-                                                <div class="col-lg-8">
-                                                    <input asp-for="Fotograf" id="formFile" class="form-control" name="file" type="file">
-                                                    <span class="validation-text" asp-validation-for="Fotograf"></span>
-                                                </div>
-                                            </div>
-
-
-                                            <input type="hidden" value=true asp-for="Akitf">
-                                            <div class="row">
-                                                <div class="col-lg-12">
-                                                    <button type="submit" class="btn me-2 btn-primary">Gönder</button>
-                                                    <button type="button" class="btn btn-danger light" onclick="window.history.back();">İptal Etmek</button>
-                                                </div>
+                                        </div>
+                                        <p></p>
+                                        <div class="mb-3 row">
+                                            <label class="col-lg-4 col-form-label" for="formFile">Menü Fotoğrafı</label>
+                                            <div class="col-lg-8">
+                                                <input asp-for="Fotograf" id="formFile" class="form-control" name="file" type="file">
+                                                <span class="validation-text" asp-validation-for="Fotograf"></span>
                                             </div>
                                         </div>
+
+
+
+                                        <input type="hidden" value=true asp-for="Akitf">
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <button type="submit" class="btn me-2 btn-primary">Gönder</button>
+                                                <button type="button" class="btn btn-danger light" onclick="window.history.back();">İptal Etmek</button>
+                                            </div>
+                                        </div>
+                                    </div>
                                     </div>
                             </div>
                         </div>

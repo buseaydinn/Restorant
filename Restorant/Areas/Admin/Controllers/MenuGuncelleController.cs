@@ -39,7 +39,7 @@ namespace Restorant.Areas.Admin.Controllers
             return View(menu);
         }
         [HttpPost]
-        public async Task<IActionResult> MenuGuncelle(Menu model, int id, IFormFile? file, List<int> urunler)
+        public async Task<IActionResult> MenuGuncelle(Menu model, int id, IFormFile? file/*, List<int> urunler*/)
         {
 
             if (file != null)
@@ -65,16 +65,16 @@ namespace Restorant.Areas.Admin.Controllers
                 {
                     return NotFound(); // Eğer personel bulunamazsa 404 hatası döndürün.
                 }
-                foreach (var item in urunler)
-                {
-                    var menuurun = new MenuUrun
-                    {
-                        Menu = model,
-                        UrunId = item,
-                        Gorunurluk = true,
-                    };
-                    _context.MenuUrunler.Add(menuurun);
-                }
+                //foreach (var item in urunler)
+                //{
+                //    var menuurun = new MenuUrun
+                //    {
+                //        Menu = model,
+                //        UrunId = item,
+                //        Gorunurluk = true,
+                //    };
+                //    _context.MenuUrunler.Add(menuurun);
+                //}
                 // Önceki soruguyu untracked yani takipsiz yapma
                 var entry = _context.Entry(menu);
                 entry.State = EntityState.Detached;
