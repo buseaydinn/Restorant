@@ -1,0 +1,153 @@
+﻿
+<div id="menu-page" class="page-hero-section division">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 offset-lg-1">
+                <div class="hero-txt text-center white-color">
+
+                    <!-- Breadcrumb -->
+                    <div id="breadcrumb">
+                        <div class="row">
+                            <div class="col">
+                                <div class="breadcrumb-nav">
+                                    <nav aria-label="breadcrumb">
+                                        <ol class="breadcrumb">
+                                            @*<li class="breadcrumb-item"><a href="demo-1.html">Home</a></li>
+                                                <li class="breadcrumb-item active" aria-current="page">Menu #1</li>*@
+                                        </ol>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h2 class="h2-xl">Menüler</h2>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--<div id="tabs-nav">
+    <div class="row">
+        <div class="col-lg-12 text-center">
+            <ul class="tabs-1 ico-55 red-tabs clearfix">-->
+<!-- TAB-1 LINK -->
+<!--<li class="tab-link current" data-tab="tab-1">
+    <span class="flaticon-burger"></span>
+    <h5 class="h5-sm">Hamburger</h5>
+</li>-->
+<!-- TAB-2 LINK -->
+<!--<li class="tab-link" data-tab="tab-2">
+    <span class="flaticon-fries"></span>
+    <h5 class="h5-sm">Yan Yemekler</h5>
+</li>-->
+<!-- TAB-3 LINK -->
+<!--<li class="tab-link" data-tab="tab-3">
+    <span class="flaticon-salad-1"></span>
+    <h5 class="h5-sm">Salata</h5>
+</li>-->
+<!-- TAB-3 LINK -->
+<!--<li class="tab-link" data-tab="tab-4">
+                    <span class="flaticon-doughnut"></span>
+                    <h5 class="h5-sm">Tatlılar</h5>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</div>-->
+
+<section id="menu-8" class="wide-70 menu-section division">
+    <div class="container">
+        <div id="tabs-content">
+
+            <div id="tab-1" class="tab-content current">
+                <div class="row">
+                    @foreach (var menu in ViewBag.Menuler)
+                    {
+                        <div class="col-sm-6 col-lg-3">
+                            <div class="menu-7-item">
+
+                                <div class="menu-7-img rel">
+
+                                    <img class="img-fluid" src="~/img/@menu.Fotograf" alt="menu-image" />
+
+                                    <div class="menu-7-price bg-coffee">
+
+                                        <h5 class="h5-xs yellow-color">@menu.Fiyat ₺</h5>
+                                    </div>
+
+                                    <div class="item-rating">
+
+                                        <div class="stars-rating stars-lg">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star-half-alt"></i>
+                                        </div>
+                                    </div>
+                                    <div class="like-ico ico-20">
+
+                                        <a href="#"><span class="flaticon-heart"></span></a>
+                                    </div>
+                                </div>
+
+                                <div class="menu-7-txt rel">
+
+                                    <h5 class="h5-sm">@menu.Ad</h5>
+
+                                    <p class="grey-color">@menu.Aciklama</p>
+
+                                    <a href="product-single.html" class="btn btn-sm btn-tra-grey yellow-hover">
+
+                                        <span class="flaticon-shopping-bag"></span> Sipariş Ver
+                                    </a>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="banner-4" class="bg-fixed wide-100 banner-section division">
+
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-lg-10 col-xl-8 offset-lg-1 offset-xl-2">
+
+                <div class="banner-4-txt text-center">
+
+                    <h4 class="h4-xl">
+                        30 DAKİKADA
+                    </h4>
+
+                    <h2>
+                        TESLİMAT GARANTİSİ!
+                    </h2>
+
+                    <p class="p-lg">
+
+                        30 dakikada teslimat garantisiyle, siparişinizin en kısa sürede kapınıza ulaşmasını sağlıyoruz. Hızlı ve güvenilir hizmet anlayışımızla müşteri memnuniyetini en üst düzeyde tutuyoruz!
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+

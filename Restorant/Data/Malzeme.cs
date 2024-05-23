@@ -9,17 +9,17 @@ public partial class Malzeme
 {
     public int Id { get; set; }
 
-    [Required(ErrorMessage = "*Zorunlu alan")]
+    //[Required(ErrorMessage = "*Zorunlu alan")]
 
     public string? Ad { get; set; }
 
 
-    [Required(ErrorMessage = "*Zorunlu alan")]
+    //[Required(ErrorMessage = "*Zorunlu alan")]
 
     public string? Turu { get; set; }
 
 
-    [Required(ErrorMessage = "*Zorunlu alan")]
+    //[Required(ErrorMessage = "*Zorunlu alan")]
 
     public string? Fiyat {  get; set; } 
 

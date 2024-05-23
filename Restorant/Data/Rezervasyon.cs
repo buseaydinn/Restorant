@@ -22,6 +22,7 @@ public partial class Rezervasyon
     public string? KayisizMusteriId { get; set; }
 
     public DateOnly? TalepTarihi { get; set; }
+
     public TimeOnly? BaslangicSaati { get; set; }
 
     public TimeOnly? BitisSaati { get; set; }

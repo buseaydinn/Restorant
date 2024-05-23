@@ -74,6 +74,7 @@ namespace Restorant.Areas.Admin.Controllers
 
         public async Task<IActionResult> StokSil(int id)
         {
+
             var urun = await _context.Stoklar.FindAsync(id);
             if (urun == null)
             {
@@ -88,3 +89,10 @@ namespace Restorant.Areas.Admin.Controllers
 
     }
 }
+
+
+
+
+
+
+

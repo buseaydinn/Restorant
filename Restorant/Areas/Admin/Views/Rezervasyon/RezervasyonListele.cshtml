@@ -14,14 +14,14 @@
                             <thead>
                                 <tr>
                                     <th>Id </th>
-                                    <th>Kişi Sayısı </th>
+                                    <th>Kişi </th>
                                     <th> Tarihi</th>
-                                    <th> Başlangıç Saati</th>
-                                    <th> Bitiş Saati</th>
+                                    <th> Baş. Saat</th>
+                                    <th> Biti. Saat</th>
                                     <th>Masa </th>
                                     <th>Talep Tarihi</th>
                                     <th>Talep</th>
-                                    <th>Onay </th>
+                                    @*<th>Onay </th>*@
                                     <th>İşlemler</th>
                                 </tr>
                             </thead>
@@ -30,6 +30,8 @@
                                 {
                                     <tr>
                                         <td>@masaRezervasyon.Id</td>
+                                        
+                                        
                                         <td>@masaRezervasyon.Rezervasyon.KisiSayisi</td>
                                         <td>@masaRezervasyon.Rezervasyon.Tarih</td>
                                         <td>@masaRezervasyon.Rezervasyon.BaslangicSaati</td>
@@ -37,7 +39,7 @@
                                         <td>@masaRezervasyon.MasaId</td>
                                         <td>@masaRezervasyon.Rezervasyon.TalepTarihi</td>
                                         <td>@masaRezervasyon.Rezervasyon.Talep</td>
-                                        <td>@masaRezervasyon.Rezervasyon.Onay</td>
+                                        @*<td>@masaRezervasyon.Rezervasyon.Onay</td>*@
                                         <td>
                                             <div style="display: flex; align-items: center;">
                                                 <a asp-action="RezervasyonSil" asp-route-id="@masaRezervasyon.Id" class="btn btn-danger btn-sm rounded-circle me-2">

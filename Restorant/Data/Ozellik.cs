@@ -8,7 +8,6 @@ public partial class Ozellik
 {
     public int Id { get; set; }
 
-    [Required(ErrorMessage = "*Zorunlu alan")]
 
     public string Ad { get; set; }
 

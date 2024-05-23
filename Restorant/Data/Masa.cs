@@ -8,7 +8,7 @@ public partial class Masa
 {
     public int Id { get; set; }
 
-    [Required(ErrorMessage = "*Zorunlu alan")]
+    //[Required(ErrorMessage = "*Zorunlu alan")]
 
     public string? Kod { get; set; }
 

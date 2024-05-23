@@ -1,0 +1,160 @@
+﻿
+@model MasaRezervasyon
+ <div id="page" class="page">
+
+    <div id="booking-page" class="page-hero-section division">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 offset-lg-1">
+                    <div class="hero-txt text-center white-color">
+
+                        <!-- Breadcrumb -->
+                        <div id="breadcrumb">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="breadcrumb-nav">
+                                        <nav aria-label="breadcrumb">
+                                            <ol class="breadcrumb">
+                                            </ol>
+                                        </nav>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Title -->
+                        <h2 class="h2-xl"> Rezervasyon Yap</h2>
+                        </div
+                    </div>
+                </div>
+            </div>	  <!-- End row -->
+        </div>	   <!-- End container -->
+    </div>	<!-- END PAGE HERO -->
+    <!-- BOOKING-2
+    ============================================= -->
+    <div id="booking-2" class="wide-70 booking-section division">
+        <div class="container">
+            <div class="row">
+
+
+                <!-- BOOKING FORM -->
+                <div class="col-lg-10 col-xl-8 offset-lg-1 offset-xl-2">
+                    <div class="form-holder">
+
+                        <!-- Text -->
+                        <p class="p-xl text-center">
+                            Formu doldurun veya bize telefondan ulaşın <a href="tel:123456789">5340610335</a>
+                        </p>
+
+                        <!-- Form -->
+                        <form asp-controller="Rezervasyon_Musteri" asp-action="Index" method="post" novalidate>
+
+                            <!-- Form Input -->
+                            <div class="mb-3 row">
+                                <label class="col-lg-4 col-form-label" for="validationCustom02">Başlangıç Saati</label>
+                                <div class="col-lg-6">
+                                    <input asp-for="Rezervasyon.BaslangicSaati" type="time" class="form-control" id="BaslangicSaati" placeholder="Başlangıç Saati seçiniz">
+                                    <span asp-validation-for="Rezervasyon.BaslangicSaati" class="text-danger"></span>
+                                </div>
+                            </div>
+
+                            <div class="mb-6 row">
+                                <label class="col-lg-4 col-form-label" for="validationCustom02">Bitiş Saati</label>
+                                <div class="col-lg-6">
+                                    <input asp-for="Rezervasyon.BitisSaati" type="time" class="form-control" id="BaslangicSaati" placeholder="Bitiş Saati seçiniz">
+                                    <span asp-validation-for="Rezervasyon.BitisSaati" class="text-danger"></span>
+                                </div>
+                            </div>
+
+                            <div class="mb-3 row">
+                                <label class="col-lg-4 col-form-label" for="validationCustom01">Tarih</label>
+                                <div class="col-lg-6">
+                                    <input asp-for="Rezervasyon.Tarih" type="date" class="form-control" id="validationCustom01" placeholder="Tarih">
+                                    <span asp-validation-for="Rezervasyon.Tarih" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div></div>
+
+                         
+                            <div></div>
+
+
+                            <div class="mb-3 row">
+                                <label class="col-lg-4 col-form-label" for="validationCustom05">Masa seç</label>
+                                <div class="col-lg-6">
+                                    <select asp-for="MasaId" class="default-select wide form-control" id="MasaId">
+                                        <option value="">Masa seçiniz</option>
+                                        @foreach (var masa in ViewBag.Masalar)
+                                        {
+                                            <option value="@masa.Id">@masa.Kod</option>
+                                        }
+                                    </select>
+                                    <span asp-validation-for="MasaId" class="text-danger"></span>
+                                </div>
+                            </div>
+
+                            <div class="mb-6 row">
+                                <label class="col-lg-4 col-form-label" for="validationCustom01"> Talep'inizi yazabilirsiniz.</label>
+                                <div class="col-lg-6">
+                                    <input asp-for="Rezervasyon.Talep" type="text" class="form-control" id="validationCustom01" placeholder="Talep">
+                                    <span asp-validation-for="Rezervasyon.Talep" class="text-danger"></span>
+                                </div>
+                            </div>
+
+                            <div class="mb-6 row">
+                                <label class="col-lg-4 col-form-label" for="validationCustom01"> Kişi Sayısı</label>
+                                <div class="col-lg-6">
+                                    <input asp-for="Rezervasyon.KisiSayisi" type="number" class="form-control" id="validationCustom01" placeholder="Kişi Sayısı">
+                                    <span asp-validation-for="Rezervasyon.KisiSayisi" class="text-danger"></span>
+                                </div>
+                            </div>
+
+
+                            <div class="col-md-12 mt-10">
+                                <button type="submit" class="btn btn-md btn-red tra-red-hover submit">Rezervasyon Yap</button>
+                            </div>
+
+
+                        </form>	<!-- End Form -->
+                        
+                    </div>
+                </div>	<!-- END BOOKING FORM -->
+
+            </div>	<!-- End row -->
+        </div>	   <!-- End container -->
+    </div>	<!-- END BOOKING-2 -->
+    <!-- BANNER-3
+    ============================================= -->
+    <section id="banner-4" class="bg-fixed wide-100 banner-section division">
+
+        <div class="container">
+
+            <div class="row">
+
+                <div class="col-lg-10 col-xl-8 offset-lg-1 offset-xl-2">
+
+                    <div class="banner-4-txt text-center">
+
+                        <h4 class="h4-xl">
+
+                            30 DAKİKADA
+                        </h4>
+
+                        <h2>
+                            TESLİMAT GARANTİSİ!
+                        </h2>
+
+                        <p class="p-lg">
+                            30 dakikada teslimat garantisiyle, siparişinizin en kısa sürede kapınıza ulaşmasını sağlıyoruz. Hızlı ve güvenilir hizmet anlayışımızla müşteri memnuniyetini en üst düzeyde tutuyoruz!
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>	<!-- END BANNER-3 -->
+

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Restorant.Data;
-
+using System.ComponentModel.DataAnnotations;
 namespace Restorant.Models;
 
 public partial class Musteri
@@ -12,6 +12,7 @@ public partial class Musteri
 
     public string? Soyad { get; set; }
 
+
     public string? Eposta { get; set; }
 
     public string? Telefon { get; set; }
@@ -21,6 +22,7 @@ public partial class Musteri
     public DateOnly? Dogumtarihi { get; set; }
 
     public bool? Gorunurluk { get; set; }
+
     public int? MasaId { get; set; }
    
     public  ICollection<Bildirim> Bildirimlers { get; set; } = new List<Bildirim>();
