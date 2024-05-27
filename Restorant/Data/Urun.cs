@@ -30,12 +30,14 @@ public partial class Urun
     public int? IndirimYuzdesi{ get; set; }
 
     public DateOnly? IndirimTarihi{ get; set; }
+    public int? ToplamFiyat{ get; set; }
 
     public bool? Gorunurluk{ get; set; }
 
     public Kategori? Kategori{ get; set; }
 
     public int? KategoriId { get; set; }
-    public ICollection<UrunMalzeme> urunmalzemeler { get; set; } = [];
+
+public ICollection<UrunMalzeme> urunmalzemeler { get; set; } = [];
 }
     

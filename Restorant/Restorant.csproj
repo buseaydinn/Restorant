@@ -29,7 +29,6 @@
     <Folder Include="Areas\musteri_area\Data\" />
     <Folder Include="Areas\musteri_area\Models\" />
     <Folder Include="Controllers\" />
-    <Folder Include="wwwroot\img\" />
     <Folder Include="wwwroot\Musteri_templ\" />
   </ItemGroup>
 
