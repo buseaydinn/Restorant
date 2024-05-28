@@ -20,5 +20,41 @@ namespace Restorant.Areas.Admin.Controllers
             ViewBag.Urunler = _context.Urunler.ToList();
             return View();
         }
+
+        [HttpPost]
+        public IActionResult UrunEkle(int id, int miktar)
+        {
+            var urun = _context.Urunler.FirstOrDefault(x => x.Id == id);
+            if (urun != null)
+            {
+                Sepet sepet = new Sepet();
+                sepet.UrunId = urun.Id;
+                sepet.MenuId = 0;
+                sepet.Fiyat = urun.Fiyat;
+                sepet.Miktar = miktar;
+
+                _context.Add(sepet);
+            }
+
+            return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        public IActionResult MenuEkle(int id, int miktar)
+        {
+            var menu = _context.Menuler.FirstOrDefault(x => x.Id == id);
+            if (menu != null)
+            {
+                Sepet sepet = new Sepet();
+                sepet.UrunId = 0;
+                sepet.MenuId = menu.Id;
+                sepet.Fiyat = menu.Fiyat;
+                sepet.Miktar = miktar;
+
+                _context.Add(sepet);
+            }
+
+            return RedirectToAction("Index");
+        }
     }
 }

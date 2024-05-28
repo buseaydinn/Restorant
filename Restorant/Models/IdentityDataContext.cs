@@ -53,6 +53,8 @@ namespace Restorant.Models
 
         public DbSet<Rol> Roller { get; set; }
 
+        public DbSet<Sepet> Sepetler { get; set; }
+
         public DbSet<Siparis> Siparisler { get; set; }
 
         public DbSet<SiparisMenu> SiparisMenuler { get; set; }

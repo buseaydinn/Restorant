@@ -98,7 +98,13 @@
 
                                     <p class="grey-color">@menu.Aciklama</p>
 
-                                    <a asp-controller="Sepet" asp-action="Index" class="btn btn-sm btn-tra-grey yellow-hover"> SİPARİŞ VER<span class="flaticon-shopping-bag"></span></a>
+                                    <form asp-controller="Sepet" asp-action="MenuEkle" method="post" class="d-inline">
+                                        <input type="hidden" name="id" value="@menu.Id" />
+                                        <input type="hidden" name="miktar" value="1" />
+                                        <button type="submit" class="btn btn-sm btn-tra-grey yellow-hover">
+                                            Sepete Ekle<span class="flaticon-shopping-bag"></span>
+                                        </button>
+                                    </form>
 
 
                                 </div>
