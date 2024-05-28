@@ -1,4 +1,5 @@
-﻿@model Personel
+﻿
+@model Personel
 
 <div class="content-body default-height">
     <div class="container-fluid">
@@ -144,7 +145,6 @@
         </form>
     </div>
 </div>
-
 <script>
     document.querySelector("#formFile").onchange = function () {
         const fileName = this.files[0]?.name;
@@ -152,7 +152,3 @@
         label.innerText = fileName ?? "Fotoğraf Yükle";
     };
 </script>
-
-
-
-

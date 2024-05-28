@@ -3,6 +3,7 @@
     public class Sepet
     {
         public int Id { get; set; }
+
         public string Menu { get; set; }
                                 
         public string? Urun { get; set; }
