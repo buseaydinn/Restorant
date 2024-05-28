@@ -19,8 +19,8 @@ namespace Restorant.Areas.Admin.Controllers
 
         public IActionResult Index()
         {
+            ViewBag.Sepetler = _context.Sepetler.ToList();
             ViewBag.Urunler = _context.Urunler.ToList();
-            ViewBag.Menuler = _context.Menuler.ToList(); // Menuler listesini de ekliyoruz
             return View();
         }
 

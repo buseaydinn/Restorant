@@ -38,7 +38,7 @@
                     <table id="myTable">
                         <thead>
                             <tr>
-                                <th scope="col">Ürünler</th>
+                                <th scope="col">Id</th>
                                 <th scope="col">Fiyat</th>
                                 <th scope="col">Miktar</th>
                                 <th scope="col">Toplam Fiyat</th>
@@ -48,146 +48,121 @@
                         </thead>
 
                         <tbody>
-                            @foreach (var urun in ViewBag.Urunler)
+                            @foreach (var sepet in ViewBag.Sepetler)
                             {
-                                <tr>
-                                    <td data-label="Product" class="product-name">   <h5 class="h5-xs yellow-color">@urun.Id</h5>
-
-                                        <img class="img-fluid" src="~/img/@urun.Fotograf" alt="menu-image" width="150" height="200" />
-
-
-                                        <div class="cart-product-desc">
-                                            <h5 class="h5-sm">@urun.Ad</h5>
-
-                                            <p class="grey-color">@urun.Acıklama</p>
-
-
-                                        </div>
-
+                                <tr id="row_@sepet.Id">
+                                    <td data-label="Product" class="product-name">
+                                        <h5 class="h5-xs yellow-color">@sepet.MenuId</h5>
+                                       
                                     </td>
                                     <td data-label="Price" class="product-price">
-                                        <h5 class="h5-xs dar-color" style="color: black; font-weight: bold; font-size: 1.2em;" id="price_@urun.Id">@urun.Fiyat ₺</h5>
+                                        <h5 class="h5-xs dar-color" style="color: black; font-weight: bold; font-size: 1.2em;" id="price_@sepet.Id">@sepet.Fiyat ₺</h5>
                                     </td>
-
                                     <td data-label="Quantity" class="product-qty">
-                                        <input class="qty" type="number" min="1" max="25" value="1" id="quantity_@urun.Id" onchange="calculateTotal(@urun.Id)">
+                                        <input class="qty" type="number" min="1" max="25" value="1" id="quantity_@sepet.Id" onchange="calculateTotal(@sepet.Id)">
                                     </td>
-
-                                    <td data-label="Total" class="product-total" id="total_@urun.Id" style="font-weight: bold; font-size: 1.2em; color: red;">@urun.Fiyat ₺</td>
-
-
-                                    <script>
-                                        function calculateTotal(productId) {
-                                            var price = parseFloat(document.getElementById('price_' + productId).innerText);
-                                            var quantity = parseInt(document.getElementById('quantity_' + productId).value);
-                                            var total = price * quantity;
-                                            document.getElementById('total_' + productId).innerText = total + ' ₺';
-                                        }
-                                    </script>
-
-                                    <td data-label="Delete" class="td-trash"><i class="far fa-trash-alt"></i></td>
-
+                                    <td data-label="Total" class="product-total" id="total_@sepet.Id" style="font-weight: bold; font-size: 1.2em; color: red;">@sepet.ToplamFiyat ₺</td>
+                                    <td>
+                                        <button class="btn btn-danger" onclick="removeItem(@sepet.Id)">Sil</button>
+                                    </td>
                                 </tr>
-
                             }
-                            </tbody>
-
+                        </tbody>
                     </table>
                 </div>
             </div>
         </div>
-
         <div class="row">
-
             <div class="col-lg-8">
-
                 <div class="discount-coupon row pt-15">
-
                     <div class="col-md-8 col-lg-7">
-
                         <form class="discount-form">
-
                             <div class="input-group">
-
                                 <input type="text" class="form-control" placeholder="Kupon Kodu Gir" id="discount-code">
-
                                 <span class="input-group-btn">
-
                                     <button type="submit" class="btn btn-salmon tra-salmon-hover">Kupon Uygula</button>
                                 </span>
                             </div>
-
                         </form>
-
                     </div>
-
                 </div>
-
             </div>
-
             <div class="col-lg-4">
-
                 <div class="cart-checkout bg-lightgrey">
-
                     <h5 class="h5-lg">
-
                         ALIŞVERIŞ SEPETI TOPLAMI
                     </h5>
-
                     <table>
                         <tbody>
                             <tr>
-
                                 <td> </td>
-
                             </tr>
                             <tr class="last-tr">
                                 <td>Toplam</td>
                                 <td> </td>
-                                <td class="text-right">$35.95</td>
+                                <td class="text-right" id="checkout-total">$0.00</td>
                             </tr>
                         </tbody>
                     </table>
-
                     <a href="#" class="btn btn-md btn-salmon tra-salmon-hover">Ödeme Yap</a>
-
                 </div>
             </div>
-
         </div>
-
     </div>
 </section>
 
 <section id="banner-4" class="bg-fixed wide-100 banner-section division">
-
     <div class="container">
-
         <div class="row">
-
             <div class="col-lg-10 col-xl-8 offset-lg-1 offset-xl-2">
-
                 <div class="banner-4-txt text-center">
-
                     <h4 class="h4-xl">
-
                         30 DAKİKADA
                     </h4>
-
                     <h2>
                         TESLİMAT GARANTİSİ!
                     </h2>
-
                     <p class="p-lg">
                         30 dakikada teslimat garantisiyle, siparişinizin en kısa sürede kapınıza ulaşmasını sağlıyoruz. Hızlı ve güvenilir hizmet anlayışımızla müşteri memnuniyetini en üst düzeyde tutuyoruz!
                     </p>
-
                 </div>
-
             </div>
-
         </div>
-
     </div>
-
 </section>
+
+<script>
+    function calculateTotal(productId) {
+        var priceElement = document.getElementById("price_" + productId);
+        var quantityElement = document.getElementById("quantity_" + productId);
+        var totalElement = document.getElementById("total_" + productId);
+
+        var price = parseFloat(priceElement.innerText);
+        var quantity = parseInt(quantityElement.value);
+
+        var total = price * quantity;
+        var formattedTotal = total.toFixed(2);
+
+        totalElement.innerText = formattedTotal + " ₺";
+
+        var allTotalElements = document.querySelectorAll(".product-total");
+        var totalPrice = 0;
+
+        allTotalElements.forEach(function (element) {
+            totalPrice += parseFloat(element.innerText.replace(" ₺", ""));
+        });
+
+        var checkoutTotalElement = document.getElementById("checkout-total");
+        checkoutTotalElement.innerText = totalPrice.toFixed(2) + " ₺";
+    }
+
+    function removeItem(productId) {
+        var rowToRemove = document.getElementById("row_" + productId);
+        rowToRemove.parentNode.removeChild(rowToRemove);
+        calculateTotal();
+    }
+</script>
+
+
+
+</html>

@@ -11,5 +11,6 @@
         public decimal? Fiyat { get; set; }
 
         public int? Miktar { get; set; }
+        public decimal? ToplamFiyat { get; set; }
     }
 }
