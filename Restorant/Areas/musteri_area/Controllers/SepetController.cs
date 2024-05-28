@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Restorant.Data;
 using Restorant.Models;
 using System;
+using System.Linq;
 
 namespace Restorant.Areas.Admin.Controllers
 {
@@ -15,9 +16,11 @@ namespace Restorant.Areas.Admin.Controllers
         {
             _context = context;
         }
+
         public IActionResult Index()
         {
             ViewBag.Urunler = _context.Urunler.ToList();
+            ViewBag.Menuler = _context.Menuler.ToList(); // Menuler listesini de ekliyoruz
             return View();
         }
 
@@ -27,13 +30,25 @@ namespace Restorant.Areas.Admin.Controllers
             var urun = _context.Urunler.FirstOrDefault(x => x.Id == id);
             if (urun != null)
             {
-                Sepet sepet = new Sepet();
-                sepet.UrunId = urun.Id;
-                sepet.MenuId = 0;
-                sepet.Fiyat = urun.Fiyat;
-                sepet.Miktar = miktar;
+                Sepet sepet = new Sepet
+                {
+                    UrunId = urun.Id,
+                    MenuId = 0,
+                    Fiyat = urun.Fiyat,
+                    Miktar = miktar
+                };
 
                 _context.Add(sepet);
+                _context.SaveChanges(); // Değişiklikleri kaydediyoruz
+                // Kayıt kontrolü
+                if (_context.Sepetler.Any(x => x.UrunId == urun.Id && x.Miktar == miktar))
+                {
+                    Console.WriteLine("Ürün sepete başarıyla eklendi.");
+                }
+                else
+                {
+                    Console.WriteLine("Ürün sepete eklenemedi.");
+                }
             }
 
             return RedirectToAction("Index");
@@ -45,13 +60,25 @@ namespace Restorant.Areas.Admin.Controllers
             var menu = _context.Menuler.FirstOrDefault(x => x.Id == id);
             if (menu != null)
             {
-                Sepet sepet = new Sepet();
-                sepet.UrunId = 0;
-                sepet.MenuId = menu.Id;
-                sepet.Fiyat = menu.Fiyat;
-                sepet.Miktar = miktar;
+                Sepet sepet = new Sepet
+                {
+                    UrunId = 0,
+                    MenuId = menu.Id,
+                    Fiyat = menu.Fiyat,
+                    Miktar = miktar
+                };
 
                 _context.Add(sepet);
+                _context.SaveChanges(); // Değişiklikleri kaydediyoruz
+                // Kayıt kontrolü
+                if (_context.Sepetler.Any(x => x.MenuId == menu.Id && x.Miktar == miktar))
+                {
+                    Console.WriteLine("Menü sepete başarıyla eklendi.");
+                }
+                else
+                {
+                    Console.WriteLine("Menü sepete eklenemedi.");
+                }
             }
 
             return RedirectToAction("Index");
