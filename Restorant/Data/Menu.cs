@@ -19,7 +19,7 @@ public partial class Menu
 
     [Required(ErrorMessage = "*Zorunlu alan")]
 
-    public decimal? Fiyat { get; set; }
+    public int? Fiyat { get; set; }
 
     public bool? Gorunurluk { get; set; }
 

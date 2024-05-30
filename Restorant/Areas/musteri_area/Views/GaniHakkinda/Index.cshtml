@@ -18,15 +18,12 @@
                                     </div>
                                 </div>
                             </div>
-
-                            <h2 class="h2-xl">Gani Hakkında</h2>
-
-                        </div>
+                          <h2 class="h2-xl">Gani Hakkında</h2>
+                       </div>
                     </div>
                 </div>	 
             </div>	   
         </div>	
-    
         <section id="about-3" class="wide-60 about-section division">
             <div class="container">
                 <div class="row d-flex align-items-center">
@@ -144,13 +141,9 @@
 
                                 </div>
                             </div>
-
-                            <a href="Menu_Musteri" class="btn btn-md btn-red tra-red-hover">Menüyü Görün</a>
-
+                            <a asp-controller="Menu_Musteri" asp-action="Index" class="btn btn-md btn-red tra-red-hover">Menüyü Görün</a>
                         </div>
                     </div>
-
-
                 </div>   
             </div>	  
         </section>	
@@ -164,7 +157,9 @@
 
                                 <h3 class="h3-sm">İş Arkadaşlarımız </h3>
                                 <p class="p-lg">Bizi tanımak ister misiniz?</p>
-                                <a href="TakimArkadaslarimiz" class="btn btn-red tra-white-hover">Göz at</a>
+                                <a asp-controller="TakimArkadaslarimiz" asp-action="Index" class="btn btn-md btn-red tra-red-hover"> Göz At</a>
+
+                                @*<a href="TakimArkadaslarimiz" class="btn btn-red tra-white-hover">Göz at</a>*@
 
                             </div>
                         </div>
@@ -178,7 +173,9 @@
                                     Rezervasyon Yap
                                 </h3>
                                 <p class="p-lg"> Gani'nin Keyfini Çıkarın"</p>
-                                <a href="Rezervasyon_Musteri" class="btn btn-red tra-white-hover">Rezervasyon yap</a>
+                                <a asp-controller="Rezervasyon_Musteri" asp-action="Index" class="btn btn-md btn-red tra-red-hover">Menüyü Görün</a>
+
+                                @*<a href="Rezervasyon_Musteri" class="btn btn-red tra-white-hover">Rezervasyon yap</a>*@
 
                             </div>
                         </div>
@@ -189,7 +186,9 @@
 
                                 <h3 class="h3-sm">Bize Ulaşın</h3>
                                 <p class="p-lg">Bize Ulaşmak çok yakın</p>
-                                <a href="BizeUlasin" class="btn btn-red tra-white-hover">Bize Ulaşın</a>
+                                <a asp-controller="BizeUlasin" asp-action="Index" class="btn btn-md btn-red tra-red-hover">Bize Ulaşın</a>
+
+                                @*<a href="BizeUlasin" class="btn btn-red tra-white-hover">Bize Ulaşın</a>*@
 
                             </div>
                         </div>

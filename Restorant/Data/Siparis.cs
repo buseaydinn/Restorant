@@ -9,20 +9,26 @@ public partial class Siparis
     public int Id { get; set; }
 
     public DateOnly? Tarih { get; set; }
+    public string Kullanıcı { get; set; }
 
+    public int DurumId { get; set; }
+
+    public int? MasaId { get; set; }
     public Adres? Adres { get; set; }
 
     public int? Tutar { get; set; }
 
-    public string? OdemeDurum { get; set; }
+    public int? AdresId { get; set; }
+
+
 
     public string? Not { get; set; }
 
+    public bool Gorunurluk { get; set; }
+
+    public Masa Masa { get; set; }
+
     public int? YorumId { get; set; }
-
-    public int? AdresId { get; set; }
-
-    public bool? Gorunurluk { get; set; }
 
     public int? MutfakId { get; set; }
 
@@ -35,8 +41,9 @@ public partial class Siparis
 
     public  ICollection<TeslimatSiparis> Teslimatsiparislers { get; set; } = new List<TeslimatSiparis>();
 
-    public  ICollection<Odeme> Odemeler { get; set; } = new List<Odeme>();
-   
-   
+
+    public ICollection<SiparisMenu> SiparisMenuler { get; set; } = new List<SiparisMenu>();
+
+    public ICollection<SiparisUrun> SiparisUrunler { get; set; } = new List<SiparisUrun>();
 
 }

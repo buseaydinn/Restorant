@@ -86,6 +86,7 @@ namespace Restorant.Models
                 .HasColumnType("decimal (10,2)");
 
         }
+       
 
     }
 }

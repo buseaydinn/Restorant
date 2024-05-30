@@ -8,9 +8,9 @@
                                 
         public int UrunId { get; set; }
 
-        public decimal? Fiyat { get; set; }
+        public int? Fiyat { get; set; }
 
         public int? Miktar { get; set; }
-        public decimal? ToplamFiyat { get; set; }
+        public int? ToplamFiyat { get; set; }
     }
 }

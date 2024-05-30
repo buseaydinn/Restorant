@@ -19,4 +19,12 @@ public partial class SiparisUrun
     public  Siparis Siparis { get; set; } = null!;
 
     public  Urun Urun { get; set; } = null!;
+
+    public float Fiyat { get; set; }
+
+    public int? YorumId { get; set; }
+
+    public string? Detay { get; set; }
+
+    public Yorum? Yorum { get; set; }
 }

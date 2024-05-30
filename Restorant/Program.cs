@@ -38,8 +38,8 @@ app.MapControllerRoute(
     pattern: "{area:exists}/{controller=Musteri1}/{action=Index}/{id?}");
 
 app.MapControllerRoute(
-    name: "Personel",
-    pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
+    name: "Garson",
+    pattern: "{area:exists}/{controller=Garson}/{action=Index}/{id?}");
 
 app.MapControllerRoute(
     name: "default",
