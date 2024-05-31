@@ -7,19 +7,21 @@ using Restorant.Models;
 namespace Restorant.Areas.Admin.Controllers
 {
     [Area("Garson")]
-    public class GarsonController : Controller
+    public class SepetgosterController : Controller
     {
 
         private readonly IdentityDataContext _context;
 
-        public GarsonController(IdentityDataContext context)
+        public SepetgosterController(IdentityDataContext context)
         {
             _context = context;
         }
         public IActionResult Index()
         {
-            return View();
+            List<Sepet> sepetListesi = _context.Sepetler.ToList();
+
+            // Verileri View'e gönder
+            return View(sepetListesi);
         }
-       
     }
 }

@@ -906,17 +906,146 @@
 
                     </li>
 
-
                     <li>
                         <a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
                             <i class="fa-solid fa-users"></i>
-                            <span class="nav-text">Sipariş İşlemleri</span>
+                            <span class="nav-text">Personel İşlemleri</span>
                         </a>
                         <ul aria-expanded="false">
-                            <li><a asp-controller="Sepetgoster" asp-action="Index">Siparişleri gör</a></li>
-                       
+                            <li><a asp-controller="Personel" asp-action="PersonelEkle">Personel Ekle</a></li>
+                            <li><a asp-controller="Personel" asp-action="PersonelListele">Personel Listesi</a></li>
+                            <li><a asp-controller="Personel" asp-action="RolEkle">Rol Ekle</a></li>
+                            <li><a asp-controller="Personel" asp-action="RolListele">Rol Listesi</a></li>
                         </ul>
                     </li>
+
+
+                    <li>
+                        <a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                            <i class="fa-regular fa-truck-field"></i>
+                            <span class="nav-text">Tedarikçi İşlemleri</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li><a asp-controller="Tedarikci" asp-action="TedarikciEkle">Tedarikçi Ekle</a></li>
+                            <li><a asp-controller="Tedarikci" asp-action="TedarikciListele">Tedarikçi Listesi</a></li>
+
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                            <i class="fa-duotone fa-person-dress"></i>
+                            <span class="nav-text">Müşteri İşlemleri</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li><a asp-controller="Musteri" asp-action="MusteriEkle">Müşteri Ekle</a></li>
+                            <li><a asp-controller="Musteri" asp-action="MusteriListele">Müşteri Listesi</a></li>
+
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                            <i class="fa-duotone fa-list"></i>
+                            <span class="nav-text">Kategori İşlemleri</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li><a asp-controller="Kategori" asp-action="KategoriEkle">Kategori Ekle</a></li>
+                            <li><a asp-controller="Kategori" asp-action="KategoriListele">Kategori Listesi</a></li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                            <i class="fa-duotone fa-bags-shopping"></i>
+                            <span class="nav-text">Malzeme İşlemleri</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li><a asp-controller="Malzeme" asp-action="MalzemeEkle">Malzeme Ekle</a></li>
+                            <li><a asp-controller="Malzeme" asp-action="MalzemeListele">Malzeme Listesi</a></li>
+                        </ul>
+                    </li>
+
+
+                    <li>
+                        <a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                            <i class="fa-solid fa-burger"></i>
+                            <span class="nav-text">Ürün İşlemleri</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li><a asp-controller="Urun" asp-action="UrunEkle">Ürün Ekle</a></li>
+                            <li><a asp-controller="Urun" asp-action="UrunListele">Ürün Listesi</a></li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                            <i class="fa-regular fa-book-open-reader"></i>
+                            <span class="nav-text">Menü İşlemleri</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li><a asp-controller="Menu" asp-action="MenuEkle">Menü Ekle</a></li>
+                            <li><a asp-controller="Menu" asp-action="MenuListele">Menü Listesi</a></li>
+                        </ul>
+                    </li>
+
+
+                    <li>
+                        <a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                            <i class="fa-duotone fa-table-picnic"></i>
+                            <span class="nav-text">Masa İşlemleri</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li><a asp-controller="Masa" asp-action="MasaEkle">Masa Ekle</a></li>
+                            <li><a asp-controller="Masa" asp-action="MasaListele">Masa Listesi</a></li>
+
+
+
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                            <i class="fa-duotone fa-table-picnic"></i>
+                            <span class="nav-text">Masa Özellik İşlemleri</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li><a asp-controller="MasaOzellik" asp-action="MasaOzellikEkle">Masa Özellik Ekle</a></li>
+                            <li><a asp-controller="MasaOzellik" asp-action="MasaOzellikListele">Masa Özellik Listesi</a></li>
+
+
+
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                            <i class="fa-duotone fa-phone"></i>
+                            <span class="nav-text">Rezervasyon İşlemleri</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li><a asp-controller="Rezervasyon" asp-action="RezervasyonEkle"> Rezervasyon Ekle</a></li>
+                            <li><a asp-controller="Rezervasyon" asp-action="RezervasyonListele">Rezervasyon Listesi</a></li>
+
+
+
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                            <i class="fa-duotone fa-arrow-trend-up"></i>
+                            <span class="nav-text">Stok İşlemleri</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li><a asp-controller="Stok" asp-action="StokEkle"> Stok Ekle</a></li>
+                            <li><a asp-controller="Stok" asp-action="StokListele">Stok Listesi</a></li>
+
+
+
+                        </ul>
+                    </li>
+
+
 
 </div>
         </div>

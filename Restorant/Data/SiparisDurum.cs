@@ -9,7 +9,6 @@ using Restorant.Models;
         public int SiparisId { get; set; }
 
         public int DurumId { get; set; }
-
         public DateTime Tarih { get; set; }
 
         public Siparis Siparis { get; set; }

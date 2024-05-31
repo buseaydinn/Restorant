@@ -20,8 +20,6 @@ public partial class Siparis
 
     public int? AdresId { get; set; }
 
-
-
     public string? Not { get; set; }
 
     public bool Gorunurluk { get; set; }

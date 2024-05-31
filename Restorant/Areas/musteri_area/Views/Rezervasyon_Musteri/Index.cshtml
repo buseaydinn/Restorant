@@ -37,7 +37,7 @@
                         </p>
                         <form asp-controller="Rezervasyon_Musteri" asp-action="Index" method="post" novalidate>
                             <div class="row justify-content-center">
-                              
+
                                 <div class="col-lg-6">
                                     <label for="BaslangicSaati">Başlangıç Saati</label>
                                     <input asp-for="Rezervasyon.BaslangicSaati" type="time" class="form-control" id="BaslangicSaati" placeholder="Başlangıç Saati seçiniz">
@@ -64,6 +64,8 @@
                                     </select>
                                     <span asp-validation-for="MasaId" class="text-danger"></span>
                                 </div>
+                                <input asp-for="Rezervasyon.TalepTarihi" type="hidden" class="form-control" value="@DateTime.Now.ToString("yyyy-MM-dd")">
+
                                 <div class="col-lg-6">
                                     <label for="Talep">Talep</label>
                                     <input asp-for="Rezervasyon.Talep" type="text" class="form-control" id="Talep" placeholder="Talep">
@@ -75,7 +77,7 @@
                                     <span asp-validation-for="Rezervasyon.KisiSayisi" class="text-danger"></span>
                                 </div>
                                 <div class="col-md-12 text-center mt-10">
-                                    <button type="submit" class="btn btn-sm btn-red tra-red-hover submit">Gönder</button> 
+                                    <button type="submit" class="btn btn-sm btn-red tra-red-hover submit">Gönder</button>
                                 </div>
                             </div>
                         </form>
