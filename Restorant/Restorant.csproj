@@ -29,6 +29,8 @@
     <Folder Include="Areas\Garson\Data\" />
     <Folder Include="Areas\musteri_area\Data\" />
     <Folder Include="Areas\musteri_area\Models\" />
+    <Folder Include="Areas\Mutfak\Data\" />
+    <Folder Include="Areas\Mutfak\Models\" />
     <Folder Include="Controllers\" />
     <Folder Include="wwwroot\Musteri_templ\" />
   </ItemGroup>

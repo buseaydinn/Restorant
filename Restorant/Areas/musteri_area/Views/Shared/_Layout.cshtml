@@ -109,7 +109,7 @@
                                 <li><a asp-controller="Sartlar" asp-action="Index">Gizlilik ve Şartlar</a></li>
                                 <li><a asp-controller="ResimGaleri" asp-action="Index">Resim Galeri</a></li>
 
-                        
+
                             </ul>
                         </li>
                         <li>
@@ -130,14 +130,20 @@
                             <ul>
                                 <li><a asp-controller="Rezervasyon_Musteri" asp-action="Index">Rezervasyon</a></li>
                                 <li><a asp-controller="BizeUlasin" asp-action="Index">Bize Ulaşın</a></li>
-                        
+
                             </ul>
                         </li>
-                        <li class="basket-ico ico-30">
-                            <a href="cart.html">
-                                <span class="ico-holder"><span class="flaticon-shopping-bag"></span> <em class="roundpoint">2</em></span>
+                        <li>
+                            <a asp-controller="Sepet" asp-action="Index">
+                                <span class="ico-holder" style="font-size: 30px;">
+                                    <!-- İkon boyutunu burada ayarlayın -->
+                                    <span class="flaticon-shopping-bag"></span>
+                                    <em class="roundpoint"></em>
+                                </span>
                             </a>
                         </li>
+
+
                     </ul>
                 </nav>	
             </div>	
@@ -198,7 +204,7 @@
                                     </li>
                                 </ul>
 
-                            </ul>
+                         
 
                         </div>
                     </div>	

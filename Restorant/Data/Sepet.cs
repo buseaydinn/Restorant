@@ -12,5 +12,6 @@
 
         public int? Miktar { get; set; }
         public int? ToplamFiyat { get; set; }
+ 
     }
 }

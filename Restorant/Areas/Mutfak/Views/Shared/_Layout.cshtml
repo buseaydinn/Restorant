@@ -662,6 +662,12 @@
                 </div>
             </div>
         </div>
+        <!--**********************************
+            Chat box End
+        ***********************************-->
+        <!--**********************************
+            Header start
+        ***********************************-->
         <div class="header">
             <div class="header-content">
                 <nav class="navbar navbar-expand">
@@ -890,7 +896,7 @@
         <div class="deznav">
             <div class="deznav-scroll">
                 <ul class="metismenu" id="menu">
-                    <
+
 
                     <li>
                         <a href="javascript:void()" aria-expanded="false">
@@ -904,25 +910,16 @@
                     <li>
                         <a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
                             <i class="fa-solid fa-users"></i>
-                            <span class="nav-text">Sipariş İşlemleri</span>
+                            <span class="nav-text">Gelen Siparişler</span>
                         </a>
                         <ul aria-expanded="false">
-                            <li><a asp-controller="Sepetgoster" asp-action="Index">Siparişleri gör</a></li>
+                            <li><a asp-controller="GelenSiparis" asp-action="Index">Siparişlere Göz At</a></li>
 
                         </ul>
                     </li>
 
+                 
 
-                    <li>
-                        <a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-                            <i class="fa-solid fa-users"></i>
-                            <span class="nav-text">Masa Listesi</span>
-                        </a>
-                        <ul aria-expanded="false">
-                            <li><a asp-controller="MasaDoluBoş" asp-action="Index">Masa gör</a></li>
-
-                        </ul>
-                    </li>
 </div>
         </div>
         @RenderBody()

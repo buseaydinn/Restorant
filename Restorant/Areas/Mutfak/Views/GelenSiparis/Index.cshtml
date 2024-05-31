@@ -1,0 +1,59 @@
+﻿@model IEnumerable<Sepet>
+
+<div class="content-body default-height">
+    <div class="container-fluid">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title"><i class="fa-light fa-users"></i> Sepet Listesi</h4>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table id="example3" class="display" style="min-width: 845px">
+                            <thead>
+                                <tr>
+                                    <th>Id</th>
+                                    <th>Menü Id</th>
+                                    <th>Ürün Id</th>
+                                    <th>Fiyat</th>
+                                    <th>Miktar</th>
+                                    <th>Toplam Fiyat</th>
+                                    @*<th>İşlem</th>*@
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var sepet in Model)
+                                {
+                                    <tr>
+                                        <td>@sepet.Id</td>
+                                        <td>@sepet.MenuId</td>
+                                        <td>@sepet.UrunId</td>
+                                        <td>@sepet.Fiyat</td>
+                                        <td>@sepet.Miktar</td>
+                                        <td>@(sepet.Fiyat * sepet.Miktar)</td>
+
+                                        @*<td>
+                                                <div style="display: flex; align-items: center;">
+                                                    <a asp-action="SepetSil" asp-route-id="@sepet.Id" class="btn btn-danger btn-sm rounded-circle me-2">
+                                                        <i class="fa fa-trash"></i>
+                                                    </a>
+                                                </div>
+                                            </td>*@
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div id="example3_paginate" class="dataTables_paginate paging_simple_numbers">
+                                <!-- Sayfalama düğmeleri buraya gelecek -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
